@@ -1,16 +1,13 @@
 import fsp from 'node:fs/promises';
 import path from 'node:path';
+import process from 'node:process';
+
 import { getEntries } from './get-entries';
 
 import type { PackageJson } from '@package-json/types';
 
 const rootDir = process.cwd();
 const distDir = path.resolve(rootDir, 'dist');
-
-interface GzipStats {
-  total: { raw: number, gzip: number, br: number },
-  exports: Record<string, { raw: number, gzip: number, br: number }>
-}
 
 function copyAndCreateFiles() {
   return Promise.all([
@@ -76,6 +73,6 @@ async function createPackageJson(entries: Record<string, string>) {
 
   await Promise.all([
     copyAndCreateFiles(),
-    createPackageJson(await entriesPromise),
+    createPackageJson(await entriesPromise)
   ]);
 })();

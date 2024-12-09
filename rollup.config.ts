@@ -9,7 +9,7 @@ import { getEntries } from './tools/get-entries';
 
 import type { PackageJson } from '@package-json/types';
 
-const pkgJson = $pkgJson as unknown as PackageJson;
+const pkgJson: PackageJson = $pkgJson as any;
 
 const externalModules = Object.keys(pkgJson.dependencies || {})
   .concat(Object.keys(pkgJson.peerDependencies || {}))
@@ -66,7 +66,7 @@ export default async function () {
             module: true
           }
         },
-        minify: true,
+        minify: true
       }),
       preserveUseDirective()
     ],

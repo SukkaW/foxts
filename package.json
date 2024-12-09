@@ -5,24 +5,29 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --format=sukka .",
-    "test": "mocha --require @swc-node/register ./src"
+    "test": "nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab",
   "devDependencies": {
+    "@eslint-sukka/node": "^6.12.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@package-json/types": "^0.0.11",
     "@swc-node/register": "^1.10.9",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.1",
     "eslint": "^9.16.0",
     "eslint-config-sukka": "^6.12.0",
     "eslint-formatter-sukka": "^6.12.0",
     "expect": "^29.7.0",
     "fdir": "^6.4.2",
+    "mitata": "^1.0.20",
     "mocha": "^11.0.1",
+    "nyc": "^17.1.0",
     "rollup": "^4.28.1",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-swc3": "^0.12.1"
-  }
+  },
+  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
 }

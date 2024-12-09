@@ -1,5 +1,6 @@
 import { fdir as Fdir } from 'fdir';
 import path from 'node:path';
+import process from 'node:process';
 
 const rootDir = process.cwd();
 const srcDir = path.join(rootDir, 'src');
