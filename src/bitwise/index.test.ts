@@ -1,4 +1,4 @@
-import { bitCount, getBit, setBit, deleteBit, packTwoBits, unpackTwoBits, unpackTwoBitsFirst, unpackTwoBitsSecond, packThreeBits, unpackThreeBits } from './index';
+import { bitCount, getBit, setBit, deleteBit, packTwoBits, unpackTwoBits, unpackTwoBitsFirst, unpackTwoBitsSecond, packThreeBits, unpackThreeBits, unpackThreeBitsFirst, unpackThreeBitsSecond, unpackThreeBitsThird } from './index';
 import expect from 'expect';
 
 describe('bitwise', () => {
@@ -49,5 +49,17 @@ describe('bitwise', () => {
   it('unpackThreeBits', () => {
     const arr = packThreeBits(0x114, 0x51, 0x41);
     expect(unpackThreeBits(arr)).toStrictEqual([0x114, 0x51, 0x41]);
+  });
+
+  it('unpackThreeBitsFirst', () => {
+    expect(unpackThreeBitsFirst(0x0_12_31_5F_89)).toBe(0x123);
+  });
+
+  it('unpackThreeBitsSecond', () => {
+    expect(unpackThreeBitsSecond(0x0_12_31_5F_89)).toBe(0x456);
+  });
+
+  it('unpackThreeBitsThird', () => {
+    expect(unpackThreeBitsThird(0x0_12_31_5F_89)).toBe(0x789);
   });
 });
