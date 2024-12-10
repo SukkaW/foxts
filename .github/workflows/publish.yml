@@ -25,24 +25,27 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: '.node-version'
           check-latest: true
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
-      - name: Install the latest npm
-        run: npm install -g npm
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run build
-        run: pnpm run build
+      - run: npm install -g npm
+      - run: pnpm install
+      - run: pnpm run lint
+      - run: pnpm run test
+      - run: pnpm run build
       - name: Publish
         run: |
           if git log -1 --pretty=%B | grep "^release: [0-9]\+\.[0-9]\+\.[0-9]\+$";
           then
-            pnpm publish -r --provenance --access public
+            cd dist
+            pnpm publish --provenance --access public
+            cd ..
           elif git log -1 --pretty=%B | grep "^release: [0-9]\+\.[0-9]\+\.[0-9]\+";
           then
-            pnpm publish -r --provenance --access public --tag next
+            cd dist
+            pnpm publish --provenance --access public --tag next
+            cd ..
           else
             echo "Not a release, skipping publish"
           fi
