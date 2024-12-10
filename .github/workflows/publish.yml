@@ -39,12 +39,12 @@ jobs:
           if git log -1 --pretty=%B | grep "^release: [0-9]\+\.[0-9]\+\.[0-9]\+$";
           then
             cd dist
-            pnpm publish --provenance --access public
+            pnpm publish -r --provenance --access public
             cd ..
           elif git log -1 --pretty=%B | grep "^release: [0-9]\+\.[0-9]\+\.[0-9]\+";
           then
             cd dist
-            pnpm publish --provenance --access public --tag next
+            pnpm publish -r --provenance --access public --tag next
             cd ..
           else
             echo "Not a release, skipping publish"
