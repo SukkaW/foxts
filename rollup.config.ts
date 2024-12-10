@@ -18,7 +18,7 @@ const externalModules = Object.keys(pkgJson.dependencies || {})
     'next'
   ]);
 function external(id: string) {
-  return externalModules.some((name) => id === name || id.startsWith(`${name}/`));
+  return id.startsWith('node:') || externalModules.some((name) => id === name || id.startsWith(`${name}/`));
 }
 
 export default async function () {
@@ -75,6 +75,7 @@ export default async function () {
       format: 'commonjs',
       entryFileNames: '[name]/index.d.ts'
     },
-    plugins: [dts()]
+    external,
+    plugins: [dts({ respectExternal: true })]
   }]);
 }

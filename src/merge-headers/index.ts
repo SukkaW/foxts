@@ -4,7 +4,7 @@ export function mergeHeaders(dest: HeadersInitLike, source: HeadersInitLike): He
   const destHeaders = new Headers(dest);
   const sourceHeaders = new Headers(source);
 
-  sourceHeaders.forEach((value, key) => {
+  sourceHeaders.forEach((value: string, key: string) => {
     destHeaders.set(key, value);
   });
 
