@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "main": "index.js",
   "sideEffects": false,
