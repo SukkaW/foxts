@@ -19,4 +19,10 @@ describe('identity', () => {
     appendSetElementsToArray(arr, new Set([1, 2, 3]), (item) => item * 2);
     expect(arr).toStrictEqual([2, 4, 6]);
   });
+
+  it('should append set elements to array with multiple sets', () => {
+    const arr: number[] = [];
+    appendSetElementsToArray(arr, [new Set([1, 2, 3]), new Set([1, 2, 6])]);
+    expect(arr).toStrictEqual([1, 2, 3, 1, 2, 6]);
+  });
 });
