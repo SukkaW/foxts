@@ -14,6 +14,9 @@ importers:
       '@istanbuljs/nyc-config-typescript':
         specifier: ^1.0.2
         version: 1.0.2(nyc@17.1.0)
+      '@mitata/counters':
+        specifier: ^0.0.3
+        version: 0.0.3
       '@package-json/types':
         specifier: ^0.0.11
         version: 0.0.11
@@ -263,6 +266,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@mitata/counters@0.0.3':
+    resolution: {integrity: sha512-6VY1S8wQC4PZYTKKaLHRT7fjf0p9kart40PQ0q1l0PzQid6OUvmep+eSPhz3r8jsaERulvnlyT97GImICLJTEg==}
 
   '@napi-rs/wasm-runtime@0.2.5':
     resolution: {integrity: sha512-kwUxR7J9WLutBbulqg1dfOrMTwhMdXLdcGUhcbCcGwnPLt3gz19uHVdwH1syKVDbE022ZS2vZxOWflFLS0YTjw==}
@@ -2306,6 +2312,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@mitata/counters@0.0.3': {}
 
   '@napi-rs/wasm-runtime@0.2.5':
     dependencies:

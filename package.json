@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint --format=sukka .",
     "test": "nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
+    "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
     "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
   },
   "keywords": [],
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@eslint-sukka/node": "^6.12.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@mitata/counters": "^0.0.3",
     "@package-json/types": "^0.0.11",
     "@swc-node/register": "^1.10.9",
     "@types/mocha": "^10.0.10",
