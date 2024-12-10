@@ -1,16 +1,19 @@
 {
   "name": "foxts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "lint": "eslint --format=sukka .",
     "test": "nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
+    "build": "rollup -c rollup.config.ts --configPlugin swc3 --bundleConfigAsCjs",
+    "postbuild": "node -r @swc-node/register tools/postbuild.ts",
     "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["sukka", "sukkaw", "utils"],
+  "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
   "devDependencies": {
     "@eslint-sukka/node": "^6.12.0",
