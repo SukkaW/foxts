@@ -2,6 +2,9 @@
   "name": "foxts",
   "version": "1.0.1",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
+  "repository": {
+    "url": "https://github.com/SukkaW/foxts"
+  },
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
