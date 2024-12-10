@@ -12,7 +12,11 @@
     "postbuild": "node -r @swc-node/register tools/postbuild.ts",
     "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
   },
-  "keywords": ["sukka", "sukkaw", "utils"],
+  "keywords": [
+    "sukka",
+    "sukkaw",
+    "utils"
+  ],
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
   "devDependencies": {
@@ -23,6 +27,7 @@
     "@swc-node/register": "^1.10.9",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.1",
+    "@types/sinon": "^17.0.3",
     "bumpp": "^9.9.0",
     "eslint": "^9.16.0",
     "eslint-config-sukka": "^6.12.0",
@@ -34,7 +39,8 @@
     "nyc": "^17.1.0",
     "rollup": "^4.28.1",
     "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-swc3": "^0.12.1"
+    "rollup-plugin-swc3": "^0.12.1",
+    "sinon": "^19.0.2"
   },
   "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
 }
