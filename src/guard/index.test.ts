@@ -13,11 +13,11 @@ describe('guard', () => {
     expect(not('nullish')(null)).toBe(false);
     expect(not('nullish')(undefined)).toBe(false);
     expect(not('nullish')(0)).toBe(true);
-    expect(not('falsy')(null)).toBe(true);
-    expect(not('falsy')(undefined)).toBe(true);
-    expect(not('falsy')(0)).toBe(true);
-    expect(not('falsy')(false)).toBe(true);
-    expect(not('falsy')(true)).toBe(false);
+    expect(not('falsy')(null)).toBe(false);
+    expect(not('falsy')(undefined)).toBe(false);
+    expect(not('falsy')(0)).toBe(false);
+    expect(not('falsy')(false)).toBe(false);
+    expect(not('falsy')(true)).toBe(true);
   });
 
   it('isFalsy', () => {

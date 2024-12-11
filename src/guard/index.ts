@@ -14,7 +14,7 @@ export function not(arg: null | undefined | false | 'nullish' | 'falsy') {
     case 'nullish':
       return <T>(i: T | null | undefined): i is T => i != null;
     case 'falsy':
-      return <T>(i: T | 0 | '' | false | null | undefined): i is T => !i;
+      return <T>(i: T | 0 | '' | false | null | undefined): i is T => !!i;
     default:
       throw new TypeError('Invalid argument');
   }

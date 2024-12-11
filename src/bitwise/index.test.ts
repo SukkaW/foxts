@@ -42,7 +42,7 @@ describe('bitwise', () => {
 
   it('packThreeBits', () => {
     console.log(0x3FF, packThreeBits(0x3FF, 0x3FF, 0x3FF).toString(16));
-    expect(packThreeBits(0x123, 0x456, 0x789)).toBe(0x0_12_31_5F_89);
+    expect(packThreeBits(0x114, 0x51, 0x41)).toBe(0x11_41_44_41);
     expect(packThreeBits(0x3FF, 0x3FF, 0x3FF)).toBe(0x3F_FF_FF_FF);
   });
 
@@ -52,14 +52,14 @@ describe('bitwise', () => {
   });
 
   it('unpackThreeBitsFirst', () => {
-    expect(unpackThreeBitsFirst(0x0_12_31_5F_89)).toBe(0x123);
+    expect(unpackThreeBitsFirst(0x11_41_44_41)).toBe(0x114);
   });
 
   it('unpackThreeBitsSecond', () => {
-    expect(unpackThreeBitsSecond(0x0_12_31_5F_89)).toBe(0x456);
+    expect(unpackThreeBitsSecond(0x11_41_44_41)).toBe(0x51);
   });
 
   it('unpackThreeBitsThird', () => {
-    expect(unpackThreeBitsThird(0x0_12_31_5F_89)).toBe(0x789);
+    expect(unpackThreeBitsThird(0x11_41_44_41)).toBe(0x41);
   });
 });
