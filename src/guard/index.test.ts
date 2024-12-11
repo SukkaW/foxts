@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'expect';
-import { not, isFalsy, isNonNull, isNonNullish, isTruthy } from '.';
+import { not, isFalsy, isNonNull, isNonNullish, isTruthy, is } from '.';
 
 describe('guard', () => {
   it('not', () => {
@@ -18,6 +18,24 @@ describe('guard', () => {
     expect(not('falsy')(0)).toBe(false);
     expect(not('falsy')(false)).toBe(false);
     expect(not('falsy')(true)).toBe(true);
+  });
+
+  it('is', () => {
+    expect(is(null)(null)).toBe(true);
+    expect(is(null)(undefined)).toBe(false);
+    expect(is(undefined)(undefined)).toBe(true);
+    expect(is(undefined)(null)).toBe(false);
+    expect(is(false)(false)).toBe(true);
+    expect(is(false)(true)).toBe(false);
+    expect(is('nullish')(null)).toBe(true);
+    expect(is('nullish')(undefined)).toBe(true);
+    expect(is('nullish')(0)).toBe(false);
+    expect(is('falsy')(null)).toBe(true);
+    expect(is('falsy')(undefined)).toBe(true);
+    expect(is('falsy')(0)).toBe(true);
+    expect(is('falsy')(false)).toBe(true);
+    expect(is('falsy')(true)).toBe(false);
+    expect(is('truthy')(null)).toBe(false);
   });
 
   it('isFalsy', () => {
