@@ -6,14 +6,6 @@ Opinionated collection of common JavaScript / TypeScript utils by [@SukkaW](http
 - Tree-shakable ESM/CJS
 - Fully typed
 
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'/>
-  </a>
-</p>
-
 ## License
 
 [MIT](./LICENSE)
