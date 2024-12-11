@@ -76,5 +76,6 @@ describe('guard', () => {
 
   it('invalid argument', () => {
     expect(() => not('invalid' as any)).toThrowError('Invalid argument');
+    expect(() => is('invalid' as any)).toThrowError('Invalid argument');
   });
 });
