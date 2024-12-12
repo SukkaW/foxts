@@ -17,6 +17,9 @@ importers:
       '@mitata/counters':
         specifier: ^0.0.3
         version: 0.0.3
+      '@monyone/aho-corasick':
+        specifier: ^1.0.4
+        version: 1.0.4
       '@package-json/types':
         specifier: ^0.0.11
         version: 0.0.11
@@ -47,6 +50,9 @@ importers:
       expect:
         specifier: ^29.7.0
         version: 29.7.0
+      fastscan:
+        specifier: ^1.0.6
+        version: 1.0.6
       fdir:
         specifier: ^6.4.2
         version: 6.4.2(picomatch@4.0.2)
@@ -56,6 +62,9 @@ importers:
       mocha:
         specifier: ^11.0.1
         version: 11.0.1
+      modern-ahocorasick:
+        specifier: ^2.0.2
+        version: 2.0.2
       nyc:
         specifier: ^17.1.0
         version: 17.1.0
@@ -275,6 +284,9 @@ packages:
 
   '@mitata/counters@0.0.3':
     resolution: {integrity: sha512-6VY1S8wQC4PZYTKKaLHRT7fjf0p9kart40PQ0q1l0PzQid6OUvmep+eSPhz3r8jsaERulvnlyT97GImICLJTEg==}
+
+  '@monyone/aho-corasick@1.0.4':
+    resolution: {integrity: sha512-e0BaPN1RE/eGXjXT/bwu8AAJtOnFxEKh/nDNnDixleD9N8citOKS4GBeGhxIP4OjFSnq6sQxRtb+RYBoYn1msg==}
 
   '@napi-rs/wasm-runtime@0.2.5':
     resolution: {integrity: sha512-kwUxR7J9WLutBbulqg1dfOrMTwhMdXLdcGUhcbCcGwnPLt3gz19uHVdwH1syKVDbE022ZS2vZxOWflFLS0YTjw==}
@@ -1150,6 +1162,9 @@ packages:
   fastq@1.17.1:
     resolution: {integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==}
 
+  fastscan@1.0.6:
+    resolution: {integrity: sha512-PGpoEDNcA4CEvLgJ0p8zN16A7jy1+F2VnxtEHq8ShafOd1SvAdEEnrlm7ZJQ0XxRka+bltaqYbB+lw2sSug6Hw==}
+
   fdir@6.4.2:
     resolution: {integrity: sha512-KnhMXsKSPZlAhp7+IjUkRZKPb4fUyccpDrdFXbi4QL1qkmFh9kVY09Yox+n4MaOb3lHZ1Tv829C3oaaXoMYPDQ==}
     peerDependencies:
@@ -1573,6 +1588,9 @@ packages:
     resolution: {integrity: sha512-+3GkODfsDG71KSCQhc4IekSW+ItCK/kiez1Z28ksWvYhKXV/syxMlerR/sC7whDp7IyreZ4YxceMLdTs5hQE8A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     hasBin: true
+
+  modern-ahocorasick@2.0.2:
+    resolution: {integrity: sha512-qMPR7bQNCcQ258O1yNFvk6f9CQMT6AFIz0Sg6GbRIRcPFNsKYe1XTKGG8O/6oQu9yJiu7tFMqUiQ5c0B/zc5lQ==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -2366,6 +2384,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   '@mitata/counters@0.0.3': {}
+
+  '@monyone/aho-corasick@1.0.4': {}
 
   '@napi-rs/wasm-runtime@0.2.5':
     dependencies:
@@ -3263,6 +3283,8 @@ snapshots:
     dependencies:
       reusify: 1.0.4
 
+  fastscan@1.0.6: {}
+
   fdir@6.4.2(picomatch@4.0.2):
     optionalDependencies:
       picomatch: 4.0.2
@@ -3689,6 +3711,8 @@ snapshots:
       yargs: 16.2.0
       yargs-parser: 20.2.9
       yargs-unparser: 2.0.0
+
+  modern-ahocorasick@2.0.2: {}
 
   ms@2.1.3: {}
 
