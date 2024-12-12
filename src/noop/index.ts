@@ -1,3 +1,4 @@
-export function noop() {
-  // noop
+interface Noop {
+  (...args: any[]): any
 }
+export const noop: Noop = () => { /* noop */ };
