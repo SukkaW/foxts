@@ -5,17 +5,10 @@ export function bitCount(n: number): number {
   return (((n + (n >> 4)) & 0xF_0F_0F_0F) * 0x1_01_01_01) >> 24;
 }
 
-export function getBit(n: number, mask: number): boolean {
-  return !!(n & mask);
-}
-
-export function setBit(n: number, mask: number): number {
-  return n | mask;
-}
-
-export function deleteBit(n: number, mask: number): number {
-  return n & ~mask;
-}
+export const getBit = (n: number, mask: number) => !!(n & mask);
+export const missingBit = (n: number, mask: number): boolean => !(n & mask);
+export const setBit = (n: number, mask: number) => n | mask;
+export const deleteBit = (n: number, mask: number) => n & ~mask;
 
 /** Packs two 16-bit integers (0~65535) into one 32-bit integer */
 export const packTwoBits = (a: number, b: number): number => (a << 16) | b;

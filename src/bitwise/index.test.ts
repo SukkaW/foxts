@@ -1,4 +1,4 @@
-import { bitCount, getBit, setBit, deleteBit, packTwoBits, unpackTwoBits, unpackTwoBitsFirst, unpackTwoBitsSecond, packThreeBits, unpackThreeBits, unpackThreeBitsFirst, unpackThreeBitsSecond, unpackThreeBitsThird } from './index';
+import { bitCount, getBit, setBit, deleteBit, packTwoBits, unpackTwoBits, unpackTwoBitsFirst, unpackTwoBitsSecond, packThreeBits, unpackThreeBits, unpackThreeBitsFirst, unpackThreeBitsSecond, unpackThreeBitsThird, missingBit } from './index';
 import expect from 'expect';
 
 describe('bitwise', () => {
@@ -11,6 +11,11 @@ describe('bitwise', () => {
   it('getBit', () => {
     expect(getBit(0b1010, 0b1000)).toBe(true);
     expect(getBit(0b1010, 0b0100)).toBe(false);
+  });
+
+  it('missingBit', () => {
+    expect(missingBit(0b1010, 0b1000)).toBe(false);
+    expect(missingBit(0b1010, 0b0100)).toBe(true);
   });
 
   it('setBit', () => {
