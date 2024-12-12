@@ -46,7 +46,6 @@ describe('bitwise', () => {
   });
 
   it('packThreeBits', () => {
-    console.log(0x3FF, packThreeBits(0x3FF, 0x3FF, 0x3FF).toString(16));
     expect(packThreeBits(0x114, 0x51, 0x41)).toBe(0x11_41_44_41);
     expect(packThreeBits(0x3FF, 0x3FF, 0x3FF)).toBe(0x3F_FF_FF_FF);
   });

@@ -49,3 +49,16 @@ export const isTruthy = is('truthy');
 export const isFalsy = is('falsy');
 export const isNonNull = not(null);
 export const isNonNullish = not('nullish');
+
+export function nullthrow<T>(value: T | null | undefined, message = '[foxts/invariant] "value" is null or undefined'): T {
+  if (value === null || value === undefined) {
+    throw new TypeError(message);
+  }
+  return value;
+}
+
+export function invariant<T>(value: T | null | undefined, message = '[foxts/invariant] "value" is null or undefined'): asserts value is T {
+  if (value === null || value === undefined) {
+    throw new TypeError(message);
+  }
+}
