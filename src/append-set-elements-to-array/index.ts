@@ -1,6 +1,10 @@
 import { identity } from '../identity';
 
-function innerAppendSetElementsToArray<T>(dest: T[], source: Set<T>, transformer: (item: T) => T = identity): T[] {
+function innerAppendSetElementsToArray<T>(
+  dest: T[],
+  source: Set<T>,
+  transformer: (item: T) => T
+): T[] {
   const iterator = source.values();
   let step: IteratorResult<T, undefined>;
 
@@ -11,7 +15,11 @@ function innerAppendSetElementsToArray<T>(dest: T[], source: Set<T>, transformer
   return dest;
 }
 
-export function appendSetElementsToArray<T>(dest: T[], source: Set<T> | Array<Set<T>>, transformer: (item: T) => T = identity) {
+export function appendSetElementsToArray<T>(
+  dest: T[],
+  source: Set<T> | Array<Set<T>>,
+  transformer: (item: T) => T = identity
+) {
   if (!Array.isArray(source)) {
     return innerAppendSetElementsToArray(dest, source, transformer);
   }
