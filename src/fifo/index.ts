@@ -23,6 +23,9 @@ export class FIFO<T> {
     this.$size++;
   }
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- alias
+  push = this.enqueue;
+
   dequeue() {
     const current = this.head;
     if (!current) {
@@ -33,6 +36,9 @@ export class FIFO<T> {
     this.$size--;
     return current[0];
   }
+
+  // eslint-disable-next-line @typescript-eslint/unbound-method -- alias
+  shift = this.dequeue;
 
   peek() {
     return this.head?.[0];

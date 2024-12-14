@@ -13,7 +13,7 @@ describe('fifo', () => {
     expect(fifo.size).toBe(1);
     expect(fifo.peek()).toBe(1);
 
-    fifo.enqueue(2);
+    fifo.push(2);
     expect(fifo.size).toBe(2);
     expect(fifo.peek()).toBe(1);
 
@@ -21,7 +21,7 @@ describe('fifo', () => {
     expect(fifo.size).toBe(1);
     expect(fifo.peek()).toBe(2);
 
-    expect(fifo.dequeue()).toBe(2);
+    expect(fifo.shift()).toBe(2);
     expect(fifo.size).toBe(0);
     expect(fifo.peek()).toBe(undefined);
 
