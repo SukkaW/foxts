@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
@@ -13,6 +13,7 @@
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
     "build": "rollup -c rollup.config.ts --configPlugin swc3 --bundleConfigAsCjs",
     "postbuild": "node -r @swc-node/register tools/postbuild.ts",
+    "prerelease": "pnpm run lint && pnpm run test && pnpm run build",
     "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
   },
   "keywords": [
