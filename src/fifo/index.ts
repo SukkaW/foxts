@@ -1,5 +1,6 @@
 type Node<T> = [value: T, next: Node<T> | null];
 
+/** Checkout https://npm.im/fast-fifo if performance is critical */
 export class FIFO<T> {
   private head: Node<T> | null = null;
   private tail: Node<T> | null = null;
@@ -51,6 +52,10 @@ export class FIFO<T> {
   }
 
   get size() {
+    return this.$size;
+  }
+
+  get length() {
     return this.$size;
   }
 
