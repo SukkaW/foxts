@@ -1,6 +1,7 @@
 import { defineConfig } from 'rollup';
 import { swc, preserveUseDirective } from 'rollup-plugin-swc3';
 import { dts } from 'rollup-plugin-dts';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 import fsp from 'node:fs/promises';
 
@@ -44,6 +45,9 @@ export default async function () {
         compact: true
       }],
     plugins: [
+      nodeResolve({
+        exportConditions: ['import', 'module', 'require', 'default']
+      }),
       swc({
         isModule: true,
         jsc: {

@@ -29,6 +29,7 @@
     "@mitata/counters": "^0.0.3",
     "@monyone/aho-corasick": "^1.0.4",
     "@package-json/types": "^0.0.11",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@swc-node/register": "^1.10.9",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.1",
