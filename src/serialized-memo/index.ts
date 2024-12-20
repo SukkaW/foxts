@@ -21,7 +21,7 @@ export interface CreateMemoizeOptions {
   onlyUseCachedIfFail?: boolean,
   resetTtlOnHit?: boolean,
   defaultTtl?: number,
-  onCacheUpdate?: (key: string, { humanReadableName }: { humanReadableName: string }) => void,
+  onCacheUpdate?: (key: string, { humanReadableName }: { humanReadableName: string, isUseCachedIfFail: boolean }) => void,
   onCacheMiss?: (key: string, { humanReadableName }: { humanReadableName: string, isUseCachedIfFail: boolean }) => void,
   onCacheHit?: (key: string, { humanReadableName }: { humanReadableName: string, isUseCachedIfFail: boolean }) => void
 }
@@ -77,17 +77,17 @@ export function createMemoize(storage: MemoizeStorageProvider, {
   onCacheMiss = noop,
   onCacheHit = noop
 }: CreateMemoizeOptions = {}) {
-  return function memoize<Args extends SerializableValue[], T>(
-    fn: (...args: Args) => Promise<T>,
-    opt: MemoizeOptions<T>
-  ): (...args: Args) => Promise<T> {
-    if (opt.temporaryBypass) {
-      return fn;
+  return function memoize<Args extends SerializableValue[], R>(
+    fn: (...args: Args) => R | Promise<R>,
+    opt?: MemoizeOptions<R>
+  ): (...args: Args) => Promise<R> {
+    if (opt?.temporaryBypass) {
+      return (...args: Args) => Promise.resolve(fn(...args));
     }
 
-    const serializer = 'serializer' in opt ? opt.serializer : identity<T, string>;
-    const deserializer = 'deserializer' in opt ? opt.deserializer : identity<string, T>;
-    const ttl = opt.ttl ?? defaultTtl;
+    const serializer = opt && 'serializer' in opt ? opt.serializer : identity<Awaited<R>, string>;
+    const deserializer = opt && 'deserializer' in opt ? opt.deserializer : identity<string, Awaited<R>>;
+    const ttl = opt?.ttl ?? defaultTtl;
 
     const fixedKey = fn.toString();
 
@@ -118,7 +118,7 @@ export function createMemoize(storage: MemoizeStorageProvider, {
         try {
           const value = await fn(...args);
 
-          onCacheUpdate(cacheKey, { humanReadableName: cacheName });
+          onCacheUpdate(cacheKey, { humanReadableName: cacheName, isUseCachedIfFail: true });
           const p = storage.set(cacheKey, serializer(value), ttl);
           if (p && 'then' in p) {
             await p;
