@@ -1,4 +1,4 @@
-interface Noop<T = any> {
+export interface Noop<T = any> {
   (...args: any[]): T
 }
 export const noop: Noop = () => { /* noop */ };
