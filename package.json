@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "eslint --format=sukka .",
     "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_PROJECT=tsconfig.test-swc.json nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
-    "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
+    "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
+    "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
     "build": "rollup -c rollup.config.ts --configPlugin swc3 --bundleConfigAsCjs",
     "postbuild": "node -r @swc-node/register tools/postbuild.ts",
     "prerelease": "pnpm run lint && pnpm run test && pnpm run build",
