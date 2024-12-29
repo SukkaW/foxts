@@ -8,3 +8,9 @@ export const falseFn: Noop<false> = () => false;
 
 // eslint-disable-next-line sukka/unicorn/error-message -- deliberately w/o error msg
 export const throwFn: Noop<never> = () => { throw new Error(); };
+
+const p = Promise.resolve();
+export const asyncNoop: Noop<Promise<any>> = () => p;
+
+const neverResolvedPromise = new Promise<never>(noop);
+export const asyncNeverop: Noop<Promise<never>> = () => neverResolvedPromise;
