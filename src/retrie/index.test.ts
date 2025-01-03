@@ -52,17 +52,20 @@ describe('retrie', () => {
       ['!', '?', '*', '[', '(', ']', ')', ',', '#', '%', '&', '=', '~'],
       ['! hello'],
       [true]
+    ],
+    [
+      ['.ts', '.tsx'],
+      ['index.ts', 'index.tsx', 'index.jsx'],
+      [true, true, false]
     ]
   ] as const)) {
     it(JSON.stringify(test[0]), () => {
-      const kwtest = retrie(test[0]).toRe();
+      const kwtest = retrie(test[0]);
       const fixtures = test[1];
       const expected = test[2];
 
-      console.log({ kwtest });
-
       for (let i = 0, len = fixtures.length; i < len; i++) {
-        expect(kwtest.test(fixtures[i])).toEqual(expected[i]);
+        expect(kwtest.toRe().test(fixtures[i])).toEqual(expected[i]);
       }
     });
   };

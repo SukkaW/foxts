@@ -1,8 +1,12 @@
 // TypeScript port of [retrie](https://github.com/satyr/retrie), which is a Coco -> JS port of [@dankogai](https://x.com/dankogai)'s [RegexpTrie](https://metacpan.org/release/DANKOGAI/Regexp-Trie-0.02/view/lib/Regexp/Trie.pm).
 
-interface Trie {
-  [key: string]: Trie | ''
+interface BaseTrie {
+  [key: string]: Trie
 }
+
+type Trie = BaseTrie | {
+  '': ''
+};
 
 const shouldEscapeChars = new Set<string>([
   '.',
@@ -26,22 +30,21 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
 
   const add = (keywords: string, asPrefixes: boolean) => {
     let keyword: string;
-    let ref = tree;
+    let ref: Trie = tree;
 
     for (let i = 0, len = keywords.length; i < len; ++i) {
       keyword = keywords.charAt(i);
+
       if (!(keyword in ref)) {
-        ref[keyword] = asPrefixes
+        (ref as BaseTrie)[keyword] = asPrefixes
           ? { '': '' }
           : {};
       }
 
-      ref = ref[keyword] as Trie;
+      ref = (ref as BaseTrie)[keyword];
     }
 
-    if (asPrefixes) {
-      ref[''] = '';
-    }
+    ref[''] = '';
   };
 
   for (let i = 0, len = keywords.length; i < len; ++i) {
@@ -64,7 +67,7 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
           continue;
         }
 
-        sub = recur(it[chr] as Trie);
+        sub = recur((it as BaseTrie)[chr]);
 
         (sub ? alt : cc).push(
           (
@@ -116,6 +119,7 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
   );
 
   return {
+    tree,
     add,
     toString,
     toRe
