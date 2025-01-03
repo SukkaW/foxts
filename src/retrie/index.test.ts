@@ -14,6 +14,40 @@ describe('retrie', () => {
         ['cdn', 'sukka'],
         ['bananan', 'apple', 'melon'],
         [false, false, false]
+      ],
+      [
+        ['google-'],
+        ['google.com', 'google-analytics.com'],
+        [false, true]
+      ],
+      [
+        [
+          'transactions-',
+          'payment',
+          'wallet',
+          '-transactions',
+          '-faceb', // facebook fake
+          '.faceb', // facebook fake
+          'facebook',
+          'virus-',
+          'icloud-',
+          'apple-',
+          '-roblox',
+          '-co-jp',
+          'customer.',
+          'customer-',
+          '.www-',
+          '.www.',
+          '.www2',
+          'instagram',
+          'microsof',
+          'passwordreset',
+          '.google-',
+          'recover',
+          'banking'
+        ],
+        ['paymentfake.com', 'a.www.fake.com'],
+        [true, true]
       ]
     ] as const)) {
       const kwtest = retrie(test[0]).toRe();
@@ -23,7 +57,7 @@ describe('retrie', () => {
       console.log({ kwtest });
 
       for (let i = 0, len = fixtures.length; i < len; i++) {
-        expect(kwtest.test(fixtures[i])).toBe(expected[i]);
+        expect(kwtest.test(fixtures[i])).toEqual(expected[i]);
       }
     }
   });

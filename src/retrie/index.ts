@@ -64,7 +64,19 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
 
         sub = recur(it[chr] as Trie);
 
-        (sub ? alt : cc).push((shouldEscapeChars.has(chr) ? '\\' + chr : chr) + sub);
+        (sub ? alt : cc).push(
+          (
+            chr === '-'
+              // eslint-disable-next-line sukka/unicorn/prefer-string-raw -- regexp escape
+              ? '\\x2d'
+              : (
+                shouldEscapeChars.has(chr)
+                  ? '\\' + chr
+                  : chr
+              )
+          )
+          + sub
+        );
       }
 
       if (q && sub == null) {
