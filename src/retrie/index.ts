@@ -1,5 +1,7 @@
 // TypeScript port of [retrie](https://github.com/satyr/retrie), which is a Coco -> JS port of [@dankogai](https://x.com/dankogai)'s [RegexpTrie](https://metacpan.org/release/DANKOGAI/Regexp-Trie-0.02/view/lib/Regexp/Trie.pm).
 
+import { falseFn } from '../noop';
+
 interface BaseTrie {
   [key: string]: Trie
 }
@@ -127,6 +129,10 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
 }
 
 export function createRetrieKeywordFilter(keywords: ArrayLike<string>, asPrefixes = false) {
+  if (keywords.length === 0) {
+    return falseFn;
+  }
+
   const re = retrie(keywords, asPrefixes).toRe();
   return re.test.bind(re);
 }

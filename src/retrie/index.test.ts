@@ -50,8 +50,8 @@ describe('retrie', () => {
     ],
     [
       ['!', '?', '*', '[', '(', ']', ')', ',', '#', '%', '&', '=', '~'],
-      ['! hello'],
-      [true]
+      ['! hello', '!||sso.internetat.tv^ # Account login'],
+      [true, true]
     ],
     [
       ['.ts', '.tsx'],
