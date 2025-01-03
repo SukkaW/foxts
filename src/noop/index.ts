@@ -13,4 +13,4 @@ const p = Promise.resolve();
 export const asyncNoop: Noop<Promise<any>> = () => p;
 
 const neverResolvedPromise = new Promise<never>(noop);
-export const asyncNeverop: Noop<Promise<never>> = () => neverResolvedPromise;
+export const asyncNeverFn: Noop<Promise<never>> = () => neverResolvedPromise;
