@@ -15,7 +15,9 @@ const shouldEscapeChars = new Set<string>([
   '(',
   ')',
   '{',
+  '}',
   '[',
+  ']',
   '\\'
 ]);
 
