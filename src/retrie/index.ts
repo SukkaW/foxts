@@ -107,3 +107,8 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
     toRe
   };
 }
+
+export function createRetrieKeywordFilter(keywords: ArrayLike<string>, asPrefixes = false) {
+  const re = retrie(keywords, asPrefixes).toRe();
+  return re.test.bind(re);
+}
