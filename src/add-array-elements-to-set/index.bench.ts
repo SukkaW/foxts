@@ -10,12 +10,16 @@
         set.add(data[i]);
       }
     });
-  });
-  group(() => {
     bench('Array#forEach w/ bound function', () => {
       const set = new Set(['1', '2', '1', '3', 'skk.moe']);
       // eslint-disable-next-line @typescript-eslint/unbound-method -- thisArg is passed
       data.forEach(set.add, set);
+    });
+    bench('Array#forEach w/o bound function', () => {
+      const set = new Set(['1', '2', '1', '3', 'skk.moe']);
+      const add = (item: string) => set.add(item);
+
+      data.forEach(add);
     });
   });
 

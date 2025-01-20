@@ -1,5 +1,7 @@
-export function addArrayElementsToSet<T>(set: Set<T>, arr: T[]): Set<T> {
-  // eslint-disable-next-line @typescript-eslint/unbound-method -- thisArg is passed
-  arr.forEach(set.add, set);
+import { identity } from '../identity';
+
+export function addArrayElementsToSet<T>(set: Set<T>, arr: T[], transformer: (item: T) => T = identity): Set<T> {
+  const add = (item: T) => set.add(transformer(item));
+  arr.forEach(add);
   return set;
 }
