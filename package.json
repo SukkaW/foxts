@@ -25,33 +25,39 @@
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
   "devDependencies": {
-    "@eslint-sukka/node": "^6.13.0",
+    "@eslint-sukka/node": "^6.13.3",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@mitata/counters": "^0.0.8",
     "@monyone/aho-corasick": "^1.0.4",
     "@package-json/types": "^0.0.11",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@swc-node/register": "^1.10.9",
+    "@swc/core": "^1.10.15",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.13.1",
     "@types/sinon": "^17.0.3",
-    "bumpp": "^9.10.1",
+    "bumpp": "^10.0.3",
     "devalue": "^5.1.1",
-    "eslint": "^9.18.0",
-    "eslint-config-sukka": "^6.13.0",
-    "eslint-formatter-sukka": "^6.13.0",
+    "eslint": "^9.20.1",
+    "eslint-config-sukka": "^6.13.3",
+    "eslint-formatter-sukka": "^6.13.3",
     "expect": "^29.7.0",
     "fastscan": "^1.0.6",
     "fdir": "^6.4.3",
     "hash-wasm": "^4.12.0",
-    "mitata": "^1.0.31",
-    "mocha": "^11.0.1",
-    "modern-ahocorasick": "^2.0.2",
+    "mitata": "^1.0.34",
+    "mocha": "^11.1.0",
+    "modern-ahocorasick": "^2.0.4",
     "nyc": "^17.1.0",
-    "rollup": "^4.31.0",
+    "rollup": "^4.34.6",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-swc3": "^0.12.1",
     "sinon": "^19.0.2"
   },
-  "packageManager": "pnpm@9.15.4"
+  "packageManager": "pnpm@10.3.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core"
+    ]
+  }
 }
