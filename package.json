@@ -59,5 +59,8 @@
     "onlyBuiltDependencies": [
       "@swc/core"
     ]
+  },
+  "dependencies": {
+    "uncrypto": "^0.1.3"
   }
 }
