@@ -35,15 +35,18 @@ export default async function () {
         format: 'commonjs',
         entryFileNames: '[name]/index.cjs',
         chunkFileNames: 'chunks/[name].[hash].cjs',
-        compact: true
+        compact: true,
+        hoistTransitiveImports: false
       },
       {
         dir: 'dist',
         format: 'esm',
         entryFileNames: '[name]/index.mjs',
         chunkFileNames: 'chunks/[name].[hash].mjs',
-        compact: true
+        compact: true,
+        hoistTransitiveImports: false
       }],
+    treeshake: 'smallest',
     plugins: [
       nodeResolve({
         exportConditions: ['import', 'module', 'require', 'default']
