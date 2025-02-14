@@ -1,6 +1,7 @@
 import { fastStringArrayJoin } from '../fast-string-array-join';
 import { identity } from '../identity';
 import { xxhash64 } from 'hash-wasm';
+import { stringify as devalueStringify } from 'devalue';
 import { noop } from '../noop';
 
 export interface MemoizeStorageProvider {
@@ -92,11 +93,8 @@ export function createMemoize(storage: MemoizeStorageProvider, {
     const fixedKey = fn.toString();
 
     const fixedKeyHashPromise = xxhash64(fixedKey);
-    const devalueModulePromise = import('devalue');
 
     return async function cachedCb(...args: Args) {
-      const devalueStringify = (await devalueModulePromise).stringify;
-
       // Construct the complete cache key for this function invocation
       // typeson.stringify is still limited. For now we uses typescript to guard the args.
       const cacheKey = fastStringArrayJoin(
