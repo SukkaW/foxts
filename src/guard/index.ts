@@ -16,7 +16,7 @@ export function not(arg: null | undefined | false | 'nullish' | 'falsy') {
     case 'falsy':
       return <T>(i: T | 0 | '' | false | null | undefined): i is T => !!i;
     default:
-      throw new TypeError('Invalid argument');
+      never(arg);
   }
 }
 
@@ -26,7 +26,7 @@ export function is(arg: false): (i: unknown) => i is false;
 export function is(arg: 'nullish'): (i: unknown) => i is null | undefined;
 export function is(arg: 'falsy'): (i: unknown) => i is 0 | '' | false | null | undefined;
 export function is(arg: 'truthy'): <T>(i: T | 0 | '' | false | null | undefined) => i is T;
-export function is(arg: null | undefined | false | 'nullish' | 'falsy' | 'truthy' | 'never') {
+export function is(arg: null | undefined | false | 'nullish' | 'falsy' | 'truthy') {
   switch (arg) {
     case null:
       return (i: unknown): i is null => i === null;
@@ -41,7 +41,7 @@ export function is(arg: null | undefined | false | 'nullish' | 'falsy' | 'truthy
     case 'truthy':
       return <T>(i: T | 0 | '' | false | null | undefined): i is T => !!i;
     default:
-      throw new TypeError('Invalid argument');
+      never(arg);
   }
 }
 
