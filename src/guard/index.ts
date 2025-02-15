@@ -16,7 +16,7 @@ export function not(arg: null | undefined | false | 'nullish' | 'falsy') {
     case 'falsy':
       return <T>(i: T | 0 | '' | false | null | undefined): i is T => !!i;
     default:
-      never(arg);
+      never(arg, 'argument');
   }
 }
 
@@ -41,7 +41,7 @@ export function is(arg: null | undefined | false | 'nullish' | 'falsy' | 'truthy
     case 'truthy':
       return <T>(i: T | 0 | '' | false | null | undefined): i is T => !!i;
     default:
-      never(arg);
+      never(arg, 'argument');
   }
 }
 
@@ -63,6 +63,6 @@ export function invariant<T>(value: T | null | undefined, message = '[foxts/inva
   }
 }
 
-export function never(value: never): never {
-  throw new TypeError(`Unexpected value: ${value} as ${JSON.stringify(typeof value)}, should be "never"`);
+export function never(value: never, valueMetaName = 'value'): never {
+  throw new TypeError(`Unexpected ${valueMetaName}: ${value} as ${JSON.stringify(typeof value)}, should be "never"`);
 }
