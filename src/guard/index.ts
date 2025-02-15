@@ -26,7 +26,7 @@ export function is(arg: false): (i: unknown) => i is false;
 export function is(arg: 'nullish'): (i: unknown) => i is null | undefined;
 export function is(arg: 'falsy'): (i: unknown) => i is 0 | '' | false | null | undefined;
 export function is(arg: 'truthy'): <T>(i: T | 0 | '' | false | null | undefined) => i is T;
-export function is(arg: null | undefined | false | 'nullish' | 'falsy' | 'truthy') {
+export function is(arg: null | undefined | false | 'nullish' | 'falsy' | 'truthy' | 'never') {
   switch (arg) {
     case null:
       return (i: unknown): i is null => i === null;
@@ -61,4 +61,8 @@ export function invariant<T>(value: T | null | undefined, message = '[foxts/inva
   if (value === null || value === undefined) {
     throw new TypeError(message);
   }
+}
+
+export function never(value: never): never {
+  throw new TypeError(`Unexpected value: ${value} as ${JSON.stringify(typeof value)}, should be "never"`);
 }

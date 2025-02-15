@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'expect';
-import { not, isFalsy, isNonNull, isNonNullish, isTruthy, is, nullthrow, invariant } from '.';
+import { not, isFalsy, isNonNull, isNonNullish, isTruthy, is, nullthrow, invariant, never } from '.';
 
 describe('guard', () => {
   it('not', () => {
@@ -97,5 +97,14 @@ describe('guard', () => {
     expect(invariant(false)).toBe(undefined);
     expect(invariant(true)).toBe(undefined);
     expect(() => invariant(null, 'a')).toThrowError('a');
+  });
+
+  it('never', () => {
+    expect(() => never(null as never)).toThrowError();
+    expect(() => never(undefined as never)).toThrowError();
+    expect(() => never(0 as never)).toThrowError();
+    expect(() => never('' as never)).toThrowError();
+    expect(() => never(false as never)).toThrowError();
+    expect(() => never(true as never)).toThrowError();
   });
 });
