@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
