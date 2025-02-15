@@ -35,3 +35,4 @@ export function createFixedArrayWithGC(length: number): readonly number[] {
 }
 
 export const createFixedArray = typeof WeakRef === 'function' ? createFixedArrayWithGC : createFixedArrayWithoutGC;
+export const EMPTY_ARRAY = createFixedArray(0);
