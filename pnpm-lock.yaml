@@ -39,18 +39,27 @@ importers:
       '@types/escape-html':
         specifier: ^1.0.4
         version: 1.0.4
+      '@types/escape-regexp':
+        specifier: ^0.0.3
+        version: 0.0.3
       '@types/html-escaper':
         specifier: ^3.0.4
         version: 3.0.4
       '@types/lodash.escape':
         specifier: ^4.0.9
         version: 4.0.9
+      '@types/lodash.escaperegexp':
+        specifier: ^4.1.9
+        version: 4.1.9
       '@types/mocha':
         specifier: ^10.0.10
         version: 10.0.10
       '@types/node':
         specifier: ^22.13.4
         version: 22.13.4
+      '@types/regex-escape':
+        specifier: ^3.4.1
+        version: 3.4.1
       '@types/sinon':
         specifier: ^17.0.3
         version: 17.0.3
@@ -66,6 +75,12 @@ importers:
       escape-html:
         specifier: ^1.0.3
         version: 1.0.3
+      escape-regexp:
+        specifier: ^0.0.1
+        version: 0.0.1
+      escape-string-regexp:
+        specifier: '4'
+        version: 4.0.0
       eslint:
         specifier: ^9.20.1
         version: 9.20.1(jiti@2.4.1)
@@ -96,6 +111,9 @@ importers:
       lodash.escape:
         specifier: ^4.0.1
         version: 4.0.1
+      lodash.escaperegexp:
+        specifier: ^4.1.2
+        version: 4.1.2
       mitata:
         specifier: ^1.0.34
         version: 1.0.34
@@ -108,6 +126,9 @@ importers:
       nyc:
         specifier: ^17.1.0
         version: 17.1.0
+      regex-escape:
+        specifier: ^3.4.11
+        version: 3.4.11
       rollup:
         specifier: ^4.34.7
         version: 4.34.7
@@ -655,6 +676,9 @@ packages:
   '@types/escape-html@1.0.4':
     resolution: {integrity: sha512-qZ72SFTgUAZ5a7Tj6kf2SHLetiH5S6f8G5frB2SPQ3EyF02kxdyBFf4Tz4banE3xCgGnKgWLt//a6VuYHKYJTg==}
 
+  '@types/escape-regexp@0.0.3':
+    resolution: {integrity: sha512-FQMYUxaf1dVeWLUzJFSvfdDugfOpDyM13p67QfyMdagxSkBa689opkr/q9uR/VWyrWrl0jAyQaSPKxX9MpAXFw==}
+
   '@types/eslint@9.6.1':
     resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
 
@@ -679,6 +703,9 @@ packages:
   '@types/lodash.escape@4.0.9':
     resolution: {integrity: sha512-YR9R6RU9D36OWrhVZ+r4fY8mMXQtofnLXAcE6CkKIxdH66uiCdEjkhxx/eiJnYpxjOFmPbWBUUvdv8lckO823Q==}
 
+  '@types/lodash.escaperegexp@4.1.9':
+    resolution: {integrity: sha512-CMQc8v16YzhnPZnMhYQuJUksI8BmL1jy/lHJkiXi4/t24Lx7Qvy7qxew1abrDJGa1T2i0NzLLaR27NK1/qp5Ow==}
+
   '@types/lodash@4.17.16':
     resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
 
@@ -687,6 +714,9 @@ packages:
 
   '@types/node@22.13.4':
     resolution: {integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==}
+
+  '@types/regex-escape@3.4.1':
+    resolution: {integrity: sha512-aQihdLwAzyST0/LTidv76ZKtltWbea61FprvpMHbqUToUpdZrSYUqPb3ToojMW2a29JfoJXBxtO6K5py4o8uwA==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -1067,6 +1097,9 @@ packages:
 
   escape-html@1.0.3:
     resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
+
+  escape-regexp@0.0.1:
+    resolution: {integrity: sha512-jVgdsYRa7RKxTT6MKNC3gdT+BF0Gfhpel19+HMRZJC2L0PufB0XOBuXBoXj29NKHwuktnAXd1Z1lyiH/8vOTpw==}
 
   escape-string-regexp@2.0.0:
     resolution: {integrity: sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==}
@@ -1637,6 +1670,9 @@ packages:
   lodash.escape@4.0.1:
     resolution: {integrity: sha512-nXEOnb/jK9g0DYMr1/Xvq6l5xMD7GDG55+GSYIYmS0G4tBk/hURD4JR9WCavs04t33WmJx9kCyp9vJ+mr4BOUw==}
 
+  lodash.escaperegexp@4.1.2:
+    resolution: {integrity: sha512-TM9YBvyC84ZxE3rgfefxUWiQKLilstD6k7PTGt6wfbtXF8ixIJLOL3VYyV/z+ZiPLsVxAsKAFVwWlWeb2Y8Yyw==}
+
   lodash.flattendeep@4.4.0:
     resolution: {integrity: sha512-uHaJFihxmJcEX3kT4I23ABqKKalJ/zDrDg0lsFtc1h+3uw49SIJ5beyhx5ExVRti3AvKoOJngIj7xz3oylPdWQ==}
 
@@ -1935,6 +1971,9 @@ packages:
   refa@0.12.1:
     resolution: {integrity: sha512-J8rn6v4DBb2nnFqkqwy6/NnTYMcgLA+sLr0iIO41qpv0n+ngb7ksag2tMRl0inb1bbO/esUwzW1vbJi7K0sI0g==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
+
+  regex-escape@3.4.11:
+    resolution: {integrity: sha512-051l4Hl/0HoJwTvNztrWVjoxLiseSfCrDgWqwR1cnGM/nyQSeIjmvti5zZ7HzOmsXDPaJ2k0iFxQ6/WNpJD5wQ==}
 
   regexp-ast-analysis@0.7.1:
     resolution: {integrity: sha512-sZuz1dYW/ZsfG17WSAG7eS85r5a0dDsvg+7BiiYR5o6lKCAtUrEwdmRmaGF6rwVj3LcmAeYkOWKEPlbPzN3Y3A==}
@@ -2817,6 +2856,8 @@ snapshots:
 
   '@types/escape-html@1.0.4': {}
 
+  '@types/escape-regexp@0.0.3': {}
+
   '@types/eslint@9.6.1':
     dependencies:
       '@types/estree': 1.0.6
@@ -2842,6 +2883,10 @@ snapshots:
     dependencies:
       '@types/lodash': 4.17.16
 
+  '@types/lodash.escaperegexp@4.1.9':
+    dependencies:
+      '@types/lodash': 4.17.16
+
   '@types/lodash@4.17.16': {}
 
   '@types/mocha@10.0.10': {}
@@ -2849,6 +2894,8 @@ snapshots:
   '@types/node@22.13.4':
     dependencies:
       undici-types: 6.20.0
+
+  '@types/regex-escape@3.4.1': {}
 
   '@types/resolve@1.20.2': {}
 
@@ -3228,6 +3275,8 @@ snapshots:
   escape-goat@3.0.0: {}
 
   escape-html@1.0.3: {}
+
+  escape-regexp@0.0.1: {}
 
   escape-string-regexp@2.0.0: {}
 
@@ -3892,6 +3941,8 @@ snapshots:
 
   lodash.escape@4.0.1: {}
 
+  lodash.escaperegexp@4.1.2: {}
+
   lodash.flattendeep@4.4.0: {}
 
   lodash.get@4.4.2: {}
@@ -4228,6 +4279,8 @@ snapshots:
   refa@0.12.1:
     dependencies:
       '@eslint-community/regexpp': 4.12.1
+
+  regex-escape@3.4.11: {}
 
   regexp-ast-analysis@0.7.1:
     dependencies:
