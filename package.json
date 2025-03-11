@@ -5,15 +5,309 @@
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
   },
-  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./add-array-elements-to-set": {
+      "import": {
+        "types": "./dist/es/add-array-elements-to-set.d.mts",
+        "default": "./dist/es/add-array-elements-to-set.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/add-array-elements-to-set.d.ts",
+        "default": "./dist/cjs/add-array-elements-to-set.js"
+      }
+    },
+    "./ahocorasick": {
+      "import": {
+        "types": "./dist/es/ahocorasick.d.mts",
+        "default": "./dist/es/ahocorasick.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/ahocorasick.d.ts",
+        "default": "./dist/cjs/ahocorasick.js"
+      }
+    },
+    "./append-set-elements-to-array": {
+      "import": {
+        "types": "./dist/es/append-set-elements-to-array.d.mts",
+        "default": "./dist/es/append-set-elements-to-array.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/append-set-elements-to-array.d.ts",
+        "default": "./dist/cjs/append-set-elements-to-array.js"
+      }
+    },
+    "./bitwise": {
+      "import": {
+        "types": "./dist/es/bitwise.d.mts",
+        "default": "./dist/es/bitwise.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/bitwise.d.ts",
+        "default": "./dist/cjs/bitwise.js"
+      }
+    },
+    "./detect-eol": {
+      "import": {
+        "types": "./dist/es/detect-eol.d.mts",
+        "default": "./dist/es/detect-eol.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/detect-eol.d.ts",
+        "default": "./dist/cjs/detect-eol.js"
+      }
+    },
+    "./create-fixed-array": {
+      "import": {
+        "types": "./dist/es/create-fixed-array.d.mts",
+        "default": "./dist/es/create-fixed-array.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/create-fixed-array.d.ts",
+        "default": "./dist/cjs/create-fixed-array.js"
+      }
+    },
+    "./async-write-to-stream": {
+      "import": {
+        "types": "./dist/es/async-write-to-stream.d.mts",
+        "default": "./dist/es/async-write-to-stream.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/async-write-to-stream.d.ts",
+        "default": "./dist/cjs/async-write-to-stream.js"
+      }
+    },
+    "./escape-html": {
+      "import": {
+        "types": "./dist/es/escape-html.d.mts",
+        "default": "./dist/es/escape-html.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/escape-html.d.ts",
+        "default": "./dist/cjs/escape-html.js"
+      }
+    },
+    "./escape-string-regexp": {
+      "import": {
+        "types": "./dist/es/escape-string-regexp.d.mts",
+        "default": "./dist/es/escape-string-regexp.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/escape-string-regexp.d.ts",
+        "default": "./dist/cjs/escape-string-regexp.js"
+      }
+    },
+    "./fast-string-array-join": {
+      "import": {
+        "types": "./dist/es/fast-string-array-join.d.mts",
+        "default": "./dist/es/fast-string-array-join.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/fast-string-array-join.d.ts",
+        "default": "./dist/cjs/fast-string-array-join.js"
+      }
+    },
+    "./fifo": {
+      "import": {
+        "types": "./dist/es/fifo.d.mts",
+        "default": "./dist/es/fifo.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/fifo.d.ts",
+        "default": "./dist/cjs/fifo.js"
+      }
+    },
+    "./fnv1a": {
+      "import": {
+        "types": "./dist/es/fnv1a.d.mts",
+        "default": "./dist/es/fnv1a.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/fnv1a.d.ts",
+        "default": "./dist/cjs/fnv1a.js"
+      }
+    },
+    "./fnv1a52": {
+      "import": {
+        "types": "./dist/es/fnv1a52.d.mts",
+        "default": "./dist/es/fnv1a52.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/fnv1a52.d.ts",
+        "default": "./dist/cjs/fnv1a52.js"
+      }
+    },
+    "./guard": {
+      "import": {
+        "types": "./dist/es/guard.d.mts",
+        "default": "./dist/es/guard.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/guard.d.ts",
+        "default": "./dist/cjs/guard.js"
+      }
+    },
+    "./headers-to-object": {
+      "import": {
+        "types": "./dist/es/headers-to-object.d.mts",
+        "default": "./dist/es/headers-to-object.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/headers-to-object.d.ts",
+        "default": "./dist/cjs/headers-to-object.js"
+      }
+    },
+    "./identity": {
+      "import": {
+        "types": "./dist/es/identity.d.mts",
+        "default": "./dist/es/identity.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/identity.d.ts",
+        "default": "./dist/cjs/identity.js"
+      }
+    },
+    "./is-probably-ip": {
+      "import": {
+        "types": "./dist/es/is-probably-ip.d.mts",
+        "default": "./dist/es/is-probably-ip.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/is-probably-ip.d.ts",
+        "default": "./dist/cjs/is-probably-ip.js"
+      }
+    },
+    "./merge-headers": {
+      "import": {
+        "types": "./dist/es/merge-headers.d.mts",
+        "default": "./dist/es/merge-headers.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/merge-headers.d.ts",
+        "default": "./dist/cjs/merge-headers.js"
+      }
+    },
+    "./noop": {
+      "import": {
+        "types": "./dist/es/noop.d.mts",
+        "default": "./dist/es/noop.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/noop.d.ts",
+        "default": "./dist/cjs/noop.js"
+      }
+    },
+    "./once": {
+      "import": {
+        "types": "./dist/es/once.d.mts",
+        "default": "./dist/es/once.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/once.d.ts",
+        "default": "./dist/cjs/once.js"
+      }
+    },
+    "./pick-random": {
+      "import": {
+        "types": "./dist/es/pick-random.d.mts",
+        "default": "./dist/es/pick-random.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/pick-random.d.ts",
+        "default": "./dist/cjs/pick-random.js"
+      }
+    },
+    "./random-int": {
+      "import": {
+        "types": "./dist/es/random-int.d.mts",
+        "default": "./dist/es/random-int.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/random-int.d.ts",
+        "default": "./dist/cjs/random-int.js"
+      }
+    },
+    "./repool": {
+      "import": {
+        "types": "./dist/es/repool.d.mts",
+        "default": "./dist/es/repool.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/repool.d.ts",
+        "default": "./dist/cjs/repool.js"
+      }
+    },
+    "./retrie": {
+      "import": {
+        "types": "./dist/es/retrie.d.mts",
+        "default": "./dist/es/retrie.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/retrie.d.ts",
+        "default": "./dist/cjs/retrie.js"
+      }
+    },
+    "./serialized-memo": {
+      "import": {
+        "types": "./dist/es/serialized-memo.d.mts",
+        "default": "./dist/es/serialized-memo.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/serialized-memo.d.ts",
+        "default": "./dist/cjs/serialized-memo.js"
+      }
+    },
+    "./tagged": {
+      "import": {
+        "types": "./dist/es/tagged.d.mts",
+        "default": "./dist/es/tagged.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/tagged.d.ts",
+        "default": "./dist/cjs/tagged.js"
+      }
+    },
+    "./wait": {
+      "import": {
+        "types": "./dist/es/wait.d.mts",
+        "default": "./dist/es/wait.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/wait.d.ts",
+        "default": "./dist/cjs/wait.js"
+      }
+    },
+    "./text-line-stream": {
+      "import": {
+        "types": "./dist/es/text-line-stream.d.mts",
+        "default": "./dist/es/text-line-stream.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/text-line-stream.d.ts",
+        "default": "./dist/cjs/text-line-stream.js"
+      }
+    },
+    "./simple-string-hash": {
+      "import": {
+        "types": "./dist/es/simple-string-hash.d.mts",
+        "default": "./dist/es/simple-string-hash.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/simple-string-hash.d.ts",
+        "default": "./dist/cjs/simple-string-hash.js"
+      }
+    }
+  },
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --format=sukka .",
     "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_PROJECT=tsconfig.test-swc.json nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
-    "build": "rollup -c rollup.config.ts --configPlugin swc3 --bundleConfigAsCjs",
-    "postbuild": "node -r @swc-node/register tools/postbuild.ts",
+    "prebuild": "bunchee prepare",
+    "build": "bunchee --minify",
     "prerelease": "pnpm run lint && pnpm run test && pnpm run build",
     "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
   },
@@ -25,6 +319,7 @@
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
   "dependencies": {
+    "bunchee": "^6.4.0",
     "uncrypto": "^0.1.3"
   },
   "devDependencies": {
@@ -33,7 +328,6 @@
     "@mitata/counters": "^0.0.8",
     "@monyone/aho-corasick": "^1.0.4",
     "@package-json/types": "^0.0.11",
-    "@rollup/plugin-node-resolve": "^16.0.0",
     "@swc-node/register": "^1.10.9",
     "@swc/core": "^1.11.8",
     "@types/escape-html": "^1.0.4",
@@ -67,9 +361,6 @@
     "modern-ahocorasick": "^2.0.4",
     "nyc": "^17.1.0",
     "regex-escape": "^3.4.11",
-    "rollup": "^4.35.0",
-    "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-swc3": "^0.12.1",
     "sinon": "^19.0.2"
   },
   "packageManager": "pnpm@10.6.2",
