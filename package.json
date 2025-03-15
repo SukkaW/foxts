@@ -306,7 +306,7 @@
     "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_PROJECT=tsconfig.test-swc.json nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
-    "prebuild": "bunchee prepare",
+    "prebuild": "bunchee prepare && node -r @swc-node/register ./tools/index.ts",
     "build": "bunchee --minify",
     "prerelease": "pnpm run lint && pnpm run test && pnpm run build",
     "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
