@@ -11,9 +11,6 @@ importers:
       bunchee:
         specifier: ^6.4.0
         version: 6.4.0(typescript@5.7.2)
-      uncrypto:
-        specifier: ^0.1.3
-        version: 0.1.3
     devDependencies:
       '@eslint-sukka/node':
         specifier: ^6.17.0
@@ -1757,9 +1754,6 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
-
-  magic-string@0.30.14:
-    resolution: {integrity: sha512-5c99P1WKTed11ZC0HMJOj6CDIue6F8ySu+bJL+85q1zBEIY8IklrJ1eiKC2NDRh3Ct3FcvmJPyQHb9erXMTJNw==}
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
@@ -4054,10 +4048,6 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  magic-string@0.30.14:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
-
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -4394,7 +4384,7 @@ snapshots:
 
   rollup-plugin-dts@6.1.1(rollup@4.35.0)(typescript@5.7.2):
     dependencies:
-      magic-string: 0.30.14
+      magic-string: 0.30.17
       rollup: 4.35.0
       typescript: 5.7.2
     optionalDependencies:
@@ -4411,7 +4401,7 @@ snapshots:
 
   rollup-preserve-directives@1.1.3(rollup@4.35.0):
     dependencies:
-      magic-string: 0.30.14
+      magic-string: 0.30.17
       rollup: 4.35.0
 
   rollup@4.35.0:

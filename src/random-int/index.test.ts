@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'expect';
-import { createRandomInt, randomInt, randomIntSecure } from '.';
+import { createRandomInt, randomInt } from '.';
 
 describe('random-int', () => {
   it('randomInt', () => {
@@ -9,11 +9,11 @@ describe('random-int', () => {
     expect(randomInt(0, 1)).toBeGreaterThanOrEqual(0);
   });
 
-  it('randomIntSecure', () => {
-    expect(randomIntSecure(0, 0)).toBe(0);
-    expect(randomIntSecure(0, 1)).toBeLessThanOrEqual(1);
-    expect(randomIntSecure(0, 1)).toBeGreaterThanOrEqual(0);
-  });
+  // it('randomIntSecure', () => {
+  //   expect(randomIntSecure(0, 0)).toBe(0);
+  //   expect(randomIntSecure(0, 1)).toBeLessThanOrEqual(1);
+  //   expect(randomIntSecure(0, 1)).toBeGreaterThanOrEqual(0);
+  // });
 
   it('createRandomInt', () => {
     const randomInt = createRandomInt(() => 0.5);
