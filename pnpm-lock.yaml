@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      bunchee:
-        specifier: ^6.4.0
-        version: 6.4.0(typescript@5.7.2)
     devDependencies:
       '@eslint-sukka/node':
         specifier: ^6.17.1
@@ -63,6 +59,9 @@ importers:
       bumpp:
         specifier: ^10.1.0
         version: 10.1.0
+      bunchee:
+        specifier: ^6.4.0
+        version: 6.4.0(typescript@5.7.2)
       devalue:
         specifier: ^5.1.1
         version: 5.1.1

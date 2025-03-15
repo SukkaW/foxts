@@ -318,9 +318,6 @@
   ],
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
-  "dependencies": {
-    "bunchee": "^6.4.0"
-  },
   "devDependencies": {
     "@eslint-sukka/node": "^6.17.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
@@ -339,6 +336,7 @@
     "@types/regex-escape": "^3.4.1",
     "@types/sinon": "^17.0.4",
     "bumpp": "^10.1.0",
+    "bunchee": "^6.4.0",
     "devalue": "^5.1.1",
     "escape-goat": "^3.0.0",
     "escape-html": "^1.0.3",
