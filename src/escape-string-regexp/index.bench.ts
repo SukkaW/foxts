@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-restricted-imports -- benchmark */
 import { escapeStringRegexp } from '.';
 import { escapeRegExp as hexoUtilEscapeRegExp } from 'hexo-util';
 import escapeStringRegexpSindresorhus from 'escape-string-regexp';
