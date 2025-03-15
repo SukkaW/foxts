@@ -322,7 +322,7 @@
     "bunchee": "^6.4.0"
   },
   "devDependencies": {
-    "@eslint-sukka/node": "^6.17.0",
+    "@eslint-sukka/node": "^6.17.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@mitata/counters": "^0.0.8",
     "@monyone/aho-corasick": "^1.0.4",
