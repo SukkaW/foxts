@@ -1,11 +1,14 @@
 import { describe, it } from 'mocha';
 import { expect } from 'expect';
 import { createMemoize } from '.';
+import { stringify } from 'devalue';
 
 describe('serialized-memo', () => {
   it('should work', async () => {
     const map = new Map<string, string>();
-    const cache = createMemoize(map as any);
+    const cache = createMemoize(map as any, {
+      argHasher: stringify
+    });
 
     let counter = 0;
     const fn = (a: number, b: number) => {
@@ -32,7 +35,8 @@ describe('serialized-memo', () => {
 
     const map = new Map<string, string>();
     const cache = createMemoize(map as any, {
-      onlyUseCachedIfFail: true
+      onlyUseCachedIfFail: true,
+      argHasher: stringify
     });
 
     const memoized = cache(fn);

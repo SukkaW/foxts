@@ -1,7 +1,5 @@
 import { fastStringArrayJoin } from '../fast-string-array-join';
 import { identity } from '../identity';
-import { xxhash64 } from 'hash-wasm';
-import { stringify as devalueStringify } from 'devalue';
 import { noop } from '../noop';
 
 export interface MemoizeStorageProvider {
@@ -24,7 +22,12 @@ export interface CreateMemoizeOptions {
   defaultTtl?: number,
   onCacheUpdate?: (key: string, { humanReadableName }: { humanReadableName: string, isUseCachedIfFail: boolean }) => void,
   onCacheMiss?: (key: string, { humanReadableName }: { humanReadableName: string, isUseCachedIfFail: boolean }) => void,
-  onCacheHit?: (key: string, { humanReadableName }: { humanReadableName: string, isUseCachedIfFail: boolean }) => void
+  onCacheHit?: (key: string, { humanReadableName }: { humanReadableName: string, isUseCachedIfFail: boolean }) => void,
+
+  /** recommendation: import('hash-wasm').xxhash64 */
+  keyHasher?: (key: string) => Promise<string> | string,
+  /** recommendation: import('devalue').stringify */
+  argHasher: (args: any[]) => Promise<string> | string
 }
 
 // https://github.com/Rich-Harris/devalue/blob/f3fd2aa93d79f21746555671f955a897335edb1b/src/stringify.js#L77
@@ -76,8 +79,10 @@ export function createMemoize(storage: MemoizeStorageProvider, {
   defaultTtl = 7 * 86400 * 1000,
   onCacheUpdate = noop,
   onCacheMiss = noop,
-  onCacheHit = noop
-}: CreateMemoizeOptions = {}) {
+  onCacheHit = noop,
+  keyHasher = identity,
+  argHasher
+}: CreateMemoizeOptions) {
   return function memoize<Args extends SerializableValue[], R>(
     fn: (...args: Args) => R | Promise<R>,
     opt?: MemoizeOptions<R>
@@ -92,7 +97,7 @@ export function createMemoize(storage: MemoizeStorageProvider, {
 
     const fixedKey = fn.toString();
 
-    const fixedKeyHashPromise = xxhash64(fixedKey);
+    const fixedKeyHashPromise = keyHasher(fixedKey);
 
     return async function cachedCb(...args: Args) {
       // Construct the complete cache key for this function invocation
@@ -100,7 +105,7 @@ export function createMemoize(storage: MemoizeStorageProvider, {
       const cacheKey = fastStringArrayJoin(
         await Promise.all([
           fixedKeyHashPromise,
-          xxhash64(devalueStringify(args))
+          argHasher(args)
         ]),
         '|'
       );

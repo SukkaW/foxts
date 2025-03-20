@@ -95,9 +95,6 @@ importers:
       fdir:
         specifier: ^6.4.3
         version: 6.4.3(picomatch@4.0.2)
-      hash-wasm:
-        specifier: ^4.12.0
-        version: 4.12.0
       hexo-util:
         specifier: ^3.3.0
         version: 3.3.0
@@ -1479,9 +1476,6 @@ packages:
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
-
-  hash-wasm@4.12.0:
-    resolution: {integrity: sha512-+/2B2rYLb48I/evdOIhP+K/DD2ca2fgBjp6O+GBEnCDk2e4rpeXIK8GvIyRPjTezgmWn9gmKwkQjjx6BtqDHVQ==}
 
   hasha@5.2.2:
     resolution: {integrity: sha512-Hrp5vIK/xr5SkeN2onO32H0MgNZ0f17HRNH39WfL0SYUNOTZ5Lz1TJ8Pajo/87dYGEFlLMm7mIc/k/s6Bvz9HQ==}
@@ -3748,8 +3742,6 @@ snapshots:
   graphemer@1.4.0: {}
 
   has-flag@4.0.0: {}
-
-  hash-wasm@4.12.0: {}
 
   hasha@5.2.2:
     dependencies:
