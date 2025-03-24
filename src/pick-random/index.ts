@@ -1,4 +1,4 @@
-import { randomInt } from 'node:crypto';
+import { randomInt } from '../random-int';
 
 /**
  * @param randomInt - a random generate function that accepts two arguments `min` and `max` and returns a random number between `min` and `max`

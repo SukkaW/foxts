@@ -2,7 +2,6 @@
 // This module is browser compatible.
 // Modified by Sukka (https://skk.moe) to increase compatibility and performance with Bun & Node.js.
 
-import { TransformStream } from 'node:stream/web';
 import { falseFn } from '../noop';
 
 interface TextLineStreamOptions {
