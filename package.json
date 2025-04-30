@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
@@ -298,7 +298,9 @@
         "types": "./dist/cjs/simple-string-hash.d.ts",
         "default": "./dist/cjs/simple-string-hash.js"
       }
-    }
+    },
+    "./append-array-in-place": {},
+    "./string-join": {}
   },
   "sideEffects": false,
   "scripts": {
