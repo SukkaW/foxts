@@ -321,35 +321,35 @@
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
   "devDependencies": {
-    "@eslint-sukka/node": "^6.17.1",
+    "@eslint-sukka/node": "^6.18.2",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@mitata/counters": "^0.0.8",
     "@monyone/aho-corasick": "^1.0.4",
     "@package-json/types": "^0.0.11",
     "@swc-node/register": "^1.10.10",
-    "@swc/core": "^1.11.13",
+    "@swc/core": "^1.11.24",
     "@types/escape-html": "^1.0.4",
     "@types/escape-regexp": "^0.0.3",
     "@types/html-escaper": "^3.0.4",
     "@types/lodash.escape": "^4.0.9",
     "@types/lodash.escaperegexp": "^4.1.9",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.13.13",
+    "@types/node": "^22.15.3",
     "@types/regex-escape": "^3.4.1",
     "@types/sinon": "^17.0.4",
     "bumpp": "^10.1.0",
-    "bunchee": "^6.5.0",
+    "bunchee": "^6.5.1",
     "devalue": "^5.1.1",
     "escape-goat": "^3.0.0",
     "escape-html": "^1.0.3",
     "escape-regexp": "^0.0.1",
     "escape-string-regexp": "4",
-    "eslint": "^9.23.0",
-    "eslint-config-sukka": "^6.17.1",
-    "eslint-formatter-sukka": "^6.17.1",
+    "eslint": "^9.25.1",
+    "eslint-config-sukka": "^6.18.2",
+    "eslint-formatter-sukka": "^6.18.2",
     "expect": "^29.7.0",
     "fastscan": "^1.0.6",
-    "fdir": "^6.4.3",
+    "fdir": "^6.4.4",
     "hexo-util": "^3.3.0",
     "html-escaper": "2.0.2",
     "lodash.escape": "^4.0.1",
@@ -359,12 +359,13 @@
     "modern-ahocorasick": "^2.0.4",
     "nyc": "^17.1.0",
     "regex-escape": "^3.4.11",
-    "sinon": "^19.0.4"
+    "sinon": "^19.0.5"
   },
-  "packageManager": "pnpm@10.6.5",
+  "packageManager": "pnpm@10.10.0",
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@swc/core"
+      "@swc/core",
+      "unrs-resolver"
     ]
   }
 }
