@@ -299,8 +299,26 @@
         "default": "./dist/cjs/simple-string-hash.js"
       }
     },
-    "./append-array-in-place": {},
-    "./string-join": {}
+    "./append-array-in-place": {
+      "import": {
+        "types": "./dist/es/append-array-in-place.d.mts",
+        "default": "./dist/es/append-array-in-place.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/append-array-in-place.d.ts",
+        "default": "./dist/cjs/append-array-in-place.js"
+      }
+    },
+    "./string-join": {
+      "import": {
+        "types": "./dist/es/string-join.d.mts",
+        "default": "./dist/es/string-join.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/string-join.d.ts",
+        "default": "./dist/cjs/string-join.js"
+      }
+    }
   },
   "sideEffects": false,
   "scripts": {
