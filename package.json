@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
@@ -318,7 +318,8 @@
         "types": "./dist/cjs/string-join.d.ts",
         "default": "./dist/cjs/string-join.js"
       }
-    }
+    },
+    "./compare-source": {}
   },
   "sideEffects": false,
   "scripts": {
