@@ -1,5 +1,5 @@
 import { bitCount, getBit, setBit, deleteBit, packTwoBits, unpackTwoBits, unpackTwoBitsFirst, unpackTwoBitsSecond, packThreeBits, unpackThreeBits, unpackThreeBitsFirst, unpackThreeBitsSecond, unpackThreeBitsThird, missingBit } from './index';
-import expect from 'expect';
+import { expect } from 'expect';
 
 describe('bitwise', () => {
   it('bitCount', () => {

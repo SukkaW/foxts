@@ -1,6 +1,6 @@
 import { Writable } from 'node:stream';
 import { asyncWriteToStream } from './index';
-import expect from 'expect';
+import { expect } from 'expect';
 import sinon from 'sinon';
 
 class MockWritable extends Writable {
