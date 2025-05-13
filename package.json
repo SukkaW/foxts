@@ -29,6 +29,16 @@
         "default": "./dist/cjs/ahocorasick.js"
       }
     },
+    "./append-array-in-place": {
+      "import": {
+        "types": "./dist/es/append-array-in-place.d.mts",
+        "default": "./dist/es/append-array-in-place.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/append-array-in-place.d.ts",
+        "default": "./dist/cjs/append-array-in-place.js"
+      }
+    },
     "./append-set-elements-to-array": {
       "import": {
         "types": "./dist/es/append-set-elements-to-array.d.mts",
@@ -39,34 +49,14 @@
         "default": "./dist/cjs/append-set-elements-to-array.js"
       }
     },
-    "./bitwise": {
+    "./compare-source": {
       "import": {
-        "types": "./dist/es/bitwise.d.mts",
-        "default": "./dist/es/bitwise.mjs"
+        "types": "./dist/es/compare-source.d.mts",
+        "default": "./dist/es/compare-source.mjs"
       },
       "require": {
-        "types": "./dist/cjs/bitwise.d.ts",
-        "default": "./dist/cjs/bitwise.js"
-      }
-    },
-    "./detect-eol": {
-      "import": {
-        "types": "./dist/es/detect-eol.d.mts",
-        "default": "./dist/es/detect-eol.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/detect-eol.d.ts",
-        "default": "./dist/cjs/detect-eol.js"
-      }
-    },
-    "./create-fixed-array": {
-      "import": {
-        "types": "./dist/es/create-fixed-array.d.mts",
-        "default": "./dist/es/create-fixed-array.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/create-fixed-array.d.ts",
-        "default": "./dist/cjs/create-fixed-array.js"
+        "types": "./dist/cjs/compare-source.d.ts",
+        "default": "./dist/cjs/compare-source.js"
       }
     },
     "./async-write-to-stream": {
@@ -79,14 +69,34 @@
         "default": "./dist/cjs/async-write-to-stream.js"
       }
     },
-    "./escape-html": {
+    "./bitwise": {
       "import": {
-        "types": "./dist/es/escape-html.d.mts",
-        "default": "./dist/es/escape-html.mjs"
+        "types": "./dist/es/bitwise.d.mts",
+        "default": "./dist/es/bitwise.mjs"
       },
       "require": {
-        "types": "./dist/cjs/escape-html.d.ts",
-        "default": "./dist/cjs/escape-html.js"
+        "types": "./dist/cjs/bitwise.d.ts",
+        "default": "./dist/cjs/bitwise.js"
+      }
+    },
+    "./create-fixed-array": {
+      "import": {
+        "types": "./dist/es/create-fixed-array.d.mts",
+        "default": "./dist/es/create-fixed-array.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/create-fixed-array.d.ts",
+        "default": "./dist/cjs/create-fixed-array.js"
+      }
+    },
+    "./detect-eol": {
+      "import": {
+        "types": "./dist/es/detect-eol.d.mts",
+        "default": "./dist/es/detect-eol.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/detect-eol.d.ts",
+        "default": "./dist/cjs/detect-eol.js"
       }
     },
     "./escape-string-regexp": {
@@ -97,6 +107,16 @@
       "require": {
         "types": "./dist/cjs/escape-string-regexp.d.ts",
         "default": "./dist/cjs/escape-string-regexp.js"
+      }
+    },
+    "./escape-html": {
+      "import": {
+        "types": "./dist/es/escape-html.d.mts",
+        "default": "./dist/es/escape-html.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/escape-html.d.ts",
+        "default": "./dist/cjs/escape-html.js"
       }
     },
     "./fast-string-array-join": {
@@ -239,6 +259,26 @@
         "default": "./dist/cjs/repool.js"
       }
     },
+    "./serialized-memo": {
+      "import": {
+        "types": "./dist/es/serialized-memo.d.mts",
+        "default": "./dist/es/serialized-memo.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/serialized-memo.d.ts",
+        "default": "./dist/cjs/serialized-memo.js"
+      }
+    },
+    "./simple-string-hash": {
+      "import": {
+        "types": "./dist/es/simple-string-hash.d.mts",
+        "default": "./dist/es/simple-string-hash.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/simple-string-hash.d.ts",
+        "default": "./dist/cjs/simple-string-hash.js"
+      }
+    },
     "./retrie": {
       "import": {
         "types": "./dist/es/retrie.d.mts",
@@ -249,14 +289,14 @@
         "default": "./dist/cjs/retrie.js"
       }
     },
-    "./serialized-memo": {
+    "./text-line-stream": {
       "import": {
-        "types": "./dist/es/serialized-memo.d.mts",
-        "default": "./dist/es/serialized-memo.mjs"
+        "types": "./dist/es/text-line-stream.d.mts",
+        "default": "./dist/es/text-line-stream.mjs"
       },
       "require": {
-        "types": "./dist/cjs/serialized-memo.d.ts",
-        "default": "./dist/cjs/serialized-memo.js"
+        "types": "./dist/cjs/text-line-stream.d.ts",
+        "default": "./dist/cjs/text-line-stream.js"
       }
     },
     "./tagged": {
@@ -279,36 +319,6 @@
         "default": "./dist/cjs/wait.js"
       }
     },
-    "./text-line-stream": {
-      "import": {
-        "types": "./dist/es/text-line-stream.d.mts",
-        "default": "./dist/es/text-line-stream.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/text-line-stream.d.ts",
-        "default": "./dist/cjs/text-line-stream.js"
-      }
-    },
-    "./simple-string-hash": {
-      "import": {
-        "types": "./dist/es/simple-string-hash.d.mts",
-        "default": "./dist/es/simple-string-hash.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/simple-string-hash.d.ts",
-        "default": "./dist/cjs/simple-string-hash.js"
-      }
-    },
-    "./append-array-in-place": {
-      "import": {
-        "types": "./dist/es/append-array-in-place.d.mts",
-        "default": "./dist/es/append-array-in-place.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/append-array-in-place.d.ts",
-        "default": "./dist/cjs/append-array-in-place.js"
-      }
-    },
     "./string-join": {
       "import": {
         "types": "./dist/es/string-join.d.mts",
@@ -318,8 +328,7 @@
         "types": "./dist/cjs/string-join.d.ts",
         "default": "./dist/cjs/string-join.js"
       }
-    },
-    "./compare-source": {}
+    }
   },
   "sideEffects": false,
   "scripts": {
