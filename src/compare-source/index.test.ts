@@ -1,5 +1,5 @@
 import { expect } from 'expect';
-import { compareSource, createCompareSource } from '.';
+import { compareSource, createCompareSource, fileEqualWithCommentComparator } from '.';
 
 // eslint-disable-next-line @typescript-eslint/require-await -- async iterable
 async function *createSource<T>(input: T[]) {
@@ -10,27 +10,7 @@ async function *createSource<T>(input: T[]) {
 
 describe('compareSource', () => {
   describe('old fileEqual test', () => {
-    const fileEqual = createCompareSource((lineA: string, lineB: string) => {
-      if (lineA.length === 0) {
-        return lineB.length === 0;
-      }
-
-      const aFirstChar = lineA.charCodeAt(0);
-      if (aFirstChar !== lineB.charCodeAt(0)) {
-        return false;
-      }
-
-      // Now both line has the same first char
-      // We only need to compare one of them
-      if (
-        aFirstChar === 35 // #
-        || aFirstChar === 33 // !
-      ) {
-        return true;
-      }
-
-      return lineA === lineB;
-    });
+    const fileEqual = createCompareSource(fileEqualWithCommentComparator);
 
     async function test(a: string[], b: string[], expected: boolean) {
       expect((await fileEqual(a, createSource(b)))).toBe(expected);

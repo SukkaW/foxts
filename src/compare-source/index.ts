@@ -62,3 +62,25 @@ export async function compareSource<T>(
 ) {
   return createCompareSource(callback)(source, target);
 }
+
+export function fileEqualWithCommentComparator(lineA: string, lineB: string) {
+  if (lineA.length === 0) {
+    return lineB.length === 0;
+  }
+
+  const aFirstChar = lineA.codePointAt(0);
+  if (aFirstChar !== lineB.codePointAt(0)) {
+    return false;
+  }
+
+  // Now both line has the same first char
+  // We only need to compare one of them
+  if (
+    aFirstChar === 35 // #
+    || aFirstChar === 33 // !
+  ) {
+    return true;
+  }
+
+  return lineA === lineB;
+}
