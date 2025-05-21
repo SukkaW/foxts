@@ -1,5 +1,5 @@
 /**
- * A 65% faster join than the native `Array.prototype.join` for string arrays and string separator.
+ * A 200% faster join than the native `Array.prototype.join` for string arrays and string separator.
  */
 export function fastStringArrayJoin(arr: string[], sep: string) {
   const len = arr.length;
