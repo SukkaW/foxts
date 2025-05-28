@@ -8,6 +8,7 @@ import { escapeHTML as hexoUtilEscapeHtml } from 'hexo-util';
 import { escape as htmlEscaper } from 'html-escaper';
 import { htmlEscape as escapeGoat } from 'escape-goat';
 import lodashEscape from 'lodash.escape';
+import { escapeHTML as escapeHTMLRs } from '@napi-rs/escape';
 
 (async () => {
   const { bench, group, run } = await import('mitata');
@@ -18,7 +19,8 @@ import lodashEscape from 'lodash.escape';
     ['hexo-util', hexoUtilEscapeHtml],
     ['html-escaper', htmlEscaper],
     ['escape-goat', escapeGoat],
-    ['lodash.escape', lodashEscape]
+    ['lodash.escape', lodashEscape],
+    ['@napi-rs/escape', escapeHTMLRs]
   ] as const;
 
   group('skk.moe', () => {
