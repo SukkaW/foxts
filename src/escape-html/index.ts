@@ -2,7 +2,7 @@ const reHtmlEntity = /["&'<>]/;
 export function escapeHTML(str: string) {
   const match = reHtmlEntity.exec(str);
 
-  if (match === null) {
+  if (match === null) { // faster than !match since no type conversion
     return str;
   }
 
@@ -11,9 +11,10 @@ export function escapeHTML(str: string) {
 
   let index = match.index;
   let lastIndex = 0;
+  const len = str.length;
 
   // iterate from the first match
-  for (const len = str.length; index < len; index++) {
+  for (; index < len; index++) {
     switch (str.charCodeAt(index)) {
       case 34: // "
         escape = '&quot;';
@@ -37,12 +38,14 @@ export function escapeHTML(str: string) {
     if (lastIndex !== index) {
       html += str.slice(lastIndex, index);
     }
+    html += escape;
 
     lastIndex = index + 1;
-    html += escape;
   }
 
-  return lastIndex === index
-    ? html
-    : html + str.slice(lastIndex, index);
+  if (lastIndex !== index) {
+    html += str.slice(lastIndex, index);
+  }
+
+  return html;
 }
