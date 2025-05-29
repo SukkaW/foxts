@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      fast-escape-html:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@eslint-sukka/node':
         specifier: ^6.20.0
@@ -1475,6 +1479,9 @@ packages:
 
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+
+  fast-escape-html@1.0.0:
+    resolution: {integrity: sha512-f5flzdfLAWKlW2hJAHFh2iyMhTlX6tEMaBuRXwvSKtyYEqv9OR0y7mJz6tHs3CDB2opBU5hTWpm9AROhfWTK7A==}
 
   fast-glob@3.3.3:
     resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
@@ -3848,6 +3855,8 @@ snapshots:
   exsolve@1.0.5: {}
 
   fast-deep-equal@3.1.3: {}
+
+  fast-escape-html@1.0.0: {}
 
   fast-glob@3.3.3:
     dependencies:

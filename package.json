@@ -348,6 +348,9 @@
   ],
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
+  "dependencies": {
+    "fast-escape-html": "^1.0.0"
+  },
   "devDependencies": {
     "@eslint-sukka/node": "^6.20.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
