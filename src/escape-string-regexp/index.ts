@@ -79,7 +79,9 @@ export function escapeStringRegexp(str: string) {
     regexp += escape;
   }
 
-  return lastIndex === index
-    ? regexp
-    : regexp + str.slice(lastIndex, index);
+  if (lastIndex !== index) {
+    regexp += str.slice(lastIndex, index);
+  }
+
+  return regexp;
 };

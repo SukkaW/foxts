@@ -24,9 +24,6 @@ importers:
       '@monyone/aho-corasick':
         specifier: ^1.0.4
         version: 1.0.4
-      '@napi-rs/escape':
-        specifier: ^1.0.1
-        version: 1.0.1
       '@package-json/types':
         specifier: ^0.0.11
         version: 0.0.11
@@ -36,18 +33,9 @@ importers:
       '@swc/core':
         specifier: ^1.11.29
         version: 1.11.29(@swc/helpers@0.5.15)
-      '@types/escape-html':
-        specifier: ^1.0.4
-        version: 1.0.4
       '@types/escape-regexp':
         specifier: ^0.0.3
         version: 0.0.3
-      '@types/html-escaper':
-        specifier: ^3.0.4
-        version: 3.0.4
-      '@types/lodash.escape':
-        specifier: ^4.0.9
-        version: 4.0.9
       '@types/lodash.escaperegexp':
         specifier: ^4.1.9
         version: 4.1.9
@@ -72,12 +60,6 @@ importers:
       devalue:
         specifier: ^5.1.1
         version: 5.1.1
-      escape-goat:
-        specifier: ^3.0.0
-        version: 3.0.0
-      escape-html:
-        specifier: ^1.0.3
-        version: 1.0.3
       escape-regexp:
         specifier: ^0.0.1
         version: 0.0.1
@@ -105,12 +87,6 @@ importers:
       hexo-util:
         specifier: ^3.3.0
         version: 3.3.0
-      html-escaper:
-        specifier: 2.0.2
-        version: 2.0.2
-      lodash.escape:
-        specifier: ^4.0.1
-        version: 4.0.1
       lodash.escaperegexp:
         specifier: ^4.1.2
         version: 4.1.2
@@ -340,88 +316,6 @@ packages:
 
   '@monyone/aho-corasick@1.0.4':
     resolution: {integrity: sha512-e0BaPN1RE/eGXjXT/bwu8AAJtOnFxEKh/nDNnDixleD9N8citOKS4GBeGhxIP4OjFSnq6sQxRtb+RYBoYn1msg==}
-
-  '@napi-rs/escape-android-arm-eabi@1.0.1':
-    resolution: {integrity: sha512-sWNT0ommlBeJLVfv9gzCPq6uDl3pcyAXtN5D944x59QwHqzyCXXNfSueJlY1gCe07iLXUa9U9Ab1ILagQn7M3g==}
-    engines: {node: '>= 10'}
-    cpu: [arm]
-    os: [android]
-
-  '@napi-rs/escape-android-arm64@1.0.1':
-    resolution: {integrity: sha512-OVwmGYB93JixgAaFthR5r5jsFFVMImmNkW6ar4/CGCxWr4ZYf8n/w2W65NA8u2/umJk3+uMcg12veEZ1mGlmMg==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [android]
-
-  '@napi-rs/escape-darwin-arm64@1.0.1':
-    resolution: {integrity: sha512-g03Aj3D+k5xK4qd6xL0Mlm+XusySdNbIUfe2rnvwic8oDojW987IJDUJ1FMn/6mtZgjLL2HCyNV7X3RuBFyF8A==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@napi-rs/escape-darwin-x64@1.0.1':
-    resolution: {integrity: sha512-+2Gz711xXZVDvEKX+mF3HC8f7BYmW4eCYl7yRC8XnJbUCYH6EVpmKf9ZfbIMXx8Ty6mjxS0cDHHPg061qQwN8w==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [darwin]
-
-  '@napi-rs/escape-freebsd-x64@1.0.1':
-    resolution: {integrity: sha512-RTrglP3OV8iYr9gPdka9kdxrnPtc/ie8lnHWIJ8Wixn6c22o9TtZEHeFFkyhXxMj19c8ZKd5nDybYtK7gjq8zw==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [freebsd]
-
-  '@napi-rs/escape-linux-arm-gnueabihf@1.0.1':
-    resolution: {integrity: sha512-ukvN620DtCYl57eyu5MruMltF7q8VnGB+2AI16Zvme8Yy2h6WzWP6KpSHwu+dwE2bF3XksVsWwvFdhTQvoSUJQ==}
-    engines: {node: '>= 10'}
-    cpu: [arm]
-    os: [linux]
-
-  '@napi-rs/escape-linux-arm64-gnu@1.0.1':
-    resolution: {integrity: sha512-iqco0eTbDcF6OapQdHN6jVDhu6MRH0LWBcBIGwbYQf8Zs85OWDWEJLaefuCzygovrCkXoUTULadxfaOJ3Z3GFA==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-
-  '@napi-rs/escape-linux-arm64-musl@1.0.1':
-    resolution: {integrity: sha512-gcwkXtbm4X3eTfxivXpMdi5sMJ/BAyvvkaIBYb46sNwnruKtTda+9SC+w13oxkW3u0BiszgyOSF1qfEstHDsOA==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-
-  '@napi-rs/escape-linux-x64-gnu@1.0.1':
-    resolution: {integrity: sha512-ttsNScHLuU+r4sA2QKeIMtdg2tbRsM1JljKApNw0p3BagVgITw7DUbFQRHEmkJmNpe/9K1RMQwvvNPAFM3+NtA==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-
-  '@napi-rs/escape-linux-x64-musl@1.0.1':
-    resolution: {integrity: sha512-g3TdOmZwjRkiCwO5i5uzz5KADCx9GpZD6+QhIeMzy6MyyiPztzNzqF3HNCWfr+mIMWSRtvMgyIuUn7UoSwYalw==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-
-  '@napi-rs/escape-win32-arm64-msvc@1.0.1':
-    resolution: {integrity: sha512-9yHF3X49dz2gcfb+Bg3RRy3VTSlagmKhrsgm1NGXwkJXy8UoLugA/Z0Cz8pTcQs8NRvOYAqDvwDQHip4ex9Axw==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [win32]
-
-  '@napi-rs/escape-win32-ia32-msvc@1.0.1':
-    resolution: {integrity: sha512-eXbvYVhppYK2z5OFNkre0TQs48J8ZNdWjwprW88rSjIYW3u4TPW5O4/VedP+P8FVzG8BNAm3deh/XyGIKKgm8g==}
-    engines: {node: '>= 10'}
-    cpu: [ia32]
-    os: [win32]
-
-  '@napi-rs/escape-win32-x64-msvc@1.0.1':
-    resolution: {integrity: sha512-kXmadO7186tNfvRxWntBNOlfjhfwUh4rV4cLMBD7cliwtTsGT+KOmUdjy8i2rLdz2nZp6kd25v/GxbxNX1IwiQ==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [win32]
-
-  '@napi-rs/escape@1.0.1':
-    resolution: {integrity: sha512-8PbOOV2paE/8Te11k5JXH6Z4o8jJrUVu8p5wdFBxj7da+RsSb5HW2K3Y4Zn8ynSG+w2mlrB9xUMbCUe7uLHJHw==}
-    engines: {node: '>= 10'}
 
   '@napi-rs/wasm-runtime@0.2.9':
     resolution: {integrity: sha512-OKRBiajrrxB9ATokgEQoG87Z25c67pCpYcCwmXYX8PBftC9pBfN18gnm/fh1wurSLEKIAt+QRFLFCQISrb66Jg==}
@@ -766,17 +660,11 @@ packages:
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
 
-  '@types/escape-html@1.0.4':
-    resolution: {integrity: sha512-qZ72SFTgUAZ5a7Tj6kf2SHLetiH5S6f8G5frB2SPQ3EyF02kxdyBFf4Tz4banE3xCgGnKgWLt//a6VuYHKYJTg==}
-
   '@types/escape-regexp@0.0.3':
     resolution: {integrity: sha512-FQMYUxaf1dVeWLUzJFSvfdDugfOpDyM13p67QfyMdagxSkBa689opkr/q9uR/VWyrWrl0jAyQaSPKxX9MpAXFw==}
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
-
-  '@types/html-escaper@3.0.4':
-    resolution: {integrity: sha512-UKSaMPMXXKnq1jDj74seVikfdq5pWvoXcIgOUbwYzHuAEGiv8/juom1i/MsWBF8boFSI0uHQCSZauzr5OYnnJA==}
 
   '@types/istanbul-lib-coverage@2.0.6':
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
@@ -789,9 +677,6 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
-
-  '@types/lodash.escape@4.0.9':
-    resolution: {integrity: sha512-YR9R6RU9D36OWrhVZ+r4fY8mMXQtofnLXAcE6CkKIxdH66uiCdEjkhxx/eiJnYpxjOFmPbWBUUvdv8lckO823Q==}
 
   '@types/lodash.escaperegexp@4.1.9':
     resolution: {integrity: sha512-CMQc8v16YzhnPZnMhYQuJUksI8BmL1jy/lHJkiXi4/t24Lx7Qvy7qxew1abrDJGa1T2i0NzLLaR27NK1/qp5Ow==}
@@ -1324,13 +1209,6 @@ packages:
   escalade@3.2.0:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
     engines: {node: '>=6'}
-
-  escape-goat@3.0.0:
-    resolution: {integrity: sha512-w3PwNZJwRxlp47QGzhuEBldEqVHHhh8/tIPcl6ecf2Bou99cdAt0knihBV0Ecc7CGxYduXVBDheH1K2oADRlvw==}
-    engines: {node: '>=10'}
-
-  escape-html@1.0.3:
-    resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
 
   escape-regexp@0.0.1:
     resolution: {integrity: sha512-jVgdsYRa7RKxTT6MKNC3gdT+BF0Gfhpel19+HMRZJC2L0PufB0XOBuXBoXj29NKHwuktnAXd1Z1lyiH/8vOTpw==}
@@ -1913,9 +1791,6 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
-
-  lodash.escape@4.0.1:
-    resolution: {integrity: sha512-nXEOnb/jK9g0DYMr1/Xvq6l5xMD7GDG55+GSYIYmS0G4tBk/hURD4JR9WCavs04t33WmJx9kCyp9vJ+mr4BOUw==}
 
   lodash.escaperegexp@4.1.2:
     resolution: {integrity: sha512-TM9YBvyC84ZxE3rgfefxUWiQKLilstD6k7PTGt6wfbtXF8ixIJLOL3VYyV/z+ZiPLsVxAsKAFVwWlWeb2Y8Yyw==}
@@ -2816,61 +2691,6 @@ snapshots:
 
   '@monyone/aho-corasick@1.0.4': {}
 
-  '@napi-rs/escape-android-arm-eabi@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-android-arm64@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-darwin-arm64@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-darwin-x64@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-freebsd-x64@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-linux-arm-gnueabihf@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-linux-arm64-gnu@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-linux-arm64-musl@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-linux-x64-gnu@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-linux-x64-musl@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-win32-arm64-msvc@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-win32-ia32-msvc@1.0.1':
-    optional: true
-
-  '@napi-rs/escape-win32-x64-msvc@1.0.1':
-    optional: true
-
-  '@napi-rs/escape@1.0.1':
-    optionalDependencies:
-      '@napi-rs/escape-android-arm-eabi': 1.0.1
-      '@napi-rs/escape-android-arm64': 1.0.1
-      '@napi-rs/escape-darwin-arm64': 1.0.1
-      '@napi-rs/escape-darwin-x64': 1.0.1
-      '@napi-rs/escape-freebsd-x64': 1.0.1
-      '@napi-rs/escape-linux-arm-gnueabihf': 1.0.1
-      '@napi-rs/escape-linux-arm64-gnu': 1.0.1
-      '@napi-rs/escape-linux-arm64-musl': 1.0.1
-      '@napi-rs/escape-linux-x64-gnu': 1.0.1
-      '@napi-rs/escape-linux-x64-musl': 1.0.1
-      '@napi-rs/escape-win32-arm64-msvc': 1.0.1
-      '@napi-rs/escape-win32-ia32-msvc': 1.0.1
-      '@napi-rs/escape-win32-x64-msvc': 1.0.1
-
   '@napi-rs/wasm-runtime@0.2.9':
     dependencies:
       '@emnapi/core': 1.4.3
@@ -3144,13 +2964,9 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@types/escape-html@1.0.4': {}
-
   '@types/escape-regexp@0.0.3': {}
 
   '@types/estree@1.0.7': {}
-
-  '@types/html-escaper@3.0.4': {}
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -3163,10 +2979,6 @@ snapshots:
       '@types/istanbul-lib-report': 3.0.3
 
   '@types/json-schema@7.0.15': {}
-
-  '@types/lodash.escape@4.0.9':
-    dependencies:
-      '@types/lodash': 4.17.16
 
   '@types/lodash.escaperegexp@4.1.9':
     dependencies:
@@ -3689,10 +3501,6 @@ snapshots:
   es6-error@4.1.1: {}
 
   escalade@3.2.0: {}
-
-  escape-goat@3.0.0: {}
-
-  escape-html@1.0.3: {}
 
   escape-regexp@0.0.1: {}
 
@@ -4354,8 +4162,6 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
-
-  lodash.escape@4.0.1: {}
 
   lodash.escaperegexp@4.1.2: {}
 
