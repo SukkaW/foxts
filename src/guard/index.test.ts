@@ -75,36 +75,36 @@ describe('guard', () => {
   });
 
   it('invalid argument', () => {
-    expect(() => not('invalid' as any)).toThrowError('Unexpected argument');
-    expect(() => is('invalid' as any)).toThrowError('Unexpected argument');
+    expect(() => not('invalid' as any)).toThrow('Unexpected argument');
+    expect(() => is('invalid' as any)).toThrow('Unexpected argument');
   });
 
   it('nullthrow', () => {
-    expect(() => nullthrow(null)).toThrowError();
-    expect(() => nullthrow(undefined)).toThrowError();
+    expect(() => nullthrow(null)).toThrow();
+    expect(() => nullthrow(undefined)).toThrow();
     expect(nullthrow(0)).toBe(0);
     expect(nullthrow('')).toBe('');
     expect(nullthrow(false)).toBe(false);
     expect(nullthrow(true)).toBe(true);
-    expect(() => nullthrow(null, 'a')).toThrowError('a');
+    expect(() => nullthrow(null, 'a')).toThrow('a');
   });
 
   it('invariant', () => {
-    expect(() => nullthrow(null)).toThrowError();
-    expect(() => nullthrow(undefined)).toThrowError();
+    expect(() => nullthrow(null)).toThrow();
+    expect(() => nullthrow(undefined)).toThrow();
     expect(invariant(0)).toBe(undefined);
     expect(invariant('')).toBe(undefined);
     expect(invariant(false)).toBe(undefined);
     expect(invariant(true)).toBe(undefined);
-    expect(() => invariant(null, 'a')).toThrowError('a');
+    expect(() => invariant(null, 'a')).toThrow('a');
   });
 
   it('never', () => {
-    expect(() => never(null as never)).toThrowError();
-    expect(() => never(undefined as never)).toThrowError();
-    expect(() => never(0 as never)).toThrowError();
-    expect(() => never('' as never)).toThrowError();
-    expect(() => never(false as never)).toThrowError();
-    expect(() => never(true as never)).toThrowError();
+    expect(() => never(null as never)).toThrow();
+    expect(() => never(undefined as never)).toThrow();
+    expect(() => never(0 as never)).toThrow();
+    expect(() => never('' as never)).toThrow();
+    expect(() => never(false as never)).toThrow();
+    expect(() => never(true as never)).toThrow();
   });
 });

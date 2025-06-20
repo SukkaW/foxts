@@ -21,7 +21,7 @@ describe('wait', () => {
 
   it('sleepWithAbort #1', async () => {
     const abortController = new AbortController();
-    const p = expect(waitWithAbort(1000, abortController.signal)).rejects.toThrowError('aborted');
+    const p = expect(waitWithAbort(1000, abortController.signal)).rejects.toThrow('aborted');
     abortController.abort();
     clock.runAll();
     await p;
@@ -31,7 +31,7 @@ describe('wait', () => {
     const abortController = new AbortController();
     abortController.abort();
 
-    const p = expect(waitWithAbort(1000, abortController.signal)).rejects.toThrowError('aborted');
+    const p = expect(waitWithAbort(1000, abortController.signal)).rejects.toThrow('aborted');
     clock.runAll();
     await p;
   });
