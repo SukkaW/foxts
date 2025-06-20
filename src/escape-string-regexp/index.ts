@@ -1,10 +1,17 @@
-const r = /[$()*+.?[\\\]^{|}-]/;
+const rR = /[$()*+.?[\\\]^{|}]/;
+const rU = /[$()*+.?[\\\]^{|}-]/;
 
 /**
  * Escape characters with special meaning either inside or outside character sets.
  * Use a simple backslash escape when it’s always valid, and a `\xnn` escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
+ *
+ * When the `unicodeMode` is `true` (default), the `-` character is escaped as `\x2d` to ensure compatibility with Unicode patterns, PCRE, and MongoDB.
+ *
+ * You should disable this option if you are using JavaScript regular expressions without the `u` flag.
  */
-export function escapeStringRegexp(str: string) {
+export function escapeStringRegexp(str: string, unicodeMode = true) {
+  const r = unicodeMode ? rU : rR;
+
   const match = r.exec(str);
 
   if (match === null) {
@@ -64,7 +71,7 @@ export function escapeStringRegexp(str: string) {
         escape = '\\|';
         break;
       case 45: // -
-        escape = '\\x2d';
+        escape = unicodeMode ? '\\x2d' : '-';
         break;
       default:
         continue;
