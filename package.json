@@ -328,6 +328,16 @@
         "types": "./dist/cjs/string-join.d.ts",
         "default": "./dist/cjs/string-join.js"
       }
+    },
+    "./fast-ip-version": {
+      "import": {
+        "types": "./dist/es/fast-ip-version.d.mts",
+        "default": "./dist/es/fast-ip-version.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/fast-ip-version.d.ts",
+        "default": "./dist/cjs/fast-ip-version.js"
+      }
     }
   },
   "sideEffects": false,
