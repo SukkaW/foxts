@@ -19,4 +19,9 @@ describe('merge-headers', () => {
     expect(mergeHeaders({ a: '1' }, null)).toStrictEqual(new Headers({ a: '1' }));
     expect(mergeHeaders(null, null)).toStrictEqual(new Headers());
   });
+
+  it('filter headers', () => {
+    expect(mergeHeaders({ a: '1', b: '2' }, { b: '3', c: '4' }, ['b'])).toStrictEqual(new Headers({ a: '1', b: '3' }));
+    expect(mergeHeaders({ a: '1', b: '2' }, { b: '3', c: '4' }, (headerName) => headerName === 'b')).toStrictEqual(new Headers({ a: '1', b: '3' }));
+  });
 });

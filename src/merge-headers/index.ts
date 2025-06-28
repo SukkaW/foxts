@@ -2,7 +2,15 @@ export type HeadersInitLike = string[][] | Record<string, string | readonly stri
 export type IncomingHttpHeadersLike = Record<string, string | string[] | undefined> | undefined | null;
 export type OutgoingHttpHeadersLike = Record<string, number | string | string[] | undefined> | undefined | null;
 
-export function mergeHeaders(dest: HeadersInitLike, source: HeadersInitLike): Headers {
+export function mergeHeaders(
+  dest: HeadersInitLike, source: HeadersInitLike,
+  /**
+   * Filter function to determine which headers from source to merge.
+   *
+   * Can be an array/iterable of header names to include, or a filter callback that takes a header name.
+   */
+  sourceFilter: Iterable<string> | null | undefined | ((headerName: string) => boolean) = null
+): Headers {
   if (dest == null) {
     return source == null ? new Headers() : new Headers(source);
   }
@@ -13,8 +21,24 @@ export function mergeHeaders(dest: HeadersInitLike, source: HeadersInitLike): He
   const destHeaders = new Headers(dest);
   const sourceHeaders = new Headers(source);
 
+  if (sourceFilter == null) {
+    // fast path
+    sourceHeaders.forEach((value: string, key: string) => {
+      destHeaders.set(key, value);
+    });
+
+    return destHeaders;
+  }
+
+  if (typeof sourceFilter !== 'function') {
+    const keys = new Set<string>(sourceFilter);
+    sourceFilter = (headerName: string) => keys.has(headerName);
+  }
+
   sourceHeaders.forEach((value: string, key: string) => {
-    destHeaders.set(key, value);
+    if (sourceFilter(key)) {
+      destHeaders.set(key, value);
+    }
   });
 
   return destHeaders;
