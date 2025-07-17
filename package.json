@@ -338,6 +338,16 @@
         "types": "./dist/cjs/fast-ip-version.d.ts",
         "default": "./dist/cjs/fast-ip-version.js"
       }
+    },
+    "./shuffle-array": {
+      "import": {
+        "types": "./dist/es/shuffle-array.d.mts",
+        "default": "./dist/es/shuffle-array.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/shuffle-array.d.ts",
+        "default": "./dist/cjs/shuffle-array.js"
+      }
     }
   },
   "sideEffects": false,
