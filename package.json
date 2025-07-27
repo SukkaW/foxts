@@ -212,6 +212,12 @@
       "import": "./dist/shuffle-array.mjs",
       "require": "./dist/shuffle-array.js",
       "default": "./dist/shuffle-array.js"
+    },
+    "./available-parallelism": {
+      "types": "./dist/available-parallelism.d.ts",
+      "import": "./dist/available-parallelism.mjs",
+      "require": "./dist/available-parallelism.js",
+      "default": "./dist/available-parallelism.js"
     }
   },
   "sideEffects": false,
