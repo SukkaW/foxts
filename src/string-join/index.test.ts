@@ -6,8 +6,9 @@ describe('string-join', () => {
   it('should work', () => {
     expect(stringJoin([])).toBe('');
     expect(stringJoin([null, '1'], ' ')).toBe('1');
-    expect(stringJoin([undefined, '1', '2'], ' ')).toBe('1 2');
+    expect(stringJoin([undefined, '2', '3'], ' ')).toBe('2 3');
     expect(stringJoin(['1', '2'])).toBe('1,2');
+    expect(stringJoin(['1', '2', undefined, undefined])).toBe('1,2');
   });
 
   it('dedupe', () => {

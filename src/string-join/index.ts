@@ -1,5 +1,7 @@
 export function stringJoin(arr: Array<string | null | undefined | false | 0>, sep = ',', dedupe = false): string {
-  if (arr.length === 0) {
+  const len = arr.length;
+
+  if (len === 0) {
     return '';
   }
 
@@ -7,22 +9,22 @@ export function stringJoin(arr: Array<string | null | undefined | false | 0>, se
     arr = Array.from(new Set(arr));
   }
 
-  const len = arr.length;
-
   let result = '';
-  let item;
 
-  for (let i = 0; i < len - 1; i++) {
+  let sep_flag = false;
+  let item: string | null | undefined | false | 0;
+
+  for (let i = 0; i < len; i++) {
     item = arr[i];
-    if (item) {
-      result += item;
-      result += sep;
-    }
-  }
 
-  item = arr[len - 1];
-  if (item) {
-    result += item;
+    if (item) {
+      if (sep_flag) {
+        result += sep;
+      } else {
+        sep_flag = true;
+      }
+      result += item;
+    }
   }
 
   return result;
