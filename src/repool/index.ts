@@ -11,7 +11,7 @@ export class Repool<T extends Reusifiable> {
   private head: T;
   private tail: T;
 
-  constructor(private createObject: () => T) {
+  constructor(private readonly createObject: () => T) {
     const obj = createObject();
     this.tail = obj;
     this.head = obj;
