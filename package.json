@@ -218,6 +218,12 @@
       "import": "./dist/available-parallelism.mjs",
       "require": "./dist/available-parallelism.js",
       "default": "./dist/available-parallelism.js"
+    },
+    "./chunk": {
+      "types": "./dist/chunk.d.ts",
+      "import": "./dist/chunk.mjs",
+      "require": "./dist/chunk.js",
+      "default": "./dist/chunk.js"
     }
   },
   "sideEffects": false,
