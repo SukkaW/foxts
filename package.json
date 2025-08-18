@@ -229,7 +229,7 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --format=sukka .",
-    "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_PROJECT=tsconfig.test-swc.json nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
+    "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_INLINE_SOURCE_MAP=1 nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
     "prebuild": "bunchee prepare && node -r @swc-node/register ./tools/index.ts",
@@ -254,10 +254,10 @@
     "@mitata/counters": "^0.0.8",
     "@monyone/aho-corasick": "^1.0.4",
     "@package-json/types": "^0.0.11",
-    "@swc-node/register": "^1.10.10",
+    "@swc-node/register": "^1.11.1",
     "@swc/core": "^1.13.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.17.1",
+    "@types/node": "^22.17.2",
     "@types/sinon": "^17.0.4",
     "bumpp": "^10.2.3",
     "bunchee": "^6.6.0",
@@ -267,7 +267,7 @@
     "eslint-formatter-sukka": "^6.23.1",
     "expect": "^30.0.5",
     "fastscan": "^1.0.6",
-    "fdir": "^6.4.6",
+    "fdir": "^6.5.0",
     "mitata": "^1.0.34",
     "mocha": "^11.7.1",
     "modern-ahocorasick": "^2.0.4",
@@ -276,8 +276,12 @@
   },
   "packageManager": "pnpm@10.14.0",
   "pnpm": {
+    "overrides": {
+      "eslint>chalk": "npm:picocolors@^1.1.1"
+    },
     "onlyBuiltDependencies": [
       "@swc/core",
+      "oxc-resolver",
       "unrs-resolver"
     ]
   }
