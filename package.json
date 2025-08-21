@@ -224,6 +224,12 @@
       "import": "./dist/chunk.mjs",
       "require": "./dist/chunk.js",
       "default": "./dist/chunk.js"
+    },
+    "./extract-error-message": {
+      "types": "./dist/extract-error-message.d.ts",
+      "import": "./dist/extract-error-message.mjs",
+      "require": "./dist/extract-error-message.js",
+      "default": "./dist/extract-error-message.js"
     }
   },
   "sideEffects": false,
