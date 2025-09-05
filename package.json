@@ -230,6 +230,24 @@
       "import": "./dist/extract-error-message.mjs",
       "require": "./dist/extract-error-message.js",
       "default": "./dist/extract-error-message.js"
+    },
+    "./lazy-value": {
+      "types": "./dist/lazy-value.d.ts",
+      "import": "./dist/lazy-value.mjs",
+      "require": "./dist/lazy-value.js",
+      "default": "./dist/lazy-value.js"
+    },
+    "./lazy-promise": {
+      "types": "./dist/lazy-promise.d.ts",
+      "import": "./dist/lazy-promise.mjs",
+      "require": "./dist/lazy-promise.js",
+      "default": "./dist/lazy-promise.js"
+    },
+    "./define-lazy-property": {
+      "types": "./dist/define-lazy-property.d.ts",
+      "import": "./dist/define-lazy-property.mjs",
+      "require": "./dist/define-lazy-property.js",
+      "default": "./dist/define-lazy-property.js"
     }
   },
   "sideEffects": false,

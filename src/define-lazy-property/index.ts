@@ -1,10 +1,3 @@
-import { once } from '../once';
-
-export type LazyValue<T> = () => Readonly<T>;
-type LazyFn = <T>(cb: () => T) => LazyValue<T>;
-
-export const lazy = once as LazyFn;
-
 export function defineLazyProperty<
   ObjectType extends Record<string, any>,
   PropertyNameType extends string,
