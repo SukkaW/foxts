@@ -1,7 +1,7 @@
 export function emptyNodeLegacy(node: Node) {
   while (node.firstChild) { // get first child is always faster
     // remove last child is way faster (pop always faster than shift)
-    node.removeChild(node.lastChild as ChildNode);
+    node.removeChild(node.lastChild!);
   }
 }
 
