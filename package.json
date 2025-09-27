@@ -248,6 +248,12 @@
       "import": "./dist/define-lazy-property.mjs",
       "require": "./dist/define-lazy-property.js",
       "default": "./dist/define-lazy-property.js"
+    },
+    "./empty-node": {
+      "types": "./dist/empty-node.d.ts",
+      "import": "./dist/empty-node.mjs",
+      "require": "./dist/empty-node.js",
+      "default": "./dist/empty-node.js"
     }
   },
   "sideEffects": false,
