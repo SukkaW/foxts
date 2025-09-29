@@ -254,6 +254,12 @@
       "import": "./dist/empty-node.mjs",
       "require": "./dist/empty-node.js",
       "default": "./dist/empty-node.js"
+    },
+    "./is-function": {
+      "types": "./dist/is-function.d.ts",
+      "import": "./dist/is-function.mjs",
+      "require": "./dist/is-function.js",
+      "default": "./dist/is-function.js"
     }
   },
   "sideEffects": false,
