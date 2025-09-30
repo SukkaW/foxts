@@ -260,6 +260,12 @@
       "import": "./dist/is-function.mjs",
       "require": "./dist/is-function.js",
       "default": "./dist/is-function.js"
+    },
+    "./uint8array-utils": {
+      "types": "./dist/uint8array-utils.d.ts",
+      "import": "./dist/uint8array-utils.mjs",
+      "require": "./dist/uint8array-utils.js",
+      "default": "./dist/uint8array-utils.js"
     }
   },
   "sideEffects": false,
