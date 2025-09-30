@@ -1,5 +1,5 @@
 export interface NodeOSLike {
-  cpus(): any[],
+  cpus(): unknown[],
   availableParallelism?: () => number
 }
 
@@ -44,14 +44,13 @@ export function availableParallelism(
   if (platform == null) {
     // no platform provided
     if (
-      // @ts-expect-error -- we didn't introduce DOM type
       // this is designed for compiler/bundler bail out
       typeof window === 'object'
       && 'navigator' in globalThis
-      && isNavigatorLike((globalThis as any).navigator)
+      && isNavigatorLike(globalThis.navigator)
     ) {
       // browser environment
-      return Promise.resolve((globalThis as any).navigator.hardwareConcurrency ?? 1);
+      return Promise.resolve(globalThis.navigator.hardwareConcurrency || 1);
     }
 
     return import('node:os') // this will fail on browser with a TypeError
