@@ -266,6 +266,12 @@
       "import": "./dist/uint8array-utils.mjs",
       "require": "./dist/uint8array-utils.js",
       "default": "./dist/uint8array-utils.js"
+    },
+    "./fast-string-compare": {
+      "types": "./dist/fast-string-compare.d.ts",
+      "import": "./dist/fast-string-compare.mjs",
+      "require": "./dist/fast-string-compare.js",
+      "default": "./dist/fast-string-compare.js"
     }
   },
   "sideEffects": false,
@@ -314,7 +320,8 @@
     "mocha": "^11.7.2",
     "modern-ahocorasick": "^2.0.4",
     "nyc": "^17.1.0",
-    "sinon": "^21.0.0"
+    "sinon": "^21.0.0",
+    "word-list": "3.0.0"
   },
   "packageManager": "pnpm@10.17.1",
   "pnpm": {
