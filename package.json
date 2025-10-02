@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "4.0.0-beta.1",
+  "version": "4.0.0-beta.2",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
@@ -11,262 +11,262 @@
   "exports": {
     "./package.json": "./package.json",
     "./add-array-elements-to-set": {
-      "types": "./dist/add-array-elements-to-set.d.ts",
-      "import": "./dist/add-array-elements-to-set.mjs",
-      "require": "./dist/add-array-elements-to-set.js",
-      "default": "./dist/add-array-elements-to-set.js"
+      "types": "./dist/add-array-elements-to-set/index.d.ts",
+      "import": "./dist/add-array-elements-to-set/index.mjs",
+      "require": "./dist/add-array-elements-to-set/index.js",
+      "default": "./dist/add-array-elements-to-set/index.js"
     },
     "./ahocorasick": {
-      "types": "./dist/ahocorasick.d.ts",
-      "import": "./dist/ahocorasick.mjs",
-      "require": "./dist/ahocorasick.js",
-      "default": "./dist/ahocorasick.js"
+      "types": "./dist/ahocorasick/index.d.ts",
+      "import": "./dist/ahocorasick/index.mjs",
+      "require": "./dist/ahocorasick/index.js",
+      "default": "./dist/ahocorasick/index.js"
     },
     "./append-array-in-place": {
-      "types": "./dist/append-array-in-place.d.ts",
-      "import": "./dist/append-array-in-place.mjs",
-      "require": "./dist/append-array-in-place.js",
-      "default": "./dist/append-array-in-place.js"
+      "types": "./dist/append-array-in-place/index.d.ts",
+      "import": "./dist/append-array-in-place/index.mjs",
+      "require": "./dist/append-array-in-place/index.js",
+      "default": "./dist/append-array-in-place/index.js"
     },
     "./append-set-elements-to-array": {
-      "types": "./dist/append-set-elements-to-array.d.ts",
-      "import": "./dist/append-set-elements-to-array.mjs",
-      "require": "./dist/append-set-elements-to-array.js",
-      "default": "./dist/append-set-elements-to-array.js"
+      "types": "./dist/append-set-elements-to-array/index.d.ts",
+      "import": "./dist/append-set-elements-to-array/index.mjs",
+      "require": "./dist/append-set-elements-to-array/index.js",
+      "default": "./dist/append-set-elements-to-array/index.js"
     },
     "./async-write-to-stream": {
-      "types": "./dist/async-write-to-stream.d.ts",
-      "import": "./dist/async-write-to-stream.mjs",
-      "require": "./dist/async-write-to-stream.js",
-      "default": "./dist/async-write-to-stream.js"
+      "types": "./dist/async-write-to-stream/index.d.ts",
+      "import": "./dist/async-write-to-stream/index.mjs",
+      "require": "./dist/async-write-to-stream/index.js",
+      "default": "./dist/async-write-to-stream/index.js"
     },
     "./available-parallelism": {
-      "types": "./dist/available-parallelism.d.ts",
-      "import": "./dist/available-parallelism.mjs",
-      "require": "./dist/available-parallelism.js",
-      "default": "./dist/available-parallelism.js"
+      "types": "./dist/available-parallelism/index.d.ts",
+      "import": "./dist/available-parallelism/index.mjs",
+      "require": "./dist/available-parallelism/index.js",
+      "default": "./dist/available-parallelism/index.js"
     },
     "./bitwise": {
-      "types": "./dist/bitwise.d.ts",
-      "import": "./dist/bitwise.mjs",
-      "require": "./dist/bitwise.js",
-      "default": "./dist/bitwise.js"
+      "types": "./dist/bitwise/index.d.ts",
+      "import": "./dist/bitwise/index.mjs",
+      "require": "./dist/bitwise/index.js",
+      "default": "./dist/bitwise/index.js"
     },
     "./chunk": {
-      "types": "./dist/chunk.d.ts",
-      "import": "./dist/chunk.mjs",
-      "require": "./dist/chunk.js",
-      "default": "./dist/chunk.js"
+      "types": "./dist/chunk/index.d.ts",
+      "import": "./dist/chunk/index.mjs",
+      "require": "./dist/chunk/index.js",
+      "default": "./dist/chunk/index.js"
     },
     "./compare-source": {
-      "types": "./dist/compare-source.d.ts",
-      "import": "./dist/compare-source.mjs",
-      "require": "./dist/compare-source.js",
-      "default": "./dist/compare-source.js"
+      "types": "./dist/compare-source/index.d.ts",
+      "import": "./dist/compare-source/index.mjs",
+      "require": "./dist/compare-source/index.js",
+      "default": "./dist/compare-source/index.js"
     },
     "./create-fixed-array": {
-      "types": "./dist/create-fixed-array.d.ts",
-      "import": "./dist/create-fixed-array.mjs",
-      "require": "./dist/create-fixed-array.js",
-      "default": "./dist/create-fixed-array.js"
+      "types": "./dist/create-fixed-array/index.d.ts",
+      "import": "./dist/create-fixed-array/index.mjs",
+      "require": "./dist/create-fixed-array/index.js",
+      "default": "./dist/create-fixed-array/index.js"
     },
     "./define-lazy-property": {
-      "types": "./dist/define-lazy-property.d.ts",
-      "import": "./dist/define-lazy-property.mjs",
-      "require": "./dist/define-lazy-property.js",
-      "default": "./dist/define-lazy-property.js"
+      "types": "./dist/define-lazy-property/index.d.ts",
+      "import": "./dist/define-lazy-property/index.mjs",
+      "require": "./dist/define-lazy-property/index.js",
+      "default": "./dist/define-lazy-property/index.js"
     },
     "./detect-eol": {
-      "types": "./dist/detect-eol.d.ts",
-      "import": "./dist/detect-eol.mjs",
-      "require": "./dist/detect-eol.js",
-      "default": "./dist/detect-eol.js"
+      "types": "./dist/detect-eol/index.d.ts",
+      "import": "./dist/detect-eol/index.mjs",
+      "require": "./dist/detect-eol/index.js",
+      "default": "./dist/detect-eol/index.js"
     },
     "./empty-node": {
-      "types": "./dist/empty-node.d.ts",
-      "import": "./dist/empty-node.mjs",
-      "require": "./dist/empty-node.js",
-      "default": "./dist/empty-node.js"
+      "types": "./dist/empty-node/index.d.ts",
+      "import": "./dist/empty-node/index.mjs",
+      "require": "./dist/empty-node/index.js",
+      "default": "./dist/empty-node/index.js"
     },
     "./escape-html": {
-      "types": "./dist/escape-html.d.ts",
-      "import": "./dist/escape-html.mjs",
-      "require": "./dist/escape-html.js",
-      "default": "./dist/escape-html.js"
+      "types": "./dist/escape-html/index.d.ts",
+      "import": "./dist/escape-html/index.mjs",
+      "require": "./dist/escape-html/index.js",
+      "default": "./dist/escape-html/index.js"
     },
     "./escape-string-regexp": {
-      "types": "./dist/escape-string-regexp.d.ts",
-      "import": "./dist/escape-string-regexp.mjs",
-      "require": "./dist/escape-string-regexp.js",
-      "default": "./dist/escape-string-regexp.js"
+      "types": "./dist/escape-string-regexp/index.d.ts",
+      "import": "./dist/escape-string-regexp/index.mjs",
+      "require": "./dist/escape-string-regexp/index.js",
+      "default": "./dist/escape-string-regexp/index.js"
     },
     "./extract-error-message": {
-      "types": "./dist/extract-error-message.d.ts",
-      "import": "./dist/extract-error-message.mjs",
-      "require": "./dist/extract-error-message.js",
-      "default": "./dist/extract-error-message.js"
+      "types": "./dist/extract-error-message/index.d.ts",
+      "import": "./dist/extract-error-message/index.mjs",
+      "require": "./dist/extract-error-message/index.js",
+      "default": "./dist/extract-error-message/index.js"
     },
     "./fast-ip-version": {
-      "types": "./dist/fast-ip-version.d.ts",
-      "import": "./dist/fast-ip-version.mjs",
-      "require": "./dist/fast-ip-version.js",
-      "default": "./dist/fast-ip-version.js"
+      "types": "./dist/fast-ip-version/index.d.ts",
+      "import": "./dist/fast-ip-version/index.mjs",
+      "require": "./dist/fast-ip-version/index.js",
+      "default": "./dist/fast-ip-version/index.js"
     },
     "./fast-string-array-join": {
-      "types": "./dist/fast-string-array-join.d.ts",
-      "import": "./dist/fast-string-array-join.mjs",
-      "require": "./dist/fast-string-array-join.js",
-      "default": "./dist/fast-string-array-join.js"
+      "types": "./dist/fast-string-array-join/index.d.ts",
+      "import": "./dist/fast-string-array-join/index.mjs",
+      "require": "./dist/fast-string-array-join/index.js",
+      "default": "./dist/fast-string-array-join/index.js"
     },
     "./fast-string-compare": {
-      "types": "./dist/fast-string-compare.d.ts",
-      "import": "./dist/fast-string-compare.mjs",
-      "require": "./dist/fast-string-compare.js",
-      "default": "./dist/fast-string-compare.js"
+      "types": "./dist/fast-string-compare/index.d.ts",
+      "import": "./dist/fast-string-compare/index.mjs",
+      "require": "./dist/fast-string-compare/index.js",
+      "default": "./dist/fast-string-compare/index.js"
     },
     "./fifo": {
-      "types": "./dist/fifo.d.ts",
-      "import": "./dist/fifo.mjs",
-      "require": "./dist/fifo.js",
-      "default": "./dist/fifo.js"
+      "types": "./dist/fifo/index.d.ts",
+      "import": "./dist/fifo/index.mjs",
+      "require": "./dist/fifo/index.js",
+      "default": "./dist/fifo/index.js"
     },
     "./fnv1a": {
-      "types": "./dist/fnv1a.d.ts",
-      "import": "./dist/fnv1a.mjs",
-      "require": "./dist/fnv1a.js",
-      "default": "./dist/fnv1a.js"
+      "types": "./dist/fnv1a/index.d.ts",
+      "import": "./dist/fnv1a/index.mjs",
+      "require": "./dist/fnv1a/index.js",
+      "default": "./dist/fnv1a/index.js"
     },
     "./fnv1a52": {
-      "types": "./dist/fnv1a52.d.ts",
-      "import": "./dist/fnv1a52.mjs",
-      "require": "./dist/fnv1a52.js",
-      "default": "./dist/fnv1a52.js"
+      "types": "./dist/fnv1a52/index.d.ts",
+      "import": "./dist/fnv1a52/index.mjs",
+      "require": "./dist/fnv1a52/index.js",
+      "default": "./dist/fnv1a52/index.js"
     },
     "./guard": {
-      "types": "./dist/guard.d.ts",
-      "import": "./dist/guard.mjs",
-      "require": "./dist/guard.js",
-      "default": "./dist/guard.js"
+      "types": "./dist/guard/index.d.ts",
+      "import": "./dist/guard/index.mjs",
+      "require": "./dist/guard/index.js",
+      "default": "./dist/guard/index.js"
     },
     "./headers-to-object": {
-      "types": "./dist/headers-to-object.d.ts",
-      "import": "./dist/headers-to-object.mjs",
-      "require": "./dist/headers-to-object.js",
-      "default": "./dist/headers-to-object.js"
+      "types": "./dist/headers-to-object/index.d.ts",
+      "import": "./dist/headers-to-object/index.mjs",
+      "require": "./dist/headers-to-object/index.js",
+      "default": "./dist/headers-to-object/index.js"
     },
     "./identity": {
-      "types": "./dist/identity.d.ts",
-      "import": "./dist/identity.mjs",
-      "require": "./dist/identity.js",
-      "default": "./dist/identity.js"
+      "types": "./dist/identity/index.d.ts",
+      "import": "./dist/identity/index.mjs",
+      "require": "./dist/identity/index.js",
+      "default": "./dist/identity/index.js"
     },
     "./is-function": {
-      "types": "./dist/is-function.d.ts",
-      "import": "./dist/is-function.mjs",
-      "require": "./dist/is-function.js",
-      "default": "./dist/is-function.js"
+      "types": "./dist/is-function/index.d.ts",
+      "import": "./dist/is-function/index.mjs",
+      "require": "./dist/is-function/index.js",
+      "default": "./dist/is-function/index.js"
     },
     "./is-probably-ip": {
-      "types": "./dist/is-probably-ip.d.ts",
-      "import": "./dist/is-probably-ip.mjs",
-      "require": "./dist/is-probably-ip.js",
-      "default": "./dist/is-probably-ip.js"
+      "types": "./dist/is-probably-ip/index.d.ts",
+      "import": "./dist/is-probably-ip/index.mjs",
+      "require": "./dist/is-probably-ip/index.js",
+      "default": "./dist/is-probably-ip/index.js"
     },
     "./lazy-promise": {
-      "types": "./dist/lazy-promise.d.ts",
-      "import": "./dist/lazy-promise.mjs",
-      "require": "./dist/lazy-promise.js",
-      "default": "./dist/lazy-promise.js"
+      "types": "./dist/lazy-promise/index.d.ts",
+      "import": "./dist/lazy-promise/index.mjs",
+      "require": "./dist/lazy-promise/index.js",
+      "default": "./dist/lazy-promise/index.js"
     },
     "./lazy-value": {
-      "types": "./dist/lazy-value.d.ts",
-      "import": "./dist/lazy-value.mjs",
-      "require": "./dist/lazy-value.js",
-      "default": "./dist/lazy-value.js"
+      "types": "./dist/lazy-value/index.d.ts",
+      "import": "./dist/lazy-value/index.mjs",
+      "require": "./dist/lazy-value/index.js",
+      "default": "./dist/lazy-value/index.js"
     },
     "./merge-headers": {
-      "types": "./dist/merge-headers.d.ts",
-      "import": "./dist/merge-headers.mjs",
-      "require": "./dist/merge-headers.js",
-      "default": "./dist/merge-headers.js"
+      "types": "./dist/merge-headers/index.d.ts",
+      "import": "./dist/merge-headers/index.mjs",
+      "require": "./dist/merge-headers/index.js",
+      "default": "./dist/merge-headers/index.js"
     },
     "./noop": {
-      "types": "./dist/noop.d.ts",
-      "import": "./dist/noop.mjs",
-      "require": "./dist/noop.js",
-      "default": "./dist/noop.js"
+      "types": "./dist/noop/index.d.ts",
+      "import": "./dist/noop/index.mjs",
+      "require": "./dist/noop/index.js",
+      "default": "./dist/noop/index.js"
     },
     "./once": {
-      "types": "./dist/once.d.ts",
-      "import": "./dist/once.mjs",
-      "require": "./dist/once.js",
-      "default": "./dist/once.js"
+      "types": "./dist/once/index.d.ts",
+      "import": "./dist/once/index.mjs",
+      "require": "./dist/once/index.js",
+      "default": "./dist/once/index.js"
     },
     "./pick-random": {
-      "types": "./dist/pick-random.d.ts",
-      "import": "./dist/pick-random.mjs",
-      "require": "./dist/pick-random.js",
-      "default": "./dist/pick-random.js"
+      "types": "./dist/pick-random/index.d.ts",
+      "import": "./dist/pick-random/index.mjs",
+      "require": "./dist/pick-random/index.js",
+      "default": "./dist/pick-random/index.js"
     },
     "./random-int": {
-      "types": "./dist/random-int.d.ts",
-      "import": "./dist/random-int.mjs",
-      "require": "./dist/random-int.js",
-      "default": "./dist/random-int.js"
+      "types": "./dist/random-int/index.d.ts",
+      "import": "./dist/random-int/index.mjs",
+      "require": "./dist/random-int/index.js",
+      "default": "./dist/random-int/index.js"
     },
     "./repool": {
-      "types": "./dist/repool.d.ts",
-      "import": "./dist/repool.mjs",
-      "require": "./dist/repool.js",
-      "default": "./dist/repool.js"
+      "types": "./dist/repool/index.d.ts",
+      "import": "./dist/repool/index.mjs",
+      "require": "./dist/repool/index.js",
+      "default": "./dist/repool/index.js"
     },
     "./retrie": {
-      "types": "./dist/retrie.d.ts",
-      "import": "./dist/retrie.mjs",
-      "require": "./dist/retrie.js",
-      "default": "./dist/retrie.js"
+      "types": "./dist/retrie/index.d.ts",
+      "import": "./dist/retrie/index.mjs",
+      "require": "./dist/retrie/index.js",
+      "default": "./dist/retrie/index.js"
     },
     "./shuffle-array": {
-      "types": "./dist/shuffle-array.d.ts",
-      "import": "./dist/shuffle-array.mjs",
-      "require": "./dist/shuffle-array.js",
-      "default": "./dist/shuffle-array.js"
+      "types": "./dist/shuffle-array/index.d.ts",
+      "import": "./dist/shuffle-array/index.mjs",
+      "require": "./dist/shuffle-array/index.js",
+      "default": "./dist/shuffle-array/index.js"
     },
     "./simple-string-hash": {
-      "types": "./dist/simple-string-hash.d.ts",
-      "import": "./dist/simple-string-hash.mjs",
-      "require": "./dist/simple-string-hash.js",
-      "default": "./dist/simple-string-hash.js"
+      "types": "./dist/simple-string-hash/index.d.ts",
+      "import": "./dist/simple-string-hash/index.mjs",
+      "require": "./dist/simple-string-hash/index.js",
+      "default": "./dist/simple-string-hash/index.js"
     },
     "./string-join": {
-      "types": "./dist/string-join.d.ts",
-      "import": "./dist/string-join.mjs",
-      "require": "./dist/string-join.js",
-      "default": "./dist/string-join.js"
+      "types": "./dist/string-join/index.d.ts",
+      "import": "./dist/string-join/index.mjs",
+      "require": "./dist/string-join/index.js",
+      "default": "./dist/string-join/index.js"
     },
     "./tagged": {
-      "types": "./dist/tagged.d.ts",
-      "import": "./dist/tagged.mjs",
-      "require": "./dist/tagged.js",
-      "default": "./dist/tagged.js"
+      "types": "./dist/tagged/index.d.ts",
+      "import": "./dist/tagged/index.mjs",
+      "require": "./dist/tagged/index.js",
+      "default": "./dist/tagged/index.js"
     },
     "./text-line-stream": {
-      "types": "./dist/text-line-stream.d.ts",
-      "import": "./dist/text-line-stream.mjs",
-      "require": "./dist/text-line-stream.js",
-      "default": "./dist/text-line-stream.js"
+      "types": "./dist/text-line-stream/index.d.ts",
+      "import": "./dist/text-line-stream/index.mjs",
+      "require": "./dist/text-line-stream/index.js",
+      "default": "./dist/text-line-stream/index.js"
     },
     "./uint8array-utils": {
-      "types": "./dist/uint8array-utils.d.ts",
-      "import": "./dist/uint8array-utils.mjs",
-      "require": "./dist/uint8array-utils.js",
-      "default": "./dist/uint8array-utils.js"
+      "types": "./dist/uint8array-utils/index.d.ts",
+      "import": "./dist/uint8array-utils/index.mjs",
+      "require": "./dist/uint8array-utils/index.js",
+      "default": "./dist/uint8array-utils/index.js"
     },
     "./wait": {
-      "types": "./dist/wait.d.ts",
-      "import": "./dist/wait.mjs",
-      "require": "./dist/wait.js",
-      "default": "./dist/wait.js"
+      "types": "./dist/wait/index.d.ts",
+      "import": "./dist/wait/index.mjs",
+      "require": "./dist/wait/index.js",
+      "default": "./dist/wait/index.js"
     }
   },
   "sideEffects": false,
