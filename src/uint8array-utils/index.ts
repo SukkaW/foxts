@@ -10,7 +10,7 @@ const singletonDecoders: Record<string, TextDecoder> = {
   utf8: new TextDecoder('utf8')
 };
 
-export function uint8ArrayToString(array: Uint8Array, encoding = 'utf8') {
+export function uint8ArrayToString(array: ArrayBuffer | ArrayBufferView, encoding = 'utf8') {
   singletonDecoders[encoding] ??= new TextDecoder(encoding);
   return singletonDecoders[encoding].decode(array);
 }
