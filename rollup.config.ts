@@ -30,10 +30,10 @@ export default defineConfig(() => {
           exports: sources.reduce<PackageJson['exports'] & {}>(
             (acc, source) => {
               acc[`./${source}`] = {
-                types: `./dist/${source}.d.ts`,
-                import: `./dist/${source}.mjs`,
-                require: `./dist/${source}.js`,
-                default: `./dist/${source}.js`
+                types: `./dist/${source}/index.d.ts`,
+                import: `./dist/${source}/index.mjs`,
+                require: `./dist/${source}/index.js`,
+                default: `./dist/${source}/index.js`
               };
 
               return acc;
