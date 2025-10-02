@@ -56,8 +56,8 @@ export default defineConfig(() => {
     defineConfig({
       input,
       output: [
-        { dir: 'dist', entryFileNames: '[name].js', format: 'cjs', sourcemap: false, compact: true },
-        { dir: 'dist', entryFileNames: '[name].mjs', format: 'esm', sourcemap: false, compact: true }
+        { dir: 'dist', entryFileNames: '[name]/index.js', format: 'cjs', sourcemap: false, compact: true },
+        { dir: 'dist', entryFileNames: '[name]/index.mjs', format: 'esm', sourcemap: false, compact: true }
       ],
       plugins: [
         swc({
@@ -80,7 +80,7 @@ export default defineConfig(() => {
     }),
     defineConfig({
       input,
-      output: { dir: 'dist', entryFileNames: '[name].d.ts' },
+      output: { dir: 'dist', entryFileNames: '[name]/index.d.ts' },
       plugins: [
         dts({ respectExternal: true })
       ],
