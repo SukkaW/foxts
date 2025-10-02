@@ -9,6 +9,7 @@
     "dist"
   ],
   "exports": {
+    "./package.json": "./package.json",
     "./add-array-elements-to-set": {
       "types": "./dist/add-array-elements-to-set.d.ts",
       "import": "./dist/add-array-elements-to-set.mjs",
@@ -33,17 +34,17 @@
       "require": "./dist/append-set-elements-to-array.js",
       "default": "./dist/append-set-elements-to-array.js"
     },
-    "./compare-source": {
-      "types": "./dist/compare-source.d.ts",
-      "import": "./dist/compare-source.mjs",
-      "require": "./dist/compare-source.js",
-      "default": "./dist/compare-source.js"
-    },
     "./async-write-to-stream": {
       "types": "./dist/async-write-to-stream.d.ts",
       "import": "./dist/async-write-to-stream.mjs",
       "require": "./dist/async-write-to-stream.js",
       "default": "./dist/async-write-to-stream.js"
+    },
+    "./available-parallelism": {
+      "types": "./dist/available-parallelism.d.ts",
+      "import": "./dist/available-parallelism.mjs",
+      "require": "./dist/available-parallelism.js",
+      "default": "./dist/available-parallelism.js"
     },
     "./bitwise": {
       "types": "./dist/bitwise.d.ts",
@@ -51,11 +52,29 @@
       "require": "./dist/bitwise.js",
       "default": "./dist/bitwise.js"
     },
+    "./chunk": {
+      "types": "./dist/chunk.d.ts",
+      "import": "./dist/chunk.mjs",
+      "require": "./dist/chunk.js",
+      "default": "./dist/chunk.js"
+    },
+    "./compare-source": {
+      "types": "./dist/compare-source.d.ts",
+      "import": "./dist/compare-source.mjs",
+      "require": "./dist/compare-source.js",
+      "default": "./dist/compare-source.js"
+    },
     "./create-fixed-array": {
       "types": "./dist/create-fixed-array.d.ts",
       "import": "./dist/create-fixed-array.mjs",
       "require": "./dist/create-fixed-array.js",
       "default": "./dist/create-fixed-array.js"
+    },
+    "./define-lazy-property": {
+      "types": "./dist/define-lazy-property.d.ts",
+      "import": "./dist/define-lazy-property.mjs",
+      "require": "./dist/define-lazy-property.js",
+      "default": "./dist/define-lazy-property.js"
     },
     "./detect-eol": {
       "types": "./dist/detect-eol.d.ts",
@@ -63,11 +82,11 @@
       "require": "./dist/detect-eol.js",
       "default": "./dist/detect-eol.js"
     },
-    "./escape-string-regexp": {
-      "types": "./dist/escape-string-regexp.d.ts",
-      "import": "./dist/escape-string-regexp.mjs",
-      "require": "./dist/escape-string-regexp.js",
-      "default": "./dist/escape-string-regexp.js"
+    "./empty-node": {
+      "types": "./dist/empty-node.d.ts",
+      "import": "./dist/empty-node.mjs",
+      "require": "./dist/empty-node.js",
+      "default": "./dist/empty-node.js"
     },
     "./escape-html": {
       "types": "./dist/escape-html.d.ts",
@@ -75,11 +94,35 @@
       "require": "./dist/escape-html.js",
       "default": "./dist/escape-html.js"
     },
+    "./escape-string-regexp": {
+      "types": "./dist/escape-string-regexp.d.ts",
+      "import": "./dist/escape-string-regexp.mjs",
+      "require": "./dist/escape-string-regexp.js",
+      "default": "./dist/escape-string-regexp.js"
+    },
+    "./extract-error-message": {
+      "types": "./dist/extract-error-message.d.ts",
+      "import": "./dist/extract-error-message.mjs",
+      "require": "./dist/extract-error-message.js",
+      "default": "./dist/extract-error-message.js"
+    },
+    "./fast-ip-version": {
+      "types": "./dist/fast-ip-version.d.ts",
+      "import": "./dist/fast-ip-version.mjs",
+      "require": "./dist/fast-ip-version.js",
+      "default": "./dist/fast-ip-version.js"
+    },
     "./fast-string-array-join": {
       "types": "./dist/fast-string-array-join.d.ts",
       "import": "./dist/fast-string-array-join.mjs",
       "require": "./dist/fast-string-array-join.js",
       "default": "./dist/fast-string-array-join.js"
+    },
+    "./fast-string-compare": {
+      "types": "./dist/fast-string-compare.d.ts",
+      "import": "./dist/fast-string-compare.mjs",
+      "require": "./dist/fast-string-compare.js",
+      "default": "./dist/fast-string-compare.js"
     },
     "./fifo": {
       "types": "./dist/fifo.d.ts",
@@ -117,11 +160,29 @@
       "require": "./dist/identity.js",
       "default": "./dist/identity.js"
     },
+    "./is-function": {
+      "types": "./dist/is-function.d.ts",
+      "import": "./dist/is-function.mjs",
+      "require": "./dist/is-function.js",
+      "default": "./dist/is-function.js"
+    },
     "./is-probably-ip": {
       "types": "./dist/is-probably-ip.d.ts",
       "import": "./dist/is-probably-ip.mjs",
       "require": "./dist/is-probably-ip.js",
       "default": "./dist/is-probably-ip.js"
+    },
+    "./lazy-promise": {
+      "types": "./dist/lazy-promise.d.ts",
+      "import": "./dist/lazy-promise.mjs",
+      "require": "./dist/lazy-promise.js",
+      "default": "./dist/lazy-promise.js"
+    },
+    "./lazy-value": {
+      "types": "./dist/lazy-value.d.ts",
+      "import": "./dist/lazy-value.mjs",
+      "require": "./dist/lazy-value.js",
+      "default": "./dist/lazy-value.js"
     },
     "./merge-headers": {
       "types": "./dist/merge-headers.d.ts",
@@ -159,53 +220,11 @@
       "require": "./dist/repool.js",
       "default": "./dist/repool.js"
     },
-    "./serialized-memo": {
-      "types": "./dist/serialized-memo.d.ts",
-      "import": "./dist/serialized-memo.mjs",
-      "require": "./dist/serialized-memo.js",
-      "default": "./dist/serialized-memo.js"
-    },
-    "./simple-string-hash": {
-      "types": "./dist/simple-string-hash.d.ts",
-      "import": "./dist/simple-string-hash.mjs",
-      "require": "./dist/simple-string-hash.js",
-      "default": "./dist/simple-string-hash.js"
-    },
     "./retrie": {
       "types": "./dist/retrie.d.ts",
       "import": "./dist/retrie.mjs",
       "require": "./dist/retrie.js",
       "default": "./dist/retrie.js"
-    },
-    "./text-line-stream": {
-      "types": "./dist/text-line-stream.d.ts",
-      "import": "./dist/text-line-stream.mjs",
-      "require": "./dist/text-line-stream.js",
-      "default": "./dist/text-line-stream.js"
-    },
-    "./tagged": {
-      "types": "./dist/tagged.d.ts",
-      "import": "./dist/tagged.mjs",
-      "require": "./dist/tagged.js",
-      "default": "./dist/tagged.js"
-    },
-    "./wait": {
-      "types": "./dist/wait.d.ts",
-      "import": "./dist/wait.mjs",
-      "require": "./dist/wait.js",
-      "default": "./dist/wait.js"
-    },
-    "./string-join": {
-      "types": "./dist/string-join.d.ts",
-      "import": "./dist/string-join.mjs",
-      "require": "./dist/string-join.js",
-      "default": "./dist/string-join.js"
-    },
-    "./fast-ip-version": {
-      "types": "./dist/fast-ip-version.d.ts",
-      "import": "./dist/fast-ip-version.mjs",
-      "require": "./dist/fast-ip-version.js",
-      "default": "./dist/fast-ip-version.js"
     },
     "./shuffle-array": {
       "types": "./dist/shuffle-array.d.ts",
@@ -213,53 +232,29 @@
       "require": "./dist/shuffle-array.js",
       "default": "./dist/shuffle-array.js"
     },
-    "./available-parallelism": {
-      "types": "./dist/available-parallelism.d.ts",
-      "import": "./dist/available-parallelism.mjs",
-      "require": "./dist/available-parallelism.js",
-      "default": "./dist/available-parallelism.js"
+    "./simple-string-hash": {
+      "types": "./dist/simple-string-hash.d.ts",
+      "import": "./dist/simple-string-hash.mjs",
+      "require": "./dist/simple-string-hash.js",
+      "default": "./dist/simple-string-hash.js"
     },
-    "./chunk": {
-      "types": "./dist/chunk.d.ts",
-      "import": "./dist/chunk.mjs",
-      "require": "./dist/chunk.js",
-      "default": "./dist/chunk.js"
+    "./string-join": {
+      "types": "./dist/string-join.d.ts",
+      "import": "./dist/string-join.mjs",
+      "require": "./dist/string-join.js",
+      "default": "./dist/string-join.js"
     },
-    "./extract-error-message": {
-      "types": "./dist/extract-error-message.d.ts",
-      "import": "./dist/extract-error-message.mjs",
-      "require": "./dist/extract-error-message.js",
-      "default": "./dist/extract-error-message.js"
+    "./tagged": {
+      "types": "./dist/tagged.d.ts",
+      "import": "./dist/tagged.mjs",
+      "require": "./dist/tagged.js",
+      "default": "./dist/tagged.js"
     },
-    "./lazy-value": {
-      "types": "./dist/lazy-value.d.ts",
-      "import": "./dist/lazy-value.mjs",
-      "require": "./dist/lazy-value.js",
-      "default": "./dist/lazy-value.js"
-    },
-    "./lazy-promise": {
-      "types": "./dist/lazy-promise.d.ts",
-      "import": "./dist/lazy-promise.mjs",
-      "require": "./dist/lazy-promise.js",
-      "default": "./dist/lazy-promise.js"
-    },
-    "./define-lazy-property": {
-      "types": "./dist/define-lazy-property.d.ts",
-      "import": "./dist/define-lazy-property.mjs",
-      "require": "./dist/define-lazy-property.js",
-      "default": "./dist/define-lazy-property.js"
-    },
-    "./empty-node": {
-      "types": "./dist/empty-node.d.ts",
-      "import": "./dist/empty-node.mjs",
-      "require": "./dist/empty-node.js",
-      "default": "./dist/empty-node.js"
-    },
-    "./is-function": {
-      "types": "./dist/is-function.d.ts",
-      "import": "./dist/is-function.mjs",
-      "require": "./dist/is-function.js",
-      "default": "./dist/is-function.js"
+    "./text-line-stream": {
+      "types": "./dist/text-line-stream.d.ts",
+      "import": "./dist/text-line-stream.mjs",
+      "require": "./dist/text-line-stream.js",
+      "default": "./dist/text-line-stream.js"
     },
     "./uint8array-utils": {
       "types": "./dist/uint8array-utils.d.ts",
@@ -267,11 +262,11 @@
       "require": "./dist/uint8array-utils.js",
       "default": "./dist/uint8array-utils.js"
     },
-    "./fast-string-compare": {
-      "types": "./dist/fast-string-compare.d.ts",
-      "import": "./dist/fast-string-compare.mjs",
-      "require": "./dist/fast-string-compare.js",
-      "default": "./dist/fast-string-compare.js"
+    "./wait": {
+      "types": "./dist/wait.d.ts",
+      "import": "./dist/wait.mjs",
+      "require": "./dist/wait.js",
+      "default": "./dist/wait.js"
     }
   },
   "sideEffects": false,
@@ -280,8 +275,7 @@
     "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_INLINE_SOURCE_MAP=1 nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
-    "prebuild": "bunchee prepare && node -r @swc-node/register ./tools/index.ts",
-    "build": "bunchee --minify --no-sourcemap",
+    "build": "rollup -c rollup.config.ts --bundleConfigAsCjs --configPlugin swc3",
     "prerelease": "pnpm run lint && pnpm run test && pnpm run build",
     "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
   },
@@ -308,18 +302,19 @@
     "@types/node": "^22.18.6",
     "@types/sinon": "^17.0.4",
     "bumpp": "^10.2.3",
-    "bunchee": "^6.6.0",
     "devalue": "^5.3.2",
     "eslint": "^9.36.0",
     "eslint-config-sukka": "^7.2.1",
     "eslint-formatter-sukka": "^7.2.1",
     "expect": "^30.2.0",
     "fastscan": "^1.0.6",
-    "fdir": "^6.5.0",
     "mitata": "^1.0.34",
     "mocha": "^11.7.2",
     "modern-ahocorasick": "^2.0.4",
     "nyc": "^17.1.0",
+    "rollup": "^4.52.3",
+    "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-swc3": "^0.12.1",
     "sinon": "^21.0.0",
     "word-list": "3.0.0"
   },
