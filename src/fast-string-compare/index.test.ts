@@ -10,12 +10,12 @@ import wordListPath from 'word-list';
 
 const defaultCompare = (a: string, b: string) => a.localeCompare(b);
 
-describe('fast-string-compare', async () => {
-  const words = shuffleArray(await Array.fromAsync(createInterface({ crlfDelay: Infinity, input: createReadStream(wordListPath) }))).slice(0, 5000);
-  // Add some duplicates
-  words.splice(2000, 0, ...words.slice(100, 500));
+describe('fast-string-compare', () => {
+  it('should do the same as localeCompare for english', async () => {
+    const words = shuffleArray(await Array.fromAsync(createInterface({ crlfDelay: Infinity, input: createReadStream(wordListPath) }))).slice(0, 5000);
+    // Add some duplicates
+    words.splice(2000, 0, ...words.slice(100, 500));
 
-  it('should do the same as localeCompare for english', () => {
     const reshuffled = shuffleArray(words, { copy: true });
 
     const sort1 = words.toSorted(defaultCompare);
