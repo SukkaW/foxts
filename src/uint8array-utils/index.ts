@@ -1,3 +1,5 @@
+import { never } from '../guard';
+
 const singletonEncoder = new TextEncoder();
 
 export function stringToUint8Array(str: string): Uint8Array {
@@ -45,4 +47,32 @@ export function uint8ArrayToBase64(array: Uint8Array, urlSafe = false) {
   }
 
   return urlSafe ? base64ToBase64Url(base64) : base64;
+}
+
+export function concatUint8Arrays(arrays: Uint8Array[], totalLength?: number): Uint8Array {
+  if (arrays.length === 0) return new Uint8Array(0);
+
+  totalLength ??= arrays.reduce((acc, cur) => acc + cur.length, 0);
+  const result = new Uint8Array(totalLength);
+
+  let offset = 0;
+  for (let i = 0, len = arrays.length; i < len; i++) {
+    const array = arrays[i];
+    result.set(array, offset);
+    offset += array.length;
+  }
+
+  return result;
+}
+
+export function toUint8Array(value: ArrayBuffer | ArrayBufferView) {
+  if (value instanceof ArrayBuffer) {
+    return new Uint8Array(value);
+  }
+
+  if (ArrayBuffer.isView(value)) {
+    return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+  }
+
+  never(value, 'value must be ArrayBuffer or ArrayBufferView');
 }
