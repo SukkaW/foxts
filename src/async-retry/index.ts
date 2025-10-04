@@ -210,7 +210,7 @@ async function onAttemptFailure(attemptError: unknown, attemptNumber: number, op
 }
 
 function bail(err: unknown) {
-  throw new AsyncRetryAbortError(err || 'Aborted');
+  throw new AsyncRetryAbortError(err ?? 'Aborted');
 }
 
 export async function asyncRetry<T>(
