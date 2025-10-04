@@ -6,6 +6,7 @@ import { dts } from 'rollup-plugin-dts';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 import { defineConfig } from 'rollup';
+import isCI from 'is-ci';
 
 import pkgJson from './package.json';
 
@@ -52,6 +53,12 @@ export default defineConfig(() => {
     acc[source] = `src/${source}/index.ts`;
     return acc;
   }, {});
+
+  const distDir = path.resolve('./dist');
+  if (isCI && fs.existsSync(distDir)) {
+    fs.rmSync(distDir, { recursive: true, force: true });
+    fs.mkdirSync(distDir);
+  }
 
   return [
     defineConfig({
