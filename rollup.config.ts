@@ -3,6 +3,7 @@ import path from 'node:path';
 
 import { swc } from 'rollup-plugin-swc3';
 import { dts } from 'rollup-plugin-dts';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 import { defineConfig } from 'rollup';
 
@@ -60,6 +61,7 @@ export default defineConfig(() => {
         { dir: 'dist', entryFileNames: '[name]/index.mjs', format: 'esm', sourcemap: false, compact: true }
       ],
       plugins: [
+        nodeResolve(),
         swc({
           isModule: true,
           minify: true,
