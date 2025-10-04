@@ -14,7 +14,7 @@ const nodeErrorCodes = new Set([
   'UND_ERR_HEADERS_TIMEOUT'
 ]);
 
-export function isNetworkError(error: unknown): error is object {
+export function isNetworkError(error: unknown): boolean {
   if (typeof error !== 'object' || error == null) {
     return false;
   }

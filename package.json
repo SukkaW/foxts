@@ -34,6 +34,12 @@
       "require": "./dist/append-set-elements-to-array/index.js",
       "default": "./dist/append-set-elements-to-array/index.js"
     },
+    "./async-retry": {
+      "types": "./dist/async-retry/index.d.ts",
+      "import": "./dist/async-retry/index.mjs",
+      "require": "./dist/async-retry/index.js",
+      "default": "./dist/async-retry/index.js"
+    },
     "./async-write-to-stream": {
       "types": "./dist/async-write-to-stream/index.d.ts",
       "import": "./dist/async-write-to-stream/index.mjs",
