@@ -308,7 +308,6 @@
     "@mitata/counters": "^0.0.8",
     "@monyone/aho-corasick": "^1.0.4",
     "@package-json/types": "^0.0.12",
-    "@rollup/plugin-node-resolve": "^16.0.1",
     "@swc-node/register": "^1.11.1",
     "@swc/core": "^1.13.20",
     "@types/mocha": "^10.0.10",
@@ -329,6 +328,7 @@
     "nyc": "^17.1.0",
     "rollup": "^4.52.4",
     "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-oxc-resolve": "^0.0.4",
     "rollup-plugin-swc3": "^0.12.1",
     "sinon": "^21.0.0",
     "word-list": "3.0.0"
