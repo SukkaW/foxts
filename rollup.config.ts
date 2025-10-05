@@ -3,7 +3,7 @@ import path from 'node:path';
 
 import { swc } from 'rollup-plugin-swc3';
 import { dts } from 'rollup-plugin-dts';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { oxcResolve } from 'rollup-plugin-oxc-resolve';
 
 import { defineConfig } from 'rollup';
 import isCI from 'is-ci';
@@ -68,7 +68,7 @@ export default defineConfig(() => {
         { dir: 'dist', entryFileNames: '[name]/index.mjs', format: 'esm', sourcemap: false, compact: true }
       ],
       plugins: [
-        nodeResolve(),
+        oxcResolve(),
         swc({
           isModule: true,
           minify: true,
