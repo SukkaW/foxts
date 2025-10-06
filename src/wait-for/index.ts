@@ -15,21 +15,21 @@ export type OnCleanup = (cleanUpFn: CleanupFn) => void;
 export type Scheduler = (callback: () => Promise<void>, onCleanup: OnCleanup) => void | CleanupFn;
 export type Predicate<T extends TruthyValue> = () => T | FalsyValue | Promise<T> | Promise<FalsyValue>;
 
-export function waitUntil<T extends TruthyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   scheduler: Scheduler,
   abortSignal?: AbortSignal | null,
 ): Promise<T>;
-export function waitUntil<T extends TruthyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   checkInterval?: number,
   abortSignal?: AbortSignal | null
 ): Promise<T>;
-export function waitUntil<T extends TruthyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   abortSignal: AbortSignal,
 ): Promise<T>;
-export function waitUntil<T extends TruthyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   scheduler: AbortSignal | Scheduler | number = 50,
   abortSignal: AbortSignal | never | null = null
