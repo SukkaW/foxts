@@ -1,4 +1,5 @@
-import { extractErrorMessage, isErrorLikeObject } from '../extract-error-message';
+import { isAbortErrorLike } from '../abort-error';
+import { extractErrorMessage } from '../extract-error-message';
 import { isNetworkError } from '../is-network-error';
 import { noop, trueFn } from '../noop';
 
@@ -142,7 +143,7 @@ async function onAttemptFailure(attemptError: unknown, attemptNumber: number, op
     throw attemptError;
   }
 
-  if (isErrorLikeObject(attemptError) && attemptError.name === 'AbortError') {
+  if (isAbortErrorLike(attemptError)) {
     throw attemptError as Error;
   }
 
