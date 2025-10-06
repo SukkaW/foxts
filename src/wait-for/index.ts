@@ -1,11 +1,11 @@
 type FalsyValue = null | undefined | false | '' | 0 | void;
 
 type TruthyValue =
-  | Record<string, unknown>
+  | object
   | unknown[]
   | symbol
-
-  | ((..._args: unknown[]) => unknown)
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type -- any function value is truthy value
+  | Function
   | Exclude<number, 0>
   | Exclude<string, ''>
   | true;
@@ -13,29 +13,27 @@ type TruthyValue =
 export type CleanupFn = () => void;
 export type OnCleanup = (cleanUpFn: CleanupFn) => void;
 export type Scheduler = (callback: () => Promise<void>, onCleanup: OnCleanup) => void | CleanupFn;
-export type Predicate<T extends TruthyValue | FalsyValue> = () => T | Promise<T>;
+export type Predicate<T extends TruthyValue> = () => T | FalsyValue | Promise<T> | Promise<FalsyValue>;
 
-export function waitUntil<T extends TruthyValue | FalsyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   scheduler: Scheduler,
   abortSignal?: AbortSignal | null,
 ): Promise<T>;
-export function waitUntil<T extends TruthyValue | FalsyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   checkInterval?: number,
   abortSignal?: AbortSignal | null
 ): Promise<T>;
-export function waitUntil<T extends TruthyValue | FalsyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   abortSignal: AbortSignal,
 ): Promise<T>;
-export function waitUntil<T extends TruthyValue | FalsyValue>(
+export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   scheduler: AbortSignal | Scheduler | number = 50,
   abortSignal: AbortSignal | never | null = null
 ): Promise<T> {
-  let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
-
   if (typeof scheduler === 'object' && 'aborted' in scheduler) {
     abortSignal = scheduler;
     scheduler = 50;
@@ -53,7 +51,7 @@ export function waitUntil<T extends TruthyValue | FalsyValue>(
   const cleanUp = new Set<() => void>();
   const onCleanup: OnCleanup = (fn) => cleanUp.add(fn);
 
-  const promise: Promise<T> = new Promise<T>((resolve, reject) => {
+  const promise = new Promise<T>((resolve, reject) => {
     const check = async () => {
       try {
         abortSignal.throwIfAborted();
@@ -76,9 +74,6 @@ export function waitUntil<T extends TruthyValue | FalsyValue>(
   });
 
   return promise.finally(() => {
-    if (timeoutHandle) {
-      clearTimeout(timeoutHandle);
-    }
     cleanUp.forEach((fn) => fn());
   });
 }

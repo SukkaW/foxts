@@ -274,6 +274,12 @@
       "require": "./dist/text-line-stream/index.js",
       "default": "./dist/text-line-stream/index.js"
     },
+    "./ts-xor": {
+      "types": "./dist/ts-xor/index.d.ts",
+      "import": "./dist/ts-xor/index.mjs",
+      "require": "./dist/ts-xor/index.js",
+      "default": "./dist/ts-xor/index.js"
+    },
     "./uint8array-utils": {
       "types": "./dist/uint8array-utils/index.d.ts",
       "import": "./dist/uint8array-utils/index.mjs",
@@ -286,16 +292,17 @@
       "require": "./dist/wait/index.js",
       "default": "./dist/wait/index.js"
     },
-    "./wait-until": {
-      "types": "./dist/wait-until/index.d.ts",
-      "import": "./dist/wait-until/index.mjs",
-      "require": "./dist/wait-until/index.js",
-      "default": "./dist/wait-until/index.js"
+    "./wait-for": {
+      "types": "./dist/wait-for/index.d.ts",
+      "import": "./dist/wait-for/index.mjs",
+      "require": "./dist/wait-for/index.js",
+      "default": "./dist/wait-for/index.js"
     }
   },
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --format=sukka .",
+    "build-ts-xor": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/ts-xor/_build.ts",
     "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_INLINE_SOURCE_MAP=1 nyc mocha --require @swc-node/register --parallel --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
@@ -345,6 +352,7 @@
     "rollup-plugin-oxc-resolve": "^0.0.4",
     "rollup-plugin-swc3": "^0.12.1",
     "sinon": "^21.0.0",
+    "typescript": "^5.9.3",
     "word-list": "3.0.0"
   },
   "packageManager": "pnpm@10.18.0",
