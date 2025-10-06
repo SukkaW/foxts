@@ -8,7 +8,8 @@
   ],
   "exclude": [
     "src/**/*.bench.[tj]s?(x)",
-    "src/**/*.test.[tj]s?(x)"
+    "src/**/*.test.[tj]s?(x)",
+    "src/**/_*.[tj]s?(x)"
   ],
   "reporter": [
     "lcov",

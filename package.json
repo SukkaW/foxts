@@ -296,6 +296,7 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --format=sukka .",
+    "build-ts-xor": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/ts-xor/_build.ts",
     "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_INLINE_SOURCE_MAP=1 nyc mocha --require @swc-node/register --parallel --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
@@ -345,6 +346,7 @@
     "rollup-plugin-oxc-resolve": "^0.0.4",
     "rollup-plugin-swc3": "^0.12.1",
     "sinon": "^21.0.0",
+    "typescript": "^5.9.3",
     "word-list": "3.0.0"
   },
   "packageManager": "pnpm@10.18.0",
