@@ -10,6 +10,12 @@
   ],
   "exports": {
     "./package.json": "./package.json",
+    "./abort-error": {
+      "types": "./dist/abort-error/index.d.ts",
+      "import": "./dist/abort-error/index.mjs",
+      "require": "./dist/abort-error/index.js",
+      "default": "./dist/abort-error/index.js"
+    },
     "./add-array-elements-to-set": {
       "types": "./dist/add-array-elements-to-set/index.d.ts",
       "import": "./dist/add-array-elements-to-set/index.mjs",
@@ -279,6 +285,12 @@
       "import": "./dist/wait/index.mjs",
       "require": "./dist/wait/index.js",
       "default": "./dist/wait/index.js"
+    },
+    "./wait-until": {
+      "types": "./dist/wait-until/index.d.ts",
+      "import": "./dist/wait-until/index.mjs",
+      "require": "./dist/wait-until/index.js",
+      "default": "./dist/wait-until/index.js"
     }
   },
   "sideEffects": false,
