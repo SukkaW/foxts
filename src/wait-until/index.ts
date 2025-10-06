@@ -64,7 +64,10 @@ export function waitUntil<T extends TruthyValue | FalsyValue>(
           return;
         }
 
-        scheduler(check, onCleanup);
+        const cleanup = scheduler(check, onCleanup);
+        if (typeof cleanup === 'function') {
+          cleanUp.add(cleanup);
+        }
       } catch (err) {
         reject(err as Error);
       }
