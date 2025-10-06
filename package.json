@@ -284,7 +284,7 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --format=sukka .",
-    "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_INLINE_SOURCE_MAP=1 nyc mocha --require @swc-node/register --full-trace ./src/**/*.test.ts",
+    "test": "SWC_NODE_IGNORE_DYNAMIC=1 SWC_NODE_INLINE_SOURCE_MAP=1 nyc mocha --require @swc-node/register --parallel --full-trace ./src/**/*.test.ts",
     "bench": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register",
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
     "build": "rollup -c rollup.config.ts --bundleConfigAsCjs --configPlugin swc3",
