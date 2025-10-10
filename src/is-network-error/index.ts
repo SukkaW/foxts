@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-restricted-imports -- bundled
 import sinderSorhusIsNetworkError from 'is-network-error';
 
 const nodeErrorCodes = new Set([
