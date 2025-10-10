@@ -64,6 +64,12 @@
       "require": "./dist/bitwise/index.js",
       "default": "./dist/bitwise/index.js"
     },
+    "./cast-array": {
+      "types": "./dist/cast-array/index.d.ts",
+      "import": "./dist/cast-array/index.mjs",
+      "require": "./dist/cast-array/index.js",
+      "default": "./dist/cast-array/index.js"
+    },
     "./chunk": {
       "types": "./dist/chunk/index.d.ts",
       "import": "./dist/chunk/index.mjs",
