@@ -1,5 +1,10 @@
 import { never } from '../guard';
 
+const U8 = Uint8Array;
+const AB = ArrayBuffer;
+
+const TD = TextDecoder;
+
 const singletonEncoder = new TextEncoder();
 
 export function stringToUint8Array(str: string): Uint8Array {
@@ -7,11 +12,11 @@ export function stringToUint8Array(str: string): Uint8Array {
 }
 
 const singletonDecoders: Record<string, TextDecoder> = {
-  utf8: new TextDecoder('utf8')
+  utf8: new TD('utf8')
 };
 
 export function uint8ArrayToString(array: ArrayBuffer | ArrayBufferView, encoding = 'utf8') {
-  singletonDecoders[encoding] ??= new TextDecoder(encoding);
+  singletonDecoders[encoding] ??= new TD(encoding);
   return singletonDecoders[encoding].decode(array);
 }
 
@@ -30,7 +35,7 @@ function base64ToBase64Url(base64: string): string {
 }
 
 export function base64ToUint8Array(base64String: string): Uint8Array {
-  return Uint8Array.from(atob(base64UrlToBase64(base64String)), x => x.charCodeAt(0));
+  return U8.from(atob(base64UrlToBase64(base64String)), x => x.charCodeAt(0));
 }
 
 // TODO: implement a modern version using Uint8Array.fromBase64 + base64UrlToBase64
@@ -43,17 +48,17 @@ export function uint8ArrayToBase64(array: Uint8Array, urlSafe = false) {
     // Required as `btoa` and `atob` don't properly support Unicode: https://developer.mozilla.org/en-US/docs/Glossary/Base64#the_unicode_problem
     // @ts-expect-error -- Uint8Array is fine here, as "apply" only requires ArrayLike<number>
     // https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-function.prototype.apply
-    base64 += globalThis.btoa(String.fromCharCode.apply(undefined, chunk as ArrayLike<number>));
+    base64 += btoa(String.fromCharCode.apply(undefined, chunk as ArrayLike<number>));
   }
 
   return urlSafe ? base64ToBase64Url(base64) : base64;
 }
 
 export function concatUint8Arrays(arrays: Uint8Array[], totalLength?: number): Uint8Array {
-  if (arrays.length === 0) return new Uint8Array(0);
+  if (arrays.length === 0) return new U8(0);
 
   totalLength ??= arrays.reduce((acc, cur) => acc + cur.length, 0);
-  const result = new Uint8Array(totalLength);
+  const result = new U8(totalLength);
 
   let offset = 0;
   for (let i = 0, len = arrays.length; i < len; i++) {
@@ -66,12 +71,12 @@ export function concatUint8Arrays(arrays: Uint8Array[], totalLength?: number): U
 }
 
 export function toUint8Array(value: ArrayBuffer | ArrayBufferView) {
-  if (value instanceof ArrayBuffer) {
-    return new Uint8Array(value);
+  if (value instanceof AB) {
+    return new U8(value);
   }
 
-  if (ArrayBuffer.isView(value)) {
-    return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+  if (AB.isView(value)) {
+    return new U8(value.buffer, value.byteOffset, value.byteLength);
   }
 
   never(value, 'value must be ArrayBuffer or ArrayBufferView');

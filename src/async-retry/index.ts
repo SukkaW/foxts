@@ -3,6 +3,10 @@ import { extractErrorMessage } from '../extract-error-message';
 import { isNetworkError } from '../is-network-error';
 import { noop, trueFn } from '../noop';
 
+const { round: MathRound } = Math;
+const E = Error;
+const TypeE = TypeError;
+
 export interface AsyncRetryContext {
   readonly error: unknown,
   readonly attemptNumber: number,
@@ -93,23 +97,23 @@ interface InternalAsyncRetryOptionsWithDefaults extends
   Omit<AsyncRetryOptions, 'retries' | 'factor' | 'minTimeout' | 'maxTimeout' | 'randomize' | 'onFailedAttempt' | 'onRetry' | 'shouldRetry'> {
 }
 
-function validateNumberOption(name: string, value: number, { min = 0, allowInfinity = false } = {}) {
+function validateNumberOption(name: string, value: number, min = 0, allowInfinity = false) {
   if (Number.isNaN(value)) {
-    throw new TypeError(`Expected \`${name}\` to be a valid number${allowInfinity ? ' or Infinity' : ''}, got NaN.`);
+    throw new TypeE(`Expected \`${name}\` to be a valid number${allowInfinity ? ' or Infinity' : ''}, got NaN.`);
   }
 
   if (!allowInfinity && !Number.isFinite(value)) {
-    throw new TypeError(`Expected \`${name}\` to be a finite number.`);
+    throw new TypeE(`Expected \`${name}\` to be a finite number.`);
   }
 
   if (value < min) {
-    throw new TypeError(`Expected \`${name}\` to be \u2265 ${min}.`);
+    throw new TypeE(`Expected \`${name}\` to be \u2265 ${min}.`);
   }
 }
 
-export class AsyncRetryAbortError extends Error {
+export class AsyncRetryAbortError extends E {
   name = 'AsyncRetryAbortError';
-  cause: unknown;
+  cause?: unknown;
 
   constructor(message: string | Error | unknown) {
     let errorMessage = '';
@@ -122,10 +126,10 @@ export class AsyncRetryAbortError extends Error {
     super(errorMessage);
 
     if (typeof message === 'string') {
-      const cause = new Error(message);
+      const cause = new E(message);
       cause.stack = this.stack;
       this.cause = cause;
-    } else if (message instanceof Error) {
+    } else if (message instanceof E) {
       this.cause = message;
       this.message = message.message;
     } else {
@@ -134,12 +138,17 @@ export class AsyncRetryAbortError extends Error {
   }
 }
 
-async function onAttemptFailure(attemptError: unknown, attemptNumber: number, options: InternalAsyncRetryOptionsWithDefaults, startTime: number, maxRetryTime: number) {
+async function onAttemptFailure(
+  attemptError: unknown,
+  attemptNumber: number,
+  options: InternalAsyncRetryOptionsWithDefaults,
+  startTime: number, maxRetryTime: number
+) {
   if (attemptError instanceof AsyncRetryAbortError) {
     throw attemptError.cause;
   }
 
-  if (attemptError instanceof TypeError && !isNetworkError(attemptError)) {
+  if (attemptError instanceof TypeE && !isNetworkError(attemptError)) {
     throw attemptError;
   }
 
@@ -173,8 +182,11 @@ async function onAttemptFailure(attemptError: unknown, attemptNumber: number, op
 
   // Calculate delay before next attempt
   const random = options.randomize ? (Math.random() + 1) : 1;
-  let delayTime = Math.round(random * options.minTimeout * (options.factor ** (attemptNumber - 1)));
-  delayTime = Math.min(delayTime, options.maxTimeout);
+  let delayTime = MathRound(random * options.minTimeout * (options.factor ** (attemptNumber - 1)));
+
+  if (delayTime > options.maxTimeout) {
+    delayTime = options.maxTimeout;
+  }
 
   // Ensure that delay does not exceed maxRetryTime
   const timeLeft = maxRetryTime - (currentTime - startTime);
@@ -182,7 +194,10 @@ async function onAttemptFailure(attemptError: unknown, attemptNumber: number, op
     throw attemptError; // Max retry time exceeded
   }
 
-  const finalDelay = Math.min(delayTime, timeLeft);
+  let finalDelay = delayTime;
+  if (delayTime > timeLeft) {
+    finalDelay = timeLeft;
+  }
 
   // Introduce delay
   if (finalDelay > 0) {
@@ -221,7 +236,10 @@ export async function asyncRetry<T>(
   ) => PromiseLike<T> | T,
   retryOptions: AsyncRetryOptions = {}
 ) {
+  retryOptions.signal?.throwIfAborted();
+
   const options = { ...retryOptions };
+
   options.retries ??= 10;
   // eslint-disable-next-line @typescript-eslint/no-deprecated -- implementation
   options.forever ??= false;
@@ -240,21 +258,21 @@ export async function asyncRetry<T>(
   }
 
   // Validate numeric options and normalize edge cases
-  validateNumberOption('retries', options.retries, { min: 0, allowInfinity: true });
-  validateNumberOption('factor', options.factor, { min: 0, allowInfinity: false });
-  validateNumberOption('minTimeout', options.minTimeout, { min: 0, allowInfinity: false });
-  validateNumberOption('maxTimeout', options.maxTimeout, { min: 0, allowInfinity: true });
+  validateNumberOption('retries', options.retries, 0, true);
+  validateNumberOption('factor', options.factor, 0, false);
+  validateNumberOption('minTimeout', options.minTimeout, 0, false);
+  validateNumberOption('maxTimeout', options.maxTimeout, 0, true);
   const resolvedMaxRetryTime = options.maxRetryTime ?? Number.POSITIVE_INFINITY;
-  validateNumberOption('maxRetryTime', resolvedMaxRetryTime, { min: 0, allowInfinity: true });
+  validateNumberOption('maxRetryTime', resolvedMaxRetryTime, 0, true);
 
-  options.minTimeout = Math.max(options.minTimeout, 1); // Ensure minTimeout is at least 1ms
+  if (options.minTimeout < 1) {
+    options.minTimeout = 1; // // Ensure minTimeout is at least 1ms
+  }
 
   // Treat non-positive factor as 1 to avoid zero backoff or negative behavior
   if (options.factor <= 0) {
     options.factor = 1;
   }
-
-  options.signal?.throwIfAborted();
 
   let attemptNumber = 0;
   const startTime = Date.now();
@@ -288,7 +306,7 @@ export async function asyncRetry<T>(
   }
 
   // Should not reach here, but in case it does, throw an error
-  throw new Error('Retry attempts exhausted without throwing an error.');
+  throw new E('Retry attempts exhausted without throwing an error.');
 }
 
 export function makeRetriable<Args extends unknown[], Result>(

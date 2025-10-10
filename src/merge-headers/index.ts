@@ -2,6 +2,8 @@ export type HeadersInitLike = Array<[string, string]> | Record<string, string> |
 export type IncomingHttpHeadersLike = Record<string, string | string[] | undefined> | undefined | null;
 export type OutgoingHttpHeadersLike = Record<string, number | string | string[] | undefined> | undefined | null;
 
+const H = Headers;
+
 export function mergeHeaders(
   dest: HeadersInitLike, source: HeadersInitLike,
   /**
@@ -12,14 +14,14 @@ export function mergeHeaders(
   sourceFilter: Iterable<string> | null | undefined | ((headerName: string) => boolean) = null
 ): Headers {
   if (dest == null) {
-    return source == null ? new Headers() : new Headers(source);
+    return source == null ? new H() : new H(source);
   }
   if (source == null) {
-    return new Headers(dest);
+    return new H(dest);
   }
 
-  const destHeaders = new Headers(dest);
-  const sourceHeaders = new Headers(source);
+  const destHeaders = new H(dest);
+  const sourceHeaders = new H(source);
 
   if (sourceFilter == null) {
     // fast path
