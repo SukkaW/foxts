@@ -1,4 +1,4 @@
-export type HeadersInitLike = string[][] | Record<string, string | readonly string[]> | Headers | null | undefined;
+export type HeadersInitLike = Array<[string, string]> | Record<string, string> | Headers | null | undefined;
 export type IncomingHttpHeadersLike = Record<string, string | string[] | undefined> | undefined | null;
 export type OutgoingHttpHeadersLike = Record<string, number | string | string[] | undefined> | undefined | null;
 
