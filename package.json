@@ -40,6 +40,12 @@
       "require": "./dist/append-set-elements-to-array/index.js",
       "default": "./dist/append-set-elements-to-array/index.js"
     },
+    "./array-push-non-nullish": {
+      "types": "./dist/array-push-non-nullish/index.d.ts",
+      "import": "./dist/array-push-non-nullish/index.mjs",
+      "require": "./dist/array-push-non-nullish/index.js",
+      "default": "./dist/array-push-non-nullish/index.js"
+    },
     "./async-retry": {
       "types": "./dist/async-retry/index.d.ts",
       "import": "./dist/async-retry/index.mjs",
