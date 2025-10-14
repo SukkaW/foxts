@@ -1,5 +1,5 @@
 /**
- * The only use case I have think of so far would be @typescript-eslint/await-thenable banning
+ * The only use case I have thought of so far would be @typescript-eslint/await-thenable banning
  *
  * `await Promise.all(Array<Promise | null | undefined>)`
  *
