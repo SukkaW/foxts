@@ -196,6 +196,12 @@
       "require": "./dist/is-probably-ip/index.js",
       "default": "./dist/is-probably-ip/index.js"
     },
+    "./join-readablestreams": {
+      "types": "./dist/join-readablestreams/index.d.ts",
+      "import": "./dist/join-readablestreams/index.mjs",
+      "require": "./dist/join-readablestreams/index.js",
+      "default": "./dist/join-readablestreams/index.js"
+    },
     "./lazy-promise": {
       "types": "./dist/lazy-promise/index.d.ts",
       "import": "./dist/lazy-promise/index.mjs",
