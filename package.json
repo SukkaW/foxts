@@ -342,6 +342,7 @@
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
   "dependencies": {
+    "cors-edge": "^1.0.0",
     "fast-escape-html": "^1.1.0",
     "fast-escape-regexp": "^1.0.1"
   },

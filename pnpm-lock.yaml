@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      cors-edge:
+        specifier: ^1.0.0
+        version: 1.0.0
       fast-escape-html:
         specifier: ^1.1.0
         version: 1.1.0
@@ -1087,6 +1090,9 @@ packages:
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
+
+  cors-edge@1.0.0:
+    resolution: {integrity: sha512-Cp5xBfRqJaxeNxGLboomrCbKHBEnamHRwZp15l04VHDc/C6oxoaYt4MGeLtmfObTh/0fFg6p8ziHigPdtIdxYw==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -3269,6 +3275,8 @@ snapshots:
   convert-source-map@2.0.0: {}
 
   core-util-is@1.0.3: {}
+
+  cors-edge@1.0.0: {}
 
   cross-spawn@7.0.6:
     dependencies:
