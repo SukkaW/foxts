@@ -91,7 +91,7 @@ export function createSimpleCors(options?: SimpleCorsOptions) {
       response.headers.set('Access-Control-Allow-Credentials', 'true');
     }
     if (opts.exposeHeaders?.length) {
-      response.headers.set('Access-Control-Expose-Headers', opts.exposeHeaders.join(', '));
+      response.headers.set('Access-Control-Expose-Headers', fastStringArrayJoin(opts.exposeHeaders, ','));
     }
 
     let allowMethods = findAllowMethods(request.headers.get('origin') || '');
@@ -99,7 +99,7 @@ export function createSimpleCors(options?: SimpleCorsOptions) {
       allowMethods = await allowMethods;
     }
     if (allowMethods.length) {
-      response.headers.set('Access-Control-Allow-Methods', allowMethods.join(','));
+      response.headers.set('Access-Control-Allow-Methods', fastStringArrayJoin(allowMethods, ','));
     }
 
     if (request.method === 'OPTIONS') {
