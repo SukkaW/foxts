@@ -268,6 +268,12 @@
       "require": "./dist/shuffle-array/index.js",
       "default": "./dist/shuffle-array/index.js"
     },
+    "./simple-cors": {
+      "types": "./dist/simple-cors/index.d.ts",
+      "import": "./dist/simple-cors/index.mjs",
+      "require": "./dist/simple-cors/index.js",
+      "default": "./dist/simple-cors/index.js"
+    },
     "./simple-string-hash": {
       "types": "./dist/simple-string-hash/index.d.ts",
       "import": "./dist/simple-string-hash/index.mjs",
