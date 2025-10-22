@@ -12,7 +12,9 @@ import pkgJson from './package.json';
 
 import type { PackageJson } from '@package-json/types';
 
-const externalModules = Object.keys(pkgJson.dependencies);
+const externalModules = ('dependencies' in pkgJson && pkgJson.dependencies && typeof pkgJson.dependencies === 'object')
+  ? Object.keys(pkgJson.dependencies)
+  : [];
 
 export default defineConfig(() => {
   const sources = fs.readdirSync(path.resolve('./src'));

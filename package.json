@@ -112,18 +112,6 @@
       "require": "./dist/empty-node/index.js",
       "default": "./dist/empty-node/index.js"
     },
-    "./escape-html": {
-      "types": "./dist/escape-html/index.d.ts",
-      "import": "./dist/escape-html/index.mjs",
-      "require": "./dist/escape-html/index.js",
-      "default": "./dist/escape-html/index.js"
-    },
-    "./escape-string-regexp": {
-      "types": "./dist/escape-string-regexp/index.d.ts",
-      "import": "./dist/escape-string-regexp/index.mjs",
-      "require": "./dist/escape-string-regexp/index.js",
-      "default": "./dist/escape-string-regexp/index.js"
-    },
     "./extract-error-message": {
       "types": "./dist/extract-error-message/index.d.ts",
       "import": "./dist/extract-error-message/index.mjs",
@@ -267,12 +255,6 @@
       "import": "./dist/shuffle-array/index.mjs",
       "require": "./dist/shuffle-array/index.js",
       "default": "./dist/shuffle-array/index.js"
-    },
-    "./simple-cors": {
-      "types": "./dist/simple-cors/index.d.ts",
-      "import": "./dist/simple-cors/index.mjs",
-      "require": "./dist/simple-cors/index.js",
-      "default": "./dist/simple-cors/index.js"
     },
     "./simple-string-hash": {
       "types": "./dist/simple-string-hash/index.d.ts",
