@@ -18,7 +18,7 @@ export type Predicate<T extends TruthyValue> = () => T | FalsyValue | Promise<T>
 export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
   scheduler: Scheduler,
-  abortSignal?: AbortSignal | null,
+  abortSignal?: AbortSignal | null
 ): Promise<T>;
 export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
@@ -27,7 +27,7 @@ export function waitFor<T extends TruthyValue>(
 ): Promise<T>;
 export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
-  abortSignal: AbortSignal,
+  abortSignal: AbortSignal
 ): Promise<T>;
 export function waitFor<T extends TruthyValue>(
   predicate: Predicate<T>,
