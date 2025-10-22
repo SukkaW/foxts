@@ -341,11 +341,6 @@
   ],
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
-  "dependencies": {
-    "cors-edge": "^1.0.0",
-    "fast-escape-html": "^1.1.0",
-    "fast-escape-regexp": "^1.0.1"
-  },
   "devDependencies": {
     "@eslint-sukka/node": "^8.0.0-beta.1",
     "@happy-dom/global-registrator": "^20.0.8",
