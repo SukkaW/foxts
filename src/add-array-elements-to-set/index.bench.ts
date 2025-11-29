@@ -5,6 +5,7 @@
 
   group(() => {
     bench('for loop', () => {
+      // eslint-disable-next-line sukka/no-unused-collection -- benchmarking purpose
       const set = new Set(['1', '2', '1', '3', 'skk.moe']);
       for (let i = 0, len = data.length; i < len; i++) {
         set.add(data[i]);
