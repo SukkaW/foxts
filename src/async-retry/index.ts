@@ -225,13 +225,13 @@ async function onAttemptFailure(
   options.signal?.throwIfAborted();
 }
 
-function bail(err: unknown) {
+function bail(err: unknown): never {
   throw new AsyncRetryAbortError(err ?? 'Aborted');
 }
 
 export async function asyncRetry<T>(
   callback: (
-    bail: (reason?: unknown) => void,
+    bail: (reason?: unknown) => never,
     attemptNumber: number
   ) => PromiseLike<T> | T,
   retryOptions: AsyncRetryOptions = {}
