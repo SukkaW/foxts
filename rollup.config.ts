@@ -81,6 +81,11 @@ export default defineConfig(() => {
                 const_to_let: false
               },
               mangle: {},
+              format: {
+                comments: {
+                  regex: String.raw`[@#](?:__|link|see|doc|example)`
+                }
+              },
               module: true,
               keep_fnames: false
             }
