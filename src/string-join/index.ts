@@ -1,5 +1,5 @@
 export function stringJoin(arr: Array<string | null | undefined | false | 0>, sep = ',', dedupe = false): string {
-  const len = arr.length;
+  let len = arr.length;
 
   if (len === 0) {
     return '';
@@ -7,11 +7,12 @@ export function stringJoin(arr: Array<string | null | undefined | false | 0>, se
 
   if (dedupe) {
     arr = Array.from(new Set(arr));
+    len = arr.length;
   }
 
   let result = '';
 
-  let sep_flag = false;
+  let sep_flag = 0;
   let item: string | null | undefined | false | 0;
 
   for (let i = 0; i < len; i++) {
@@ -21,7 +22,7 @@ export function stringJoin(arr: Array<string | null | undefined | false | 0>, se
       if (sep_flag) {
         result += sep;
       } else {
-        sep_flag = true;
+        sep_flag = 1;
       }
       result += item;
     }

@@ -3,14 +3,16 @@
  * because `hostname` is already garanteed to be a valid hostname!
  */
 export function isProbablyIpv4(hostname: string): boolean {
+  const len = hostname.length;
+
   // Cannot be shorted than 1.1.1.1 or longer than 255.255.255.255
-  if (hostname.length < 7 || hostname.length > 15) {
+  if (len < 7 || len > 15) {
     return false;
   }
 
   let numberOfDots = 0;
 
-  for (let i = 0; i < hostname.length; i += 1) {
+  for (let i = 0; i < len; i += 1) {
     const code = hostname.charCodeAt(i);
 
     if (code === 46 /* '.' */) {
@@ -23,17 +25,18 @@ export function isProbablyIpv4(hostname: string): boolean {
   return (
     numberOfDots === 3
     && hostname.charCodeAt(0) !== 46 /* '.' */
-    && hostname.charCodeAt(hostname.length - 1) !== 46 /* '.' */
+    && hostname.charCodeAt(len - 1) !== 46 /* '.' */
   );
 }
 
 export function isProbablyIpv6(hostname: string): boolean {
-  if (hostname.length < 3) {
+  const len = hostname.length;
+  if (len < 3) {
     return false;
   }
 
   let start = hostname[0] === '[' ? 1 : 0;
-  let end = hostname.length;
+  let end = len;
 
   if (hostname[end - 1] === ']') {
     end -= 1;
@@ -67,3 +70,5 @@ export function isProbablyIpv6(hostname: string): boolean {
   return hasColon;
   /* eslint-enable sukka/no-single-return -- here it goes */
 }
+
+export const isProbablyIp = (hostname: string) => isProbablyIpv4(hostname) || isProbablyIpv6(hostname);

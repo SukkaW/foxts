@@ -4,20 +4,24 @@ export interface ErrorLikeObject {
   stack?: string
 }
 
+const NAME = 'name' as const;
+const MESSAGE = 'message' as const;
+const STACK = 'stack' as const;
+
 export function isErrorLikeObject(obj: unknown): obj is ErrorLikeObject {
   if (
     typeof obj !== 'object'
-    || obj === null
+    || !obj
   ) {
     return false;
   }
 
   if (
-    'name' in obj && typeof obj.name === 'string'
-    && 'message' in obj && typeof obj.message === 'string'
+    NAME in obj && typeof obj[NAME] === 'string'
+    && MESSAGE in obj && typeof obj[MESSAGE] === 'string'
   ) {
-    if ('stack' in obj) {
-      return typeof obj.stack === 'string';
+    if (STACK in obj) {
+      return typeof obj[STACK] === 'string';
     }
     return true;
   }
@@ -32,14 +36,14 @@ export function extractErrorMessage(error: unknown, includeName = true, includeS
 
   let message = '';
   if (includeName) {
-    message += error.name;
+    message += error[NAME];
     message += ': ';
   }
 
-  message += error.message;
+  message += error[MESSAGE];
 
-  if (includeStack && 'stack' in error && typeof error.stack === 'string') {
-    message += '\n' + error.stack;
+  if (includeStack && STACK in error && typeof error[STACK] === 'string') {
+    message += '\n' + error[STACK];
   }
 
   // Trim any extra whitespace

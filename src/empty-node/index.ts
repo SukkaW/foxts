@@ -8,9 +8,7 @@ export function emptyNode(node: Node) {
   }
 }
 
-export function emptyElementModern(element: Element) {
-  element.replaceChildren();
-}
+export const emptyElementModern = (element: Element) => element.replaceChildren();
 
 /**
  * Use `Element.replaceChildren` if available, otherwise fall back to removing each child node.
