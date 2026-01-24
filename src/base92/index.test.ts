@@ -1,5 +1,6 @@
 import { expect } from 'expect';
 import { base92ToUint8Array, uint8ArrayToBase92 } from '.';
+import { describe, it } from 'mocha';
 import { stringToUint8Array } from '../uint8array-utils';
 
 describe('base92', () => {
