@@ -64,6 +64,12 @@
       "require": "./dist/available-parallelism/index.js",
       "default": "./dist/available-parallelism/index.js"
     },
+    "./base92": {
+      "types": "./dist/base92/index.d.ts",
+      "import": "./dist/base92/index.mjs",
+      "require": "./dist/base92/index.js",
+      "default": "./dist/base92/index.js"
+    },
     "./bitwise": {
       "types": "./dist/bitwise/index.d.ts",
       "import": "./dist/bitwise/index.mjs",

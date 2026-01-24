@@ -17,7 +17,21 @@ const externalModules = ('dependencies' in pkgJson && pkgJson.dependencies && ty
   : [];
 
 export default defineConfig(() => {
-  const sources = fs.readdirSync(path.resolve('./src'));
+  const sources: string[] = [];
+
+  const d = fs.opendirSync(path.resolve('./src'));
+  while (true) {
+    const entry = d.readSync();
+    if (!entry) {
+      d.closeSync();
+      break;
+    }
+    if (entry.isDirectory() && fs.existsSync(path.join(entry.parentPath, entry.name, 'index.ts'))) {
+      sources.push(entry.name);
+    }
+  }
+
+  sources.sort();
 
   const external = (mod: string) => {
     if (mod.startsWith('node:')) return true;
