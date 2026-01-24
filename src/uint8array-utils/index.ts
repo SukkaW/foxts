@@ -14,7 +14,7 @@ for (let i = 0; i < chars.length; i++) {
   lookup[chars.charCodeAt(i)] = i;
 }
 
-export function stringToUint8Array(str: string): Uint8Array {
+export function stringToUint8Array(str: string): Uint8Array<ArrayBuffer> {
   return singletonEncoder.encode(str);
 }
 
