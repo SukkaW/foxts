@@ -1,6 +1,6 @@
 'use strict';
 
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { Repool } from '.';
 
 describe('reuse objects', () => {
@@ -12,8 +12,8 @@ describe('reuse objects', () => {
     const instance = new Repool(() => new MyObject());
     const obj = instance.get();
 
-    expect(obj).not.toBe(instance.get());
-    expect(obj.next).toBeNull();
+    expect(obj).not.toExactlyEqual(instance.get());
+    expect(obj.next).toBeNullish();
 
     instance.release(obj);
 
@@ -24,7 +24,7 @@ describe('reuse objects', () => {
     // comparing the old one with the one we got
     // never do this in real code, after release you
     // should never reuse that instance
-    expect(obj).toBe(instance.get());
+    expect(obj).toExactlyEqual(instance.get());
   });
 });
 
@@ -39,13 +39,13 @@ describe('reuse more than 2 objects', () => {
     const obj2 = instance.get();
     const obj3 = instance.get();
 
-    expect(obj.next).toBeNull();
-    expect(obj2.next).toBeNull();
-    expect(obj3.next).toBeNull();
+    expect(obj.next).toBeNullish();
+    expect(obj2.next).toBeNullish();
+    expect(obj3.next).toBeNullish();
 
-    expect(obj).not.toBe(obj2);
-    expect(obj).not.toBe(obj3);
-    expect(obj3).not.toBe(obj2);
+    expect(obj).not.toExactlyEqual(obj2);
+    expect(obj).not.toExactlyEqual(obj3);
+    expect(obj3).not.toExactlyEqual(obj2);
 
     instance.release(obj);
     instance.release(obj2);
@@ -58,8 +58,8 @@ describe('reuse more than 2 objects', () => {
     const obj5 = instance.get();
     const obj6 = instance.get();
 
-    expect(obj4).toBe(obj);
-    expect(obj5).toBe(obj2);
-    expect(obj6).toBe(obj3);
+    expect(obj4).toEqual(obj);
+    expect(obj5).toEqual(obj2);
+    expect(obj6).toEqual(obj3);
   });
 });

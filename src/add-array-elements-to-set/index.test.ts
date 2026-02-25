@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { addArrayElementsToSet } from '.';
 
 describe('add-array-elements-to-set', () => {

@@ -1,7 +1,7 @@
 import { createReadStream } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 
 import { fastStringCompare } from '.';
 import { shuffleArray } from '../shuffle-array';
@@ -22,10 +22,10 @@ describe('fast-string-compare', () => {
     const sort2 = words.toSorted(fastStringCompare);
     const sort3 = reshuffled.sort(fastStringCompare);
 
-    expect(sort2).toStrictEqual(sort3);
+    expect(sort2).toEqual(sort3);
 
     const sort2locale = sort2.toSorted(defaultCompare);
 
-    expect(sort2locale).toStrictEqual(sort1);
+    expect(sort2locale).toEqual(sort1);
   });
 });

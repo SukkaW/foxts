@@ -1,18 +1,18 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { falseFn, noop, throwFn, trueFn } from '.';
 
 describe('noop', () => {
   it('noop', () => {
-    expect(noop()).toBe(undefined);
+    expect(noop()).toEqual(undefined);
   });
 
   it('trueFn', () => {
-    expect(trueFn()).toBe(true);
+    expect(trueFn()).toEqual(true);
   });
 
   it('falseFn', () => {
-    expect(falseFn()).toBe(false);
+    expect(falseFn()).toEqual(false);
   });
 
   it('throwFn', () => {

@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { wait, waitWithAbort } from '.';
 import sinon from 'sinon';
 
@@ -21,7 +21,7 @@ describe('wait', () => {
 
   it('sleepWithAbort #1', async () => {
     const abortController = new AbortController();
-    const p = expect(waitWithAbort(1000, abortController.signal)).rejects.toThrow('aborted');
+    const p = expect(waitWithAbort(1000, abortController.signal)).toBeRejectedWith('aborted');
     abortController.abort();
     clock.runAll();
     await p;
@@ -31,7 +31,7 @@ describe('wait', () => {
     const abortController = new AbortController();
     abortController.abort();
 
-    const p = expect(waitWithAbort(1000, abortController.signal)).rejects.toThrow('aborted');
+    const p = expect(waitWithAbort(1000, abortController.signal)).toBeRejectedWith('aborted');
     clock.runAll();
     await p;
   });

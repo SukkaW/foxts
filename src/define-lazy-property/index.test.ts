@@ -1,4 +1,4 @@
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { defineLazyProperty } from '.';
 
 describe('define-lazy-property', () => {

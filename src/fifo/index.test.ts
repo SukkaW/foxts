@@ -1,31 +1,31 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { FIFO } from '.';
 
 describe('fifo', () => {
   it('should work', () => {
     const fifo = new FIFO<number>();
 
-    expect(fifo.size).toBe(0);
-    expect(fifo.peek()).toBe(undefined);
+    expect(fifo.size).toEqual(0);
+    expect(fifo.peek()).toEqual(undefined);
 
     fifo.enqueue(1);
-    expect(fifo.size).toBe(1);
-    expect(fifo.peek()).toBe(1);
+    expect(fifo.size).toEqual(1);
+    expect(fifo.peek()).toEqual(1);
 
     fifo.push(2);
-    expect(fifo.size).toBe(2);
-    expect(fifo.peek()).toBe(1);
+    expect(fifo.size).toEqual(2);
+    expect(fifo.peek()).toEqual(1);
 
-    expect(fifo.dequeue()).toBe(1);
-    expect(fifo.size).toBe(1);
-    expect(fifo.peek()).toBe(2);
+    expect(fifo.dequeue()).toEqual(1);
+    expect(fifo.size).toEqual(1);
+    expect(fifo.peek()).toEqual(2);
 
-    expect(fifo.shift()).toBe(2);
-    expect(fifo.size).toBe(0);
-    expect(fifo.peek()).toBe(undefined);
+    expect(fifo.shift()).toEqual(2);
+    expect(fifo.size).toEqual(0);
+    expect(fifo.peek()).toEqual(undefined);
 
-    expect(fifo.dequeue()).toBe(undefined);
+    expect(fifo.dequeue()).toEqual(undefined);
   });
 
   it('iterator', () => {

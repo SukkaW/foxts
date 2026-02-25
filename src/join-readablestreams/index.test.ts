@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { joinReadableStreams } from '.';
 
 describe('join-readablestreams', () => {
@@ -23,14 +23,14 @@ describe('join-readablestreams', () => {
     const joinedStream = joinReadableStreams([stream1, stream2]);
     const reader = joinedStream.getReader();
     let result = await reader.read();
-    expect(result.value).toBe('0');
+    expect(result.value).toEqual('0');
     result = await reader.read();
-    expect(result.value).toBe('7');
+    expect(result.value).toEqual('7');
     result = await reader.read();
-    expect(result.value).toBe('2');
+    expect(result.value).toEqual('2');
     result = await reader.read();
-    expect(result.value).toBe('1');
+    expect(result.value).toEqual('1');
     result = await reader.read();
-    expect(result.done).toBe(true);
+    expect(result.done).toEqual(true);
   });
 });

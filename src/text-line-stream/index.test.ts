@@ -1,6 +1,6 @@
 import { describe } from 'mocha';
 import { TextLineStream } from '.';
-import { expect } from 'expect';
+import { expect } from 'earl';
 
 function concatArray() {
   const chunks: string[] = [];

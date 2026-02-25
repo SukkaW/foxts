@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { appendArrayInPlace, appendArrayInPlaceCurried } from '.';
 import { createFixedArray } from '../create-fixed-array';
 
@@ -13,8 +13,8 @@ describe('appendArrayInPlace', () => {
       appendArrayInPlace(
         createFixedArray(114514).slice(),
         createFixedArray(1_919_810).slice()
-      )
-    ).toHaveLength(114514 + 1_919_810);
+      ).length
+    ).toEqual(114514 + 1_919_810);
   });
 
   it('curied', () => {

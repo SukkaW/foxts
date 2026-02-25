@@ -1,4 +1,4 @@
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { compareSource, createCompareSource, fileEqualWithCommentComparator } from '.';
 
 // eslint-disable-next-line @typescript-eslint/require-await -- async iterable
@@ -13,7 +13,7 @@ describe('compareSource', () => {
     const fileEqual = createCompareSource(fileEqualWithCommentComparator);
 
     async function test(a: string[], b: string[], expected: boolean) {
-      expect((await fileEqual(a, createSource(b)))).toBe(expected);
+      expect((await fileEqual(a, createSource(b)))).toEqual(expected);
     }
 
     it('same', () => test(
@@ -104,10 +104,10 @@ describe('compareSource', () => {
   });
 
   describe('createCompareSource', async () => {
-    expect(await createCompareSource()(['A', 'B'], ['A', 'B'])).toBe(true);
+    expect(await createCompareSource()(['A', 'B'], ['A', 'B'])).toEqual(true);
   });
 
   describe('compareSource', async () => {
-    expect(await compareSource(['A', 'B'], ['A', 'B'])).toBe(true);
+    expect(await compareSource(['A', 'B'], ['A', 'B'])).toEqual(true);
   });
 });

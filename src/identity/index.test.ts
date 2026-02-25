@@ -1,11 +1,11 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { identity } from '.';
 
 describe('identity', () => {
   it('should work', () => {
-    expect(identity('a')).toBe('a');
-    expect(identity(1)).toBe(1);
-    expect(identity({ a: 1 })).toStrictEqual({ a: 1 });
+    expect(identity('a')).toEqual('a');
+    expect(identity(1)).toEqual(1);
+    expect(identity({ a: 1 })).toEqual({ a: 1 });
   });
 });

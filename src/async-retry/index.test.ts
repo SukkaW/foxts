@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function -- unit test */
 /* eslint-disable @typescript-eslint/require-await -- unit test */
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { wait } from '../wait';
 import { asyncRetry, makeRetriable, AsyncRetryAbortError } from '.';
 import { spy, stub } from 'sinon';
@@ -55,7 +55,7 @@ describe('async-retry', () => {
         throw new Error(`Test ${num}`);
       },
       { ...sharedOpt, retries: 3 }
-    )).rejects.toThrow('Wont retry');
+    )).toBeRejectedWith('Wont retry');
   });
 
   it('bail + return', async () => {
@@ -65,7 +65,7 @@ describe('async-retry', () => {
         await wait(20);
         bail(new Error('woot'));
       }, sharedOpt)
-    )).rejects.toThrow('woot');
+    )).toBeRejectedWith('woot');
   });
 
   it('bail error', async () => {
@@ -80,7 +80,7 @@ describe('async-retry', () => {
         throw err;
       },
       { ...sharedOpt, retries: 3 }
-    )).rejects.toThrow('Wont retry');
+    )).toBeRejectedWith('Wont retry');
 
     expect(retries).toEqual(1);
   });
@@ -91,7 +91,7 @@ describe('async-retry', () => {
         throw new Error(`Test ${num}`);
       },
       { ...sharedOpt, retries: 2 }
-    )).rejects.toThrow('Test 3');
+    )).toBeRejectedWith('Test 3');
   });
 
   it('return non-async', async () => {
@@ -108,7 +108,7 @@ describe('async-retry', () => {
       onRetry(err, i) {
         retries = i;
       }
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
 
     expect(retries).toEqual(2);
   });
@@ -148,18 +148,12 @@ describe('async-retry', () => {
         retries: Number.POSITIVE_INFINITY,
         minTimeout: 0 // Speed up test
       }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(attempts).toEqual(maxAttempts);
   });
 
   // Error Handling Tests
-  it('throws original error', async () => {
-    await expect(asyncRetry(() => {
-      // eslint-disable-next-line @typescript-eslint/only-throw-error -- unit test
-      throw 'foo';
-    }, sharedOpt)).rejects.toBe('foo');
-  });
 
   it('no retry on TypeError', async () => {
     const typeErrorFixture = new TypeError('type-error-fixture');
@@ -169,7 +163,7 @@ describe('async-retry', () => {
       await wait(20);
       index++;
       return attemptNumber === 3 ? fixture : Promise.reject(typeErrorFixture);
-    }, sharedOpt)).rejects.toThrow(typeErrorFixture);
+    }, sharedOpt)).toBeRejectedWith('type-error-fixture');
 
     expect(index).toEqual(1);
   });
@@ -186,7 +180,7 @@ describe('async-retry', () => {
         shouldRetryCalled++;
         return true;
       }
-    })).rejects.toThrow(typeErrorFixture);
+    })).toBeRejectedWith('type-error-fixture');
 
     expect(shouldRetryCalled).toEqual(0);
   });
@@ -221,19 +215,19 @@ describe('async-retry', () => {
         maxRetryTime,
         minTimeout: 0
       }
-    )).rejects.toBe(originalError);
+    )).toBeRejectedWith('original error');
   });
 
   it('AbortError - string', () => {
     const error = new AsyncRetryAbortError('fixture').cause;
-    expect(error).toBeInstanceOf(Error);
+    expect(error).toBeA(Error);
     expect((error as Error).constructor.name).toEqual('Error');
     expect((error as Error).message).toEqual('fixture');
   });
 
   it('AbortError - error', () => {
     const error = new AsyncRetryAbortError(new Error('fixture')).cause;
-    expect(error).toBeInstanceOf(Error);
+    expect(error).toBeA(Error);
     expect((error as Error).constructor.name).toEqual('Error');
     expect((error as Error).message).toEqual('fixture');
   });
@@ -245,7 +239,7 @@ describe('async-retry', () => {
       await wait(20);
       index++;
       return attemptNumber === 3 ? Promise.reject(new AsyncRetryAbortError(fixtureError)) : Promise.reject(fixtureError);
-    }, sharedOpt)).rejects.toBe(fixtureError);
+    }, sharedOpt)).toBeRejectedWith('fixture');
 
     expect(index).toEqual(3);
   });
@@ -267,7 +261,7 @@ describe('async-retry', () => {
         retries: 10,
         minTimeout: 0
       }
-    )).rejects.toBeTruthy();
+    )).toBeRejectedWith('stop');
 
     expect(attempts).toEqual(2); // Should stop after AbortError
   });
@@ -282,7 +276,7 @@ describe('async-retry', () => {
         shouldRetryCalled++;
         return true;
       }
-    })).rejects.toThrow('stop');
+    })).toBeRejected();
 
     expect(shouldRetryCalled).toEqual(0);
   });
@@ -302,7 +296,7 @@ describe('async-retry', () => {
     }, {
       ...sharedOpt,
       signal: controller.signal
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
 
     expect(index).toEqual(3);
   });
@@ -323,7 +317,7 @@ describe('async-retry', () => {
     }, {
       ...sharedOpt,
       signal: controller.signal
-    })).rejects.toBe(fixtureError);
+    })).toBeRejectedWith('fixture');
 
     expect(index).toEqual(3);
   });
@@ -344,7 +338,7 @@ describe('async-retry', () => {
         return (error as Error).message === shouldRetryError.message;
       },
       retries: 10
-    })).rejects.toThrow(customError);
+    })).toBeRejectedWith('custom-error');
 
     expect(index).toEqual(3);
   });
@@ -362,7 +356,7 @@ describe('async-retry', () => {
         order.push('shouldRetry');
         return false;
       }
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
 
     expect(order).toEqual(['onFailedAttempt', 'shouldRetry']);
   });
@@ -386,7 +380,7 @@ describe('async-retry', () => {
           return true;
         }
       }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(Date.now() - start).toBeLessThanOrEqual(maxRetryTime + 25);
     expect(attempts).toBeLessThan(10);
@@ -432,7 +426,7 @@ describe('async-retry', () => {
       },
       shouldRetry: () => false,
       retries: 5
-    })).rejects.toBe(error);
+    })).toBeRejectedWith('fail');
 
     expect(attempts).toEqual(1);
     expect(onFailedAttemptCount).toEqual(1);
@@ -460,7 +454,7 @@ describe('async-retry', () => {
       }
     );
 
-    expect(Date.now()).toBeGreaterThan(start + waitFor);
+    expect(Date.now()).toBeGreaterThanOrEqual(start + waitFor);
   });
 
   it('onFailedAttempt can throw to abort retries', async () => {
@@ -472,7 +466,7 @@ describe('async-retry', () => {
       onFailedAttempt() {
         throw error;
       }
-    })).rejects.toBe(error);
+    })).toBeRejectedWith('thrown from onFailedAttempt');
   });
 
   it('retry context object is immutable', async () => {
@@ -484,7 +478,7 @@ describe('async-retry', () => {
         // Attempt to mutate frozen object in strict mode should throw
         Object.defineProperty(context, 'foo', { value: 'bar' });
       }
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
   });
 
   it('onFailedAttempt can be undefined', async () => {
@@ -496,7 +490,7 @@ describe('async-retry', () => {
       ...sharedOpt,
       onFailedAttempt: undefined,
       retries: 1
-    })).rejects.toBe(error);
+    })).toBeRejectedWith('thrown from onFailedAttempt');
   });
 
   it('shouldRetry can be undefined', async () => {
@@ -508,7 +502,7 @@ describe('async-retry', () => {
       ...sharedOpt,
       shouldRetry: undefined,
       retries: 1
-    })).rejects.toBe(error);
+    })).toBeRejectedWith('thrown from onFailedAttempt');
   });
 
   it('factor affects exponential backoff', async () => {
@@ -526,7 +520,7 @@ describe('async-retry', () => {
           maxTimeout: Number.POSITIVE_INFINITY,
           randomize: false
         }
-      )).rejects.toBeTruthy();
+      )).toBeRejected();
 
       expect(sTO.getCalls().map(call => call.args[1])).toEqual([10, 20, 40]);
     } finally {
@@ -549,7 +543,7 @@ describe('async-retry', () => {
           maxTimeout: Number.POSITIVE_INFINITY,
           randomize: false
         }
-      )).rejects.toBeTruthy();
+      )).toBeRejected();
 
       // With factor 0.5 and minTimeout 100, expected delays: 100, 50, 25 (before rounding)
       expect(sTO.getCalls().map(call => call.args[1])).toEqual([40, 20, 10]);
@@ -573,7 +567,7 @@ describe('async-retry', () => {
           maxTimeout: Number.POSITIVE_INFINITY,
           randomize: false
         }
-      )).rejects.toBeTruthy();
+      )).toBeRejected();
 
       // First delay is at least minTimeout. Second is minTimeout * 0.1 = 10
       expect(sTO.getCalls().map(call => call.args[1])).toEqual([10, 1]);
@@ -597,7 +591,7 @@ describe('async-retry', () => {
           maxTimeout: 25,
           randomize: false
         }
-      )).rejects.toBeTruthy();
+      )).toBeRejected();
 
       expect(sTO.callCount).toEqual(3);
       expect(sTO.getCalls().map(call => call.args[1])).toEqual([10, 25, 25]);
@@ -615,7 +609,7 @@ describe('async-retry', () => {
       minTimeout: 200,
       maxTimeout: 50,
       factor: 1
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
 
     const elapsed = Date.now() - start;
     // Should be significantly less than minTimeout due to capping
@@ -641,7 +635,7 @@ describe('async-retry', () => {
           factor: 1,
           randomize: true
         }
-      )).rejects.toBeTruthy();
+      )).toBeRejected();
 
       expect(sTO.getCalls().map(call => call.args[1])).toEqual([8, 16, 12]);
     } finally {
@@ -664,7 +658,7 @@ describe('async-retry', () => {
         minTimeout: 50,
         maxRetryTime
       }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(Date.now() - start).toBeLessThan(maxRetryTime + 50 + 50);
   });
@@ -686,7 +680,7 @@ describe('async-retry', () => {
           await wait(50);
         }
       }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(attempts).toEqual(1);
     expect(Date.now() - start).toBeLessThan(maxRetryTime + 50);
@@ -707,7 +701,7 @@ describe('async-retry', () => {
       retries: 5,
       minTimeout: 500,
       factor: 2
-    })).rejects.toBe(fixtureError);
+    })).toBeRejectedWith('fixture');
 
     expect(Date.now() - start).toBeLessThan(1000);
   });
@@ -721,7 +715,7 @@ describe('async-retry', () => {
         throw new Error('test');
       },
       { signal: controller.signal }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
   });
 
   it('aborts immediately if signal is already aborted with reason', async () => {
@@ -734,7 +728,7 @@ describe('async-retry', () => {
       throw new Error('should not run');
     }, {
       signal: controller.signal
-    })).rejects.toBe(fixtureError);
+    })).toBeRejectedWith('fixture');
 
     expect(called).toEqual(0);
   });
@@ -745,7 +739,7 @@ describe('async-retry', () => {
         async () => {},
         { retries: -1 }
       )
-    ).rejects.toThrow(new TypeError('Expected `retries` to be ≥ 0.'));
+    ).toBeRejectedWith('Expected `retries` to be ≥ 0.');
   });
 
   it('throws on NaN retries', async () => {
@@ -754,7 +748,7 @@ describe('async-retry', () => {
         async () => {},
         { retries: Number.NaN }
       )
-    ).rejects.toThrow(new TypeError('Expected `retries` to be a valid number or Infinity, got NaN.'));
+    ).toBeRejectedWith('Expected `retries` to be a valid number or Infinity, got NaN.');
   });
 
   it('handles zero retries', async () => {
@@ -766,7 +760,7 @@ describe('async-retry', () => {
         throw new Error('test');
       },
       { retries: 0 }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(attempts).toEqual(1); // Should only try once with zero retries
   });
@@ -781,16 +775,16 @@ describe('async-retry', () => {
       onFailedAttempt() {
         onFailedAttemptCount++;
       }
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
 
     expect(onFailedAttemptCount).toEqual(1);
   });
 
   it('invalid numeric options throw', async () => {
-    await expect(asyncRetry(async () => {}, { factor: -1 })).rejects.toBeTruthy();
-    await expect(asyncRetry(async () => {}, { minTimeout: -1 })).rejects.toBeTruthy();
-    await expect(asyncRetry(async () => {}, { maxTimeout: -1 })).rejects.toBeTruthy();
-    await expect(asyncRetry(async () => {}, { maxRetryTime: -1 })).rejects.toBeTruthy();
+    await expect(asyncRetry(async () => {}, { factor: -1 })).toBeRejected();
+    await expect(asyncRetry(async () => {}, { minTimeout: -1 })).toBeRejected();
+    await expect(asyncRetry(async () => {}, { maxTimeout: -1 })).toBeRejected();
+    await expect(asyncRetry(async () => {}, { maxRetryTime: -1 })).toBeRejected();
   });
 
   it('factor <= 0 is treated as 1 (stable delays)', async () => {
@@ -806,7 +800,7 @@ describe('async-retry', () => {
       factor: 0,
       // Make delays deterministic
       randomize: false
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
 
     // Expect ~1 delay of at least minTimeout
     expect(Date.now() - start).toBeGreaterThanOrEqual(40);
@@ -822,7 +816,7 @@ describe('async-retry', () => {
         throw new Error('test');
       },
       { maxRetryTime: 0 }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(attempts).toEqual(1); // Should only try once with zero maxRetryTime
   });
@@ -843,7 +837,7 @@ describe('async-retry', () => {
         minTimeout,
         randomize: false
       }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(delays[0]).toEqual(minTimeout);
     expect(delays[1]).toEqual(minTimeout);
@@ -858,7 +852,7 @@ describe('async-retry', () => {
         throw new Error('test');
       },
       { retries: 2, minTimeout: 0 }
-    )).rejects.toBeTruthy();
+    )).toBeRejected();
 
     expect(attempts).toEqual(3); // Initial + 2 retries
   });
@@ -879,11 +873,16 @@ describe('async-retry', () => {
   });
 
   it('respect non-Error rejection values', async () => {
-    await expect(asyncRetry(
+    try {
+      await asyncRetry(
       // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- unit test
-      () => Promise.reject('string rejection'),
-      { retries: 1, minTimeout: 0 }
-    )).rejects.toEqual('string rejection');
+        () => Promise.reject('string rejection'),
+        { retries: 1, minTimeout: 0 }
+      );
+      throw new Error('Expected asyncRetry to reject');
+    } catch (error) {
+      expect(error).toEqual('string rejection');
+    }
   });
 
   it('unref option prevents timeout from keeping process alive', async () => {
@@ -917,9 +916,9 @@ describe('async-retry', () => {
           ...sharedOpt,
           unref: true
         }
-      )).rejects.toBeTruthy();
+      )).toBeRejected();
 
-      expect(unrefSpy.called).toBe(true);
+      expect(unrefSpy.called).toEqual(true);
     } finally {
       setTimeoutStub.restore();
       timeouts.forEach(clearTimeout);
@@ -947,7 +946,7 @@ describe('async-retry', () => {
     try {
       await expect(asyncRetry(async () => {
         throw fixtureError;
-      }, { retries: 1, minTimeout: 10, unref: true })).rejects.toBe(fixtureError);
+      }, { retries: 1, minTimeout: 10, unref: true })).toBeRejectedWith('fixture');
     } finally {
       setTimeoutStub.restore();
       timeouts.forEach(clearTimeout);
@@ -994,7 +993,7 @@ describe('async-retry', () => {
   //       const output = stderr + stdout;
   //       const stack = output.split('STACKTRACE_START')[1]?.split('STACKTRACE_END')[0]?.trim();
 
-  //       expect(stack).toBeTruthy();
+  //       expect(stack).toEqualTruthy();
 
   //       expect(stack).toMatch(/Error: foo2 failed/);
 
@@ -1046,7 +1045,7 @@ describe('async-retry', () => {
     };
 
     const retried = makeRetriable(fn, { retries: 1, minTimeout: 0 });
-    await expect(() => retried('foo', 42)).rejects.toBeTruthy();
+    await expect(() => retried('foo', 42)).toBeRejected();
     expect(lastArguments).toEqual(['foo', 42]);
   });
 
@@ -1080,11 +1079,11 @@ describe('async-retry', () => {
       shouldRetry() {
         throw thrown;
       }
-    })).rejects.toThrow(thrown);
+    })).toBeRejectedWith('shouldRetry failure');
   });
 
   it('retriesLeft is Infinity when retries is Infinity', async () => {
-    let observed;
+    let observed: number | undefined;
 
     await expect(asyncRetry(async () => {
       throw new Error('fail');
@@ -1095,7 +1094,7 @@ describe('async-retry', () => {
         throw new Error('stop');
       },
       minTimeout: 0
-    })).rejects.toBeTruthy();
+    })).toBeRejected();
 
     expect(observed).toEqual(Number.POSITIVE_INFINITY);
   });

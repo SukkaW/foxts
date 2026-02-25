@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { createAhoCorasick } from '.';
 
 describe('AhoCorasick', () => {
@@ -21,7 +21,7 @@ describe('AhoCorasick', () => {
       const expected = test[2];
 
       for (let i = 0, len = fixtures.length; i < len; i++) {
-        expect(kwtest(fixtures[i])).toBe(expected[i]);
+        expect(kwtest(fixtures[i])).toEqual(expected[i]);
       }
     }
   });

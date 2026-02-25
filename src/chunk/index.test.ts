@@ -1,5 +1,5 @@
 import { chunk } from './index';
-import { expect } from 'expect';
+import { expect } from 'earl';
 
 describe('chunk', () => {
   it('should work', () => {

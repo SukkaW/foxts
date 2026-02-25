@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { availableParallelism } from '.';
 import * as os from 'node:os';
 
@@ -8,23 +8,23 @@ describe('available-parallelism', () => {
     expect(availableParallelism(os)).toBeGreaterThan(0);
   });
   it('node.js usage 2', async () => {
-    await expect(availableParallelism(import('node:os'))).resolves.toBeGreaterThan(0);
+    expect(await availableParallelism(import('node:os'))).toBeGreaterThan(0);
   });
   it('legacy node.js w/o availableParallelism()', async () => {
-    expect(availableParallelism({ cpus: () => [] })).toBe(1);
-    await expect(availableParallelism(Promise.resolve({
+    expect(availableParallelism({ cpus: () => [] })).toEqual(1);
+    expect(await availableParallelism(Promise.resolve({
       cpus: () => []
-    }))).resolves.toBeGreaterThan(0);
+    }))).toBeGreaterThan(0);
   });
   it('browser usage', () => {
     expect(availableParallelism({
       hardwareConcurrency: 4
-    })).toBe(4);
+    })).toEqual(4);
   });
   it('auto detect platform', async () => {
-    await expect(availableParallelism()).resolves.toBeGreaterThan(0);
+    expect(await availableParallelism()).toBeGreaterThan(0);
   });
   it('bad args', () => {
-    expect(availableParallelism({})).toBe(1);
+    expect(availableParallelism({})).toEqual(1);
   });
 });

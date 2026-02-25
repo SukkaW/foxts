@@ -1,13 +1,13 @@
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { lazyValue } from '.';
 
 describe('lazy-value', () => {
   it('lazy', () => {
     let index = 0;
     const value1 = lazyValue(() => ++index);
-    expect(value1()).toBe(1);
-    expect(value1()).toBe(1);
-    expect(value1()).toBe(1);
+    expect(value1()).toEqual(1);
+    expect(value1()).toEqual(1);
+    expect(value1()).toEqual(1);
 
     index = 0;
     const value2 = lazyValue(() => {
@@ -15,8 +15,8 @@ describe('lazy-value', () => {
       return null;
     });
 
-    expect(value2()).toBe(null);
-    expect(value2()).toBe(null);
-    expect(index).toBe(1);
+    expect(value2()).toEqual(null);
+    expect(value2()).toEqual(null);
+    expect(index).toEqual(1);
   });
 });

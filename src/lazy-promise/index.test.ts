@@ -1,6 +1,6 @@
 import { wait } from '../wait';
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { LazyPromise } from '.';
 import { noop } from '../noop';
 
@@ -22,7 +22,7 @@ describe('PLazy', () => {
     steps.push('then called');
 
     await lazyPromise.then(value => {
-      expect(value).toBe(fixture);
+      expect(value).toEqual(fixture);
       steps.push('then-handler called');
     });
 
@@ -50,7 +50,7 @@ describe('PLazy', () => {
     steps.push('catch called');
 
     await lazyPromise.catch(error => {
-      expect(error).toBe(fixtureError);
+      expect(error).toEqual(fixtureError);
       steps.push('catch-handler called');
     });
 
@@ -70,7 +70,7 @@ describe('PLazy', () => {
     });
 
     await wait(50);
-    expect(executorCalled).toBe(false);
+    expect(executorCalled).toEqual(false);
   });
 
   it('executor is called with only catch handler', async () => {
@@ -105,12 +105,12 @@ describe('PLazy', () => {
       return fixture;
     });
 
-    expect(lazyPromise).toBeInstanceOf(LazyPromise);
-    expect(lazyPromise).toBeInstanceOf(Promise);
-    expect(called).toBe(false);
+    expect(lazyPromise).toBeA(LazyPromise);
+    expect(lazyPromise).toBeA(Promise);
+    expect(called).toEqual(false);
 
-    expect(await lazyPromise).toBe(fixture);
-    expect(called).toBe(true);
+    expect(await lazyPromise).toEqual(fixture);
+    expect(called).toEqual(true);
   });
 
   it('should have static method `reject` that returns a lazy rejected promise', async () => {
@@ -126,7 +126,7 @@ describe('PLazy', () => {
     steps.push('catch called');
 
     await lazyPromise.catch(error => {
-      expect(error).toBe(fixtureError);
+      expect(error).toEqual(fixtureError);
       steps.push('catch-handler called');
     });
 
@@ -140,9 +140,9 @@ describe('PLazy', () => {
   it('should have static method `resolve` that returns a lazy resolved promise', async () => {
     const lazyPromise = LazyPromise.resolve(fixture);
 
-    expect(lazyPromise).toBeInstanceOf(LazyPromise);
-    expect(lazyPromise).toBeInstanceOf(Promise);
+    expect(lazyPromise).toBeA(LazyPromise);
+    expect(lazyPromise).toBeA(Promise);
 
-    expect(await lazyPromise).toBe(fixture);
+    expect(await lazyPromise).toEqual(fixture);
   });
 });

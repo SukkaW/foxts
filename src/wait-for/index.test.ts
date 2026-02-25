@@ -1,8 +1,7 @@
 import { wait as sleep } from '../wait';
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect, mockFn } from 'earl';
 import { waitFor } from '.';
-import sinon from 'sinon';
 
 class TestError extends Error {
   constructor(message: string) {
@@ -13,8 +12,6 @@ class TestError extends Error {
 
 describe('waitFor', () => {
   it('Calls the predicate and resolves with a truthy result', async () => {
-    expect.assertions(1);
-
     const initialTime = Date.now();
     const result = await waitFor(() => Date.now() - initialTime > 50);
 
@@ -22,8 +19,6 @@ describe('waitFor', () => {
   });
 
   it('Calls the predicate and resolves with a non-boolean truthy result', async () => {
-    expect.assertions(1);
-
     const initialTime = Date.now();
     const result = await waitFor(() => (Date.now() - initialTime > 100 ? { a: 10, b: 20 } : false));
 
@@ -31,24 +26,20 @@ describe('waitFor', () => {
   });
 
   it('Supports a custom retry interval', async () => {
-    expect.assertions(3);
-
     const initialTime = Date.now();
-    const predicate = sinon.fake(() => (Date.now() - initialTime > 200 ? { a: 10, b: 20 } : false));
-    expect(predicate.called).toBe(false);
+    const predicate = mockFn(() => (Date.now() - initialTime > 200 ? { a: 10, b: 20 } : false));
+    expect(predicate).not.toHaveBeenCalled();
 
     const result = await waitFor(predicate, 150, AbortSignal.timeout(550));
 
-    expect(predicate.callCount < Math.floor(550 / 50) - 1).toBe(true);
     expect(result).toEqual({ a: 10, b: 20 });
+    expect(predicate).toHaveBeenCalledTimes(3);
   });
 
   it.skip('Supports waiting forever', async () => {
-    expect.assertions(3);
-
     const initialTime = Date.now();
-    const predicate = sinon.fake(() => (Date.now() - initialTime > 1000 ? { a: 10, b: 20 } : false));
-    expect(predicate.called).toBe(false);
+    const predicate = mockFn(() => (Date.now() - initialTime > 1000 ? { a: 10, b: 20 } : false));
+    expect(predicate).not.toHaveBeenCalled();
     const result = await waitFor(predicate);
 
     expect(predicate).toHaveBeenCalled();
@@ -56,18 +47,16 @@ describe('waitFor', () => {
   });
 
   it('Stops executing the predicate after timing out', async () => {
-    expect.assertions(5);
-
     const initialTime = Date.now();
-    const predicate = sinon.fake(() => Date.now() - initialTime > 100);
-    expect(predicate.called).toBe(false);
+    const predicate = mockFn(() => Date.now() - initialTime > 100);
+    expect(predicate).not.toHaveBeenCalled();
     try {
       await waitFor(predicate, AbortSignal.timeout(200));
     } catch {
       expect(predicate).toHaveBeenCalled();
-      const callNumber = predicate.callCount;
+      const callNumber = predicate.calls.length;
       await sleep(300);
-      expect(predicate.callCount).toBe(callNumber);
+      expect(predicate).toHaveBeenCalledTimes(callNumber);
     }
   });
 
@@ -81,8 +70,6 @@ describe('waitFor', () => {
   });
 
   it('Rejects on timeout only once', async () => {
-    expect.assertions(2);
-
     try {
       const initialTime = Date.now();
       await waitFor(() => Date.now() - initialTime > 100, AbortSignal.timeout(200));
@@ -104,29 +91,25 @@ describe('waitFor', () => {
       );
       throw new Error('Expected waitUntil to throw');
     } catch (e) {
-      expect(e).toBeInstanceOf(TestError);
+      expect(e).toBeA(TestError);
     }
   });
 
   it('Rejects when the predicate throws an error', async () => {
-    expect.assertions(2);
-
     try {
       await waitFor(() => {
         throw new TestError('Crap!');
       });
     } catch (e) {
-      expect(e).toBeInstanceOf(Error);
-      expect(e).toBeInstanceOf(TestError);
+      expect(e).toBeA(Error);
+      expect(e).toBeA(TestError);
     }
   });
 
   // https://github.com/devlato/async-wait-until/issues/32
   it('Issue #32 - does not leave open handlers when predicate returns false', async () => {
-    expect.assertions(1);
-
     const end = Date.now() + 1000;
     const result = await waitFor(() => Date.now() < end);
-    expect(result).toBe(true);
+    expect(result).toEqual(true);
   });
 });

@@ -1,7 +1,6 @@
 import { Writable } from 'node:stream';
 import { asyncWriteToStream } from './index';
-import { expect } from 'expect';
-import sinon from 'sinon';
+import { expect, mockFn } from 'earl';
 
 class MockWritable extends Writable {
   // eslint-disable-next-line @typescript-eslint/class-methods-use-this -- mock
@@ -19,13 +18,14 @@ describe('asyncWriteToStream', () => {
 
   it('should return null if the stream is not under backpressure', () => {
     const result = asyncWriteToStream(stream, 'test chunk');
-    expect(result).toBeNull();
+    expect(result).toBeNullish();
   });
 
   it('should return a promise if the stream is under backpressure', () => {
-    sinon.mock(stream).expects('write').alwaysReturned(false);
+    stream.write = mockFn().returns(false);
+
     const result = asyncWriteToStream(stream, 'test chunk');
-    expect(result).toBeInstanceOf(Promise);
+    expect(result).toBeA(Promise);
   });
 
   afterEach(() => {

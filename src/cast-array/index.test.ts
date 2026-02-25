@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { castArray } from '.';
 
 describe('castArray', () => {
@@ -14,7 +14,7 @@ describe('castArray', () => {
     [['foo'], ['foo']]
   ]).forEach(([input, expected]) => {
     it(`(${JSON.stringify(input)}) => ${JSON.stringify(expected)}`, () => {
-      expect(castArray(input)).toStrictEqual(expected);
+      expect(castArray(input)).toEqual(expected);
     });
   });
 });

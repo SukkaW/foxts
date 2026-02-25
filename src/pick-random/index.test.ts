@@ -1,10 +1,10 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { pickOne, pickRandom } from '.';
 
 describe('random-int', () => {
   it('pickOne', () => {
-    expect(pickOne([0])).toBe(0);
+    expect(pickOne([0])).toEqual(0);
     expect(pickOne([0, 1])).toBeLessThanOrEqual(1);
   });
 

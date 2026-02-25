@@ -1,7 +1,7 @@
 import { GlobalRegistrator } from '@happy-dom/global-registrator';
 import { before, describe, after } from 'mocha';
 import { tagged as html } from '../tagged';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { nullthrow } from '../guard';
 import { emptyElement, emptyNode } from '.';
 
@@ -23,9 +23,9 @@ describe('empty-node', () => {
 
     const el = nullthrow(document.getElementById('test-div'));
 
-    expect(el.childElementCount).toBe(3);
+    expect(el.childElementCount).toEqual(3);
     emptyNode(el);
-    expect(el.childElementCount).toBe(0);
+    expect(el.childElementCount).toEqual(0);
   });
 
   it('empty-element', () => {
@@ -33,9 +33,9 @@ describe('empty-node', () => {
 
     const el = nullthrow(document.getElementById('test-div'));
 
-    expect(el.childElementCount).toBe(3);
+    expect(el.childElementCount).toEqual(3);
     emptyElement(el);
-    expect(el.childElementCount).toBe(0);
+    expect(el.childElementCount).toEqual(0);
   });
 
   after(async () => {

@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { arrayPushNonNullish } from '.';
 
 describe('array-push-non-nullish', () => {

@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import { expect } from 'expect';
+import { expect } from 'earl';
 import { once } from '.';
 
 describe('once', () => {
@@ -7,8 +7,8 @@ describe('once', () => {
     const rand = once(() => Math.random());
     const value = rand();
 
-    expect(rand()).toBe(value);
-    expect(rand()).toBe(value);
-    expect(rand()).toBe(value);
+    expect(rand()).toEqual(value);
+    expect(rand()).toEqual(value);
+    expect(rand()).toEqual(value);
   });
 });
