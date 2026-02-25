@@ -220,6 +220,12 @@
       "require": "./dist/lazy-value/index.js",
       "default": "./dist/lazy-value/index.js"
     },
+    "./literal": {
+      "types": "./dist/literal/index.d.ts",
+      "import": "./dist/literal/index.mjs",
+      "require": "./dist/literal/index.js",
+      "default": "./dist/literal/index.js"
+    },
     "./merge-headers": {
       "types": "./dist/merge-headers/index.d.ts",
       "import": "./dist/merge-headers/index.mjs",
