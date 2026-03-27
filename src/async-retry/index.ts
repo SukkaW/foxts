@@ -2,6 +2,7 @@ import { isAbortErrorLike } from '../abort-error';
 import { extractErrorMessage } from '../extract-error-message';
 import { isNetworkError } from '../is-network-error';
 import { noop, trueFn } from '../noop';
+import { waitWithAbort } from '../wait';
 
 const { round: MathRound } = Math;
 const E = Error;
@@ -201,25 +202,7 @@ async function onAttemptFailure(
 
   // Introduce delay
   if (finalDelay > 0) {
-    await new Promise<void>((resolve, reject) => {
-      const timeoutToken = setTimeout(() => {
-        options.signal?.removeEventListener('abort', onAbort);
-        resolve();
-      }, finalDelay);
-
-      function onAbort() {
-        clearTimeout(timeoutToken);
-        options.signal?.removeEventListener('abort', onAbort);
-        // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- internal abort
-        reject(options.signal?.reason);
-      };
-
-      if (options.unref && typeof timeoutToken === 'object' && 'unref' in timeoutToken && typeof timeoutToken.unref === 'function') {
-        timeoutToken.unref();
-      }
-
-      options.signal?.addEventListener('abort', onAbort, { once: true });
-    });
+    await waitWithAbort(finalDelay, options.signal, options.unref);
   }
 
   options.signal?.throwIfAborted();
