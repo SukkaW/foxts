@@ -1,6 +1,10 @@
-type DeepMutable<T> = {
-  -readonly [P in keyof T]: DeepMutable<T[P]>;
-};
+/**
+ * Resolve mapped types and show the derived keys and their types when hovering in
+ * VS Code, instead of just showing the names those mapped types are defined with.
+ */
+type DeepMutableWithPrettify<T> = {
+  -readonly [P in keyof T]: DeepMutableWithPrettify<T[P]>;
+} & {};
 
 /**
  * When you are returning some object/array literal from a function,
@@ -13,6 +17,15 @@ type DeepMutable<T> = {
  * You can use `foxts/literal` to wrap your array to prevent TypeScript
  * from widening the type in function return values.
  *
- * Playground Link: https://www.typescriptlang.org/play/?declaration=false&jsx=0#code/C4TwDgpgBAIhFgLIFdgEMBGAbCAeAKgHxQC8UA3gFBRQC0AThGgCYD2AdliFANoAKUAJbsoAawghWAMyj4AugC5Y8JKkw4C-OYQDclAL56IADzCt6wKAGMOAZ0tZBwCPTRZSUXDfb3ZhABQAbkr4AJRKcAgo6Nh4RKTEgXqUoJBQAMrowMi2APIYAFYQVpZk5FD2aNm2SgCC9K4guADkrKLNUAA+UK2sYLbNxIaUUsjsJYIc1gAWxaL+wmCoSplVOflFJaEU1nasOAB0WKwA5gvsS8Dbw5RWs1bz5ZXVSjyt7XJQ+qHJ3r4YHn82xIxH8TyyOVe72an2+egA9PCoMBpoJbFAONAAO6CLDuKRoXG3e7zDBAn6UW52SxWQHA0HgtY1KCOZyuLD+N5tGHXCl3Ob+KzkvRAA
+ * Playground Link: https://www.typescriptlang.org/play/?declaration=false&jsx=0#code/C4TwDgpgBAIhFgLIFdgEMBGAbCB1AlsABYAKAThMMPgGYgA8AKgHxQC8UA3gFBRQC0FNABMA9gDssIKAG0SUfOKgBrCCFE0ojALoAuWPCSpMOAsXKVqdJnO3MA3NwC+UAGRcnjiAA8wossBQAMYSAM6BWIQQZGhY7FD0IeLhWswAFABu+owAlPpwCCjo2HiEpBRUtAws7KwZjtygkFAAyujAyKEA8hgAVhBBgRycUOFoHaH6AIJkMQwA5KLK81AAPlCLomCh86ye3DTI4oP4EsFEA8ppimCo+m3jnT39gzlcwWGiOAB0WKIA5tdxLdgG99twAPQQhSSRTQUR9AaBADu+CwcQw8OU3CCFyCVxGYwm+hki2W2igThyDShUARL0CNDIogAtlBDsdqGcKsgyEpUej2Wg0TiwoEMPE0m82Kw0oT2p0SWT5hSqY5cZc0hgpdTuJDoRhUFBiPhQnTxNABRisaLkoEgpLpbL5Y9JlBIsBorE0qSliqwbqNfi0kEdTToSazRJLWjrXTlAAaY2iUS2lLCR21d1RGJYOWjBVu33kymBvFXYRhoA
  */
-export const literal = <const T>(v: T): DeepMutable<T> => v;
+export const literal = <const T extends object>(v: T): DeepMutableWithPrettify<T> => v;
+
+literal({
+  a: 1,
+  b: {
+    'c/d': 'trur'
+  }
+});
+
+literal(['a']);
