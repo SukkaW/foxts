@@ -332,7 +332,7 @@
     "bench:all": "SWC_NODE_IGNORE_DYNAMIC=1 node --require @swc-node/register ./src/**/*.bench.ts",
     "build": "rollup -c rollup.config.ts --bundleConfigAsCjs --configPlugin swc3",
     "prerelease": "pnpm run lint && pnpm run test && pnpm run build",
-    "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
+    "release": "bumpp --install -r --all --commit \"release: %s\" --tag \"%s\""
   },
   "keywords": [
     "sukka",

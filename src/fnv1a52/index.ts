@@ -17,14 +17,14 @@ import { __internal_hl_do_not_use__ as hl } from '../fnv1a';
 export function fnv1a52(str: string) {
   const len = str.length;
   let i = 0,
-    t0 = 0,
-    v0 = 0x2325,
-    t1 = 0,
-    v1 = 0x8422,
-    t2 = 0,
-    v2 = 0x9CE4,
-    t3 = 0,
-    v3 = 0xCBF2;
+      t0 = 0,
+      v0 = 0x2325,
+      t1 = 0,
+      v1 = 0x8422,
+      t2 = 0,
+      v2 = 0x9CE4,
+      t3 = 0,
+      v3 = 0xCBF2;
 
   while (i < len) {
     v0 ^= str.charCodeAt(i++);
@@ -55,14 +55,14 @@ const hl16 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 export function fnv1a52hex(str: string) {
   const len = str.length;
   let i = 0,
-    t0 = 0,
-    v0 = 0x2325,
-    t1 = 0,
-    v1 = 0x8422,
-    t2 = 0,
-    v2 = 0x9CE4,
-    t3 = 0,
-    v3 = 0xCBF2;
+      t0 = 0,
+      v0 = 0x2325,
+      t1 = 0,
+      v1 = 0x8422,
+      t2 = 0,
+      v2 = 0x9CE4,
+      t3 = 0,
+      v3 = 0xCBF2;
 
   while (i < len) {
     v0 ^= str.charCodeAt(i++);
