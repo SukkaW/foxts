@@ -5,10 +5,11 @@ import { extractErrorMessage } from '.';
 describe('extractErrorMessage', () => {
   it('should extract message from real Error', () => {
     const error = new Error('Something went wrong');
+
     expect(extractErrorMessage(error)).toEqual('Error: Something went wrong');
     expect(extractErrorMessage(error, false)).toEqual('Something went wrong');
 
-    expect(extractErrorMessage(error, true, true)).toEqual('Error: Something went wrong\n' + error.stack);
+    expect(extractErrorMessage(error, true, true)!).toInclude('Error: Something went wrong\n');
   });
 
   it('should extract message from ErrorLikeObject', () => {

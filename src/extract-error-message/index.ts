@@ -43,9 +43,14 @@ export function extractErrorMessage(error: unknown, includeName = true, includeS
   message += error[MESSAGE];
 
   if (includeStack && STACK in error && typeof error[STACK] === 'string') {
-    message += '\n' + error[STACK];
+    const stack = error[STACK];
+    // V8 already includes "Name: message\n" at the top of the stack string.
+    // SpiderMonkey/WebKit do not, so we prepend the header ourselves.
+    if (stack.startsWith(error[NAME])) {
+      return stack.trim();
+    }
+    message += '\n' + stack;
   }
 
-  // Trim any extra whitespace
   return message.trim();
 }
