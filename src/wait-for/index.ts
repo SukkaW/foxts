@@ -67,7 +67,8 @@ export function waitFor<T extends TruthyValue>(
           cleanUp.add(cleanup);
         }
       } catch (err) {
-        reject(err as Error);
+        // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- we want to allow rejecting with any value
+        reject(err);
       }
     };
     void check();
