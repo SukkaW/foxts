@@ -374,15 +374,5 @@
     "typescript": "^6.0.3",
     "word-list": "3.0.0"
   },
-  "packageManager": "pnpm@10.33.2",
-  "pnpm": {
-    "overrides": {
-      "eslint>chalk": "npm:picocolors@^1.1.1"
-    },
-    "onlyBuiltDependencies": [
-      "@swc/core",
-      "oxc-resolver",
-      "unrs-resolver"
-    ]
-  }
+  "packageManager": "pnpm@11.0.3"
 }
