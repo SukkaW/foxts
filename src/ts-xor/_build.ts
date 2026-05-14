@@ -7,6 +7,7 @@ import { tagged as ts } from '../tagged';
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { dedent } from 'ts-dedent';
 
 const xorParamCount = 8;
 const countOfUniqueLetters = 20;
@@ -123,13 +124,21 @@ const xorTsFileContents = ts`import type { EvalIfNotUnknown, Prettify, Without }
 ${printer.printNode(
   typescript.EmitHint.Unspecified,
   typescript.factory.createJSDocComment(
-    `Restrict using either exclusively the keys of \`T\` or \
-exclusively the keys of \`U\`.\n\n\
-No unique keys of \`T\` can be used simultaneously with \
-any unique keys of \`U\`.\n\n@example\n\
-\`\`\`ts\nconst myVar: XOR<{ data: object }, { error: object }>\n\`\`\`\n\n\
-Supports from 2 up to ${xorParamCount} generic parameters.\n\n\
-More: https://github.com/maninak/ts-xor/tree/master#description\n`
+    dedent`
+      Restrict using either exclusively the keys of \`T\` or exclusively the keys of \`U\`.
+
+      No unique keys of \`T\` can be used simultaneously with any unique keys of \`U\`.
+
+      @example
+      \`\`\`ts
+      const myVar: XOR<{ data: object }, { error: object }>
+      \`\`\`
+
+      Supports from 2 up to ${xorParamCount} generic parameters.
+
+      More: https://github.com/maninak/ts-xor/tree/master#description
+    `
+      + '\n'
   ),
   tempFile
 )}

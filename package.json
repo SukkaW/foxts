@@ -371,6 +371,7 @@
     "rollup-plugin-oxc-resolve": "^0.0.5",
     "rollup-plugin-swc3": "^0.12.1",
     "sinon": "^21.1.2",
+    "ts-dedent": "^2.2.0",
     "typescript": "^6.0.3",
     "word-list": "3.0.0"
   },
