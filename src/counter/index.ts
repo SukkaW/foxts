@@ -16,6 +16,12 @@ export class Counter<K extends string> {
     }
   }
 
+  forEach(callbackfn: (value: number, key: K, map: Map<K, number>) => void, thisArg?: any): void {
+    this.map.forEach(callbackfn, thisArg);
+  }
+
+  [Symbol.toStringTag] = 'Counter';
+
   get size(): number {
     return this.map.size;
   }
@@ -65,11 +71,15 @@ export class Counter<K extends string> {
     return this;
   }
 
-  public entries(): IterableIterator<readonly [K, number]> {
+  public entries(): MapIterator<[K, number]> {
     return this.map.entries();
   }
 
-  public keys(): IterableIterator<K> {
+  public [Symbol.iterator](): MapIterator<[K, number]> {
+    return this.map[Symbol.iterator]();
+  }
+
+  public keys(): MapIterator<K> {
     return this.map.keys();
   }
 }
