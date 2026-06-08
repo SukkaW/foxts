@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "5.4.2",
+  "version": "5.5.0",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
@@ -99,6 +99,12 @@
       "import": "./dist/compare-source/index.mjs",
       "require": "./dist/compare-source/index.js",
       "default": "./dist/compare-source/index.js"
+    },
+    "./counter": {
+      "types": "./dist/counter/index.d.ts",
+      "import": "./dist/counter/index.mjs",
+      "require": "./dist/counter/index.js",
+      "default": "./dist/counter/index.js"
     },
     "./create-fixed-array": {
       "types": "./dist/create-fixed-array/index.d.ts",
