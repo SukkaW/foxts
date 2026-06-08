@@ -144,6 +144,23 @@ describe('text-line-stream', () => {
   //   }
   // });
 
+  it(String.raw`split lines by solo \r - allowCR option`, async () => {
+    const { readable, writable } = new TextLineStream({ allowCR: true });
+
+    const readStream = readable
+      .pipeThrough(concatArray());
+
+    const writer = writable.getWriter();
+    writer.write('hello\rworld\rfoo');
+    writer.close();
+
+    // eslint-disable-next-line no-unreachable-loop -- async iterator
+    for await (const list of readStream) {
+      expect(list).toEqual(['hello', 'world', 'foo']);
+      return;
+    }
+  });
+
   it('return empty lines - skipEmptyLines option', async () => {
     const { readable, writable } = new TextLineStream({
       skipEmptyLines: true
