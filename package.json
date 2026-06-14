@@ -5,6 +5,10 @@
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
   },
+  "homepage": "https://github.com/SukkaW/foxts#readme",
+  "bugs": {
+    "url": "https://github.com/SukkaW/foxts/issues"
+  },
   "files": [
     "dist"
   ],
