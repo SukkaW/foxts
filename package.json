@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "5.5.1",
+  "version": "5.6.0",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
@@ -93,6 +93,12 @@
       "import": "./dist/chunk/index.mjs",
       "require": "./dist/chunk/index.js",
       "default": "./dist/chunk/index.js"
+    },
+    "./clamp": {
+      "types": "./dist/clamp/index.d.ts",
+      "import": "./dist/clamp/index.mjs",
+      "require": "./dist/clamp/index.js",
+      "default": "./dist/clamp/index.js"
     },
     "./compare-source": {
       "types": "./dist/compare-source/index.d.ts",
