@@ -1,3 +1,4 @@
+/* eslint-disable sukka/prefer-foxts-noop -- foxts test */
 import { describe, it } from 'mocha';
 import { expect } from 'earl';
 import { isFunction } from '.';

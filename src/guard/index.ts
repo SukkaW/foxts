@@ -64,6 +64,7 @@ export const isNonNull = $not_null;
 export const isNonNullish = $not_nullish;
 
 export function nullthrow<T>(value: T | null | undefined, message = '[foxts/invariant] "value" is null or undefined'): T {
+  // eslint-disable-next-line sukka/prefer-nullthrow -- this is foxts/guard
   if (value === null || value === undefined) {
     throw new TypeError(message);
   }
@@ -71,6 +72,7 @@ export function nullthrow<T>(value: T | null | undefined, message = '[foxts/inva
 }
 
 export function invariant<T>(value: T | null | undefined, message = '[foxts/invariant] "value" is null or undefined'): asserts value is T {
+  // eslint-disable-next-line sukka/prefer-nullthrow -- this is foxts/guard
   if (value === null || value === undefined) {
     throw new TypeError(message);
   }

@@ -88,7 +88,6 @@ export class TextLineStream extends TransformStream<string, string> {
 
           controller.enqueue(curChunk);
           chunkIndex = lfIndex + 1;
-          continue;
         }
 
         __buf = chunk.slice(chunkIndex);

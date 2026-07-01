@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-assignment -- v8 type hint */
 import { __internal_hl_do_not_use__ as hl } from '../fnv1a';
 
 /**

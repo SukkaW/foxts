@@ -7,6 +7,8 @@ const TD = TextDecoder;
 
 const singletonEncoder = new TextEncoder();
 
+const rBase64UrlSuffix = /=+$/;
+
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 // Use a lookup table to find the index.
 const lookup = new Uint8Array(256);
@@ -34,7 +36,7 @@ function base64UrlToBase64(base64url: string): string {
 }
 
 function base64ToBase64Url(base64: string): string {
-  return base64.replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
+  return base64.replaceAll('+', '-').replaceAll('/', '_').replace(rBase64UrlSuffix, '');
 }
 
 export function base64ToUint8Array(base64String: string): Uint8Array {

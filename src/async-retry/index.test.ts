@@ -1,3 +1,5 @@
+/* eslint-disable sukka/prefer-foxts-noop -- we need fresh async function for test */
+/* eslint-disable sukka/prefer-foxts-error-util -- unit test */
 /* eslint-disable @typescript-eslint/no-empty-function -- unit test */
 /* eslint-disable @typescript-eslint/require-await -- unit test */
 import { describe, it } from 'mocha';
@@ -890,7 +892,7 @@ describe('async-retry', () => {
 
     const timeouts: Array<ReturnType<typeof setTimeout>> = [];
 
-    const realSetTimeout = globalThis.setTimeout;
+    const realSetTimeout = setTimeout;
 
     // Stub globalThis.setTimeout to return a mock Timeout-like object with the spied unref
     const setTimeoutStub = stub(globalThis, 'setTimeout').callsFake((fn, ms) => {
@@ -928,7 +930,7 @@ describe('async-retry', () => {
   it('unref option handles missing unref gracefully', async () => {
     const timeouts: Array<ReturnType<typeof setTimeout>> = [];
 
-    const realSetTimeout = globalThis.setTimeout;
+    const realSetTimeout = setTimeout;
 
     // @ts-expect-error -- fake browser timer
     const setTimeoutStub = stub(globalThis, 'setTimeout').callsFake((fn, ms) => {

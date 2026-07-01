@@ -1,3 +1,4 @@
+/* eslint-disable sukka/unicorn/prefer-smaller-scope -- hoist */
 export interface ShuffleArrayOptions {
   copy?: boolean,
   random?: () => number

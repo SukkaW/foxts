@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-assignment -- v8 type hint */
 export function fnv1a(str: string) {
   const l = str.length - 3;
   let i = 0, t0 = 0, v0 = 0x9DC5, t1 = 0, v1 = 0x811C;

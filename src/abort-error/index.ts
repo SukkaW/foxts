@@ -23,7 +23,7 @@ export function isAbortErrorLike(error: unknown): error is AbortErrorLike {
   if (error.name === 'AbortError') {
     return true;
   }
-  // eslint-disable-next-line sukka/prefer-single-boolean-return -- readability
+  // eslint-disable-next-line sukka/unicorn/prefer-boolean-return -- readability
   if ('code' in error && typeof error.code === 'string' && error.code === 'ABORT_ERR') {
     return true;
   }

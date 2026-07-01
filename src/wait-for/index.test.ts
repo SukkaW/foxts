@@ -4,10 +4,7 @@ import { expect, mockFn } from 'earl';
 import { waitFor } from '.';
 
 class TestError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'TestError';
-  }
+  public readonly name = 'TestError';
 }
 
 describe('waitFor', () => {

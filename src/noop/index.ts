@@ -1,3 +1,4 @@
+/* eslint-disable sukka/prefer-foxts-noop -- this is foxts/noop */
 export interface Noop<T = any> {
   (...args: any[]): T
 }

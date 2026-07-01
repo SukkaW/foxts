@@ -1,3 +1,4 @@
+/* eslint-disable sukka/unicorn/no-duplicate-set-values -- benchmarking */
 (async () => {
   const { bench, group, run } = await import('mitata');
 

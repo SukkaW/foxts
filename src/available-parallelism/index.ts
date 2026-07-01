@@ -1,3 +1,4 @@
+/* eslint-disable sukka/unicorn/no-unnecessary-global-this -- runtime gaurd */
 export interface NodeOSLike {
   cpus(): unknown[],
   availableParallelism?: () => number

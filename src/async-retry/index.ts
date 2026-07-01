@@ -1,5 +1,5 @@
 import { isAbortErrorLike } from '../abort-error';
-import { extractErrorMessage } from '../extract-error-message';
+import { extractErrorMessage, isErrorLikeObject } from '../extract-error-message';
 import { isNetworkError } from '../is-network-error';
 import { noop, trueFn } from '../noop';
 import { waitWithAbort } from '../wait';
@@ -108,7 +108,7 @@ function validateNumberOption(name: string, value: number, min = 0, allowInfinit
   }
 
   if (value < min) {
-    throw new TypeE(`Expected \`${name}\` to be \u2265 ${min}.`);
+    throw new TypeE(`Expected \`${name}\` to be \u{2265} ${min}.`);
   }
 }
 
@@ -117,7 +117,7 @@ export class AsyncRetryAbortError extends E {
   cause?: unknown;
 
   constructor(message: string | Error | unknown) {
-    let errorMessage = '';
+    let errorMessage: string;
     if (typeof message === 'string') {
       errorMessage = message;
     } else {
@@ -130,7 +130,7 @@ export class AsyncRetryAbortError extends E {
       const cause = new E(message);
       cause.stack = this.stack;
       this.cause = cause;
-    } else if (message instanceof E) {
+    } else if (isErrorLikeObject(message)) {
       this.cause = message;
       this.message = message.message;
     } else {

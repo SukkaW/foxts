@@ -1,6 +1,7 @@
 const arrayMap = new Map<number, readonly number[]>();
 
 function makeArray(length: number): readonly number[] {
+  // eslint-disable-next-line sukka/no-array-from-length-spread -- this is foxts implementing this
   return Array.from(new Array(length).keys());
 }
 

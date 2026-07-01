@@ -21,6 +21,7 @@ export const unpackTwoBitsSecond = (value: number): number => value & 0xFFFF;
  * @param value - The 32-bit integer to unpack
  * @param arr - An optional array to store the unpacked values, useful if you are trying to re-use arrays
  */
+// eslint-disable-next-line sukka/no-array-from-length-spread -- we need mutable array to store result
 export function unpackTwoBits(value: number, arr: [a: number, b: number] = Array.from(new Array(2).keys()) as any): [a: number, b: number] {
   arr[0] = unpackTwoBitsFirst(value);
   arr[1] = unpackTwoBitsSecond(value);
@@ -39,6 +40,7 @@ export const unpackThreeBitsThird = (value: number): number => value & 0x3FF;
  * @param value - The 32-bit integer to unpack
  * @param arr - An optional array to store the unpacked values, useful if you are trying to re-use arrays
  */
+// eslint-disable-next-line sukka/no-array-from-length-spread -- we need mutable array to store result
 export function unpackThreeBits(value: number, arr: [a: number, b: number, c: number] = Array.from(new Array(3).keys()) as any): [a: number, b: number, c: number] {
   arr[0] = unpackThreeBitsFirst(value);
   arr[1] = unpackThreeBitsSecond(value);

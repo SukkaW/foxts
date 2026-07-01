@@ -15,11 +15,10 @@ export class FIFO<T> {
 
     if (this.head) {
       this.tail![1] = node;
-      this.tail = node;
     } else {
       this.head = node;
-      this.tail = node;
     }
+    this.tail = node;
 
     this.$size++;
   }

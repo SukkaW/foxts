@@ -31,6 +31,7 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
   const tree: Trie = {};
 
   const add = (keywords: string, asPrefixes: boolean) => {
+    // eslint-disable-next-line sukka/unicorn/prefer-smaller-scope -- hoist
     let keyword: string;
     let ref: Trie = tree;
 

@@ -97,7 +97,7 @@ export default defineConfig(() => {
               mangle: {},
               format: {
                 comments: {
-                  regex: String.raw`[@#](?:__|link|see|doc|example)`
+                  regex: '[@#](?:__|link|see|doc|example)'
                 }
               },
               module: true,
