@@ -1,6 +1,6 @@
 {
   "name": "foxts",
-  "version": "5.6.0",
+  "version": "5.7.0",
   "description": "Opinionated collection of common TypeScript utils by @SukkaW",
   "repository": {
     "url": "https://github.com/SukkaW/foxts"
@@ -207,6 +207,12 @@
       "import": "./dist/is-network-error/index.mjs",
       "require": "./dist/is-network-error/index.js",
       "default": "./dist/is-network-error/index.js"
+    },
+    "./is-object-empty": {
+      "types": "./dist/is-object-empty/index.d.ts",
+      "import": "./dist/is-object-empty/index.mjs",
+      "require": "./dist/is-object-empty/index.js",
+      "default": "./dist/is-object-empty/index.js"
     },
     "./is-probably-ip": {
       "types": "./dist/is-probably-ip/index.d.ts",
