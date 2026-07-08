@@ -268,6 +268,12 @@
       "require": "./dist/pick-random/index.js",
       "default": "./dist/pick-random/index.js"
     },
+    "./property-count": {
+      "types": "./dist/property-count/index.d.ts",
+      "import": "./dist/property-count/index.mjs",
+      "require": "./dist/property-count/index.js",
+      "default": "./dist/property-count/index.js"
+    },
     "./random-int": {
       "types": "./dist/random-int/index.d.ts",
       "import": "./dist/random-int/index.mjs",
