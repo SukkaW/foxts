@@ -36,8 +36,8 @@ importers:
         specifier: ^10.0.10
         version: 10.0.10
       '@types/node':
-        specifier: ^22.20.0
-        version: 22.20.0
+        specifier: ^22.20.1
+        version: 22.20.1
       '@types/sinon':
         specifier: ^21.0.1
         version: 21.0.1
@@ -730,8 +730,8 @@ packages:
   '@types/mocha@10.0.10':
     resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
-  '@types/node@22.20.0':
-    resolution: {integrity: sha512-QWlFW2wf3nTjC13/DqRnBpR4ZO36VJH/JVBkA/vcnmbTBNQIlnObqyqZE1tUR7+Ni23Lda8R1BxMfbXRpCUx5g==}
+  '@types/node@22.20.1':
+    resolution: {integrity: sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==}
 
   '@types/sinon@21.0.1':
     resolution: {integrity: sha512-5yoJSqLbjH8T9V2bksgRayuhpZy+723/z6wBOR+Soe4ZlXC0eW8Na71TeaZPUWDQvM7LYKa9UGFc6LRqxiR5fQ==}
@@ -2328,7 +2328,7 @@ snapshots:
 
   '@happy-dom/global-registrator@20.10.6':
     dependencies:
-      '@types/node': 22.20.0
+      '@types/node': 22.20.1
       happy-dom: 20.10.6
     transitivePeerDependencies:
       - bufferutil
@@ -2675,7 +2675,7 @@ snapshots:
 
   '@types/mocha@10.0.10': {}
 
-  '@types/node@22.20.0':
+  '@types/node@22.20.1':
     dependencies:
       undici-types: 6.21.0
 
@@ -2689,7 +2689,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.20.0
+      '@types/node': 22.20.1
 
   '@typescript-eslint/eslint-plugin@8.62.1(@typescript-eslint/parser@8.62.1(eslint@10.6.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.6.0(jiti@2.6.1))(typescript@6.0.3)':
     dependencies:
@@ -2913,7 +2913,7 @@ snapshots:
 
   buffer-image-size@0.6.4:
     dependencies:
-      '@types/node': 22.20.0
+      '@types/node': 22.20.1
 
   bumpp@10.4.1:
     dependencies:
@@ -3400,7 +3400,7 @@ snapshots:
 
   happy-dom@20.10.6:
     dependencies:
-      '@types/node': 22.20.0
+      '@types/node': 22.20.1
       '@types/whatwg-mimetype': 3.0.2
       '@types/ws': 8.18.1
       buffer-image-size: 0.6.4
