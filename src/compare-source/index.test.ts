@@ -22,13 +22,11 @@ describe('compareSource', () => {
       true
     ));
 
-    it('ignore comment 1', async () => {
-      await test(
-        ['# A', 'B'],
-        ['# B', 'B'],
-        true
-      );
-    });
+    it('ignore comment 1', () => test(
+      ['# A', 'B'],
+      ['# B', 'B'],
+      true
+    ));
 
     it('ignore comment 2', () => test(
       ['# A', '# C', 'B'],
@@ -103,11 +101,15 @@ describe('compareSource', () => {
     ));
   });
 
-  describe('createCompareSource', async () => {
-    expect(await createCompareSource()(['A', 'B'], ['A', 'B'])).toEqual(true);
+  describe('createCompareSource', () => {
+    it('works with default comparator', async () => {
+      expect(await createCompareSource()(['A', 'B'], ['A', 'B'])).toEqual(true);
+    });
   });
 
-  describe('compareSource', async () => {
-    expect(await compareSource(['A', 'B'], ['A', 'B'])).toEqual(true);
+  describe('compareSource', () => {
+    it('works', async () => {
+      expect(await compareSource(['A', 'B'], ['A', 'B'])).toEqual(true);
+    });
   });
 });
