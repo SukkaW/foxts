@@ -365,6 +365,10 @@
   ],
   "author": "SukkaW <https://skk.moe>",
   "license": "MIT",
+  "dependencies": {
+    "fast-fnv1a": "^1.0.0",
+    "fnv1a52": "^1.0.0"
+  },
   "devDependencies": {
     "@eslint-sukka/node": "^8.13.4",
     "@happy-dom/global-registrator": "^20.10.6",
