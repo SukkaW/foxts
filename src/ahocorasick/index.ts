@@ -35,10 +35,13 @@ export function createAhoCorasick(keys: string[] | Set<string> | readonly string
   keys.forEach(put);
 
   // const build = () => {
+  // Breadth-first: a node's fail link is derived from its parent's, so the
+  // parent must be fully resolved before its children are visited.
   const queue: Node[] = [root];
+  let head = 0;
 
-  while (queue.length) {
-    const beginNode = queue.pop()!;
+  while (head < queue.length) {
+    const beginNode = queue[head++];
 
     beginNode.forEach((node, char) => {
       let failNode = beginNode.fail;
@@ -50,6 +53,13 @@ export function createAhoCorasick(keys: string[] | Set<string> | readonly string
       node.fail = failNode
         ? failNode.get(char)
         : root;
+
+      // A node also terminates a word when any node on its failure chain does
+      // (e.g. keys ['Y', '^Ya^'] must match '^Y' at the '^Y' node). Propagating
+      // here, in BFS order, keeps the match loop a single wordEnd test.
+      if (node.fail?.wordEnd) {
+        node.wordEnd = true;
+      }
 
       queue.push(node);
     });

@@ -2,6 +2,7 @@ import { createAhoCorasick } from '.';
 
 import ModernAhoCorasick from 'modern-ahocorasick';
 import { AhoCorasick as MonyoneAhoCorasick } from '@monyone/aho-corasick';
+import { AhoCorasick as MonyoneAhoCorasickFast } from '@monyone/aho-corasick/fast';
 // @ts-expect-error -- no types
 import FastScanner from 'fastscan';
 import { createRetrieKeywordFilter } from '../retrie';
@@ -15,6 +16,7 @@ function runKeywordFilter(data: string[], testFn: (line: string) => boolean) {
 export function getFns(keywordsSet: string[] | readonly string[]) {
   const tmp1 = new ModernAhoCorasick(keywordsSet.slice());
   const tmp2 = new MonyoneAhoCorasick(keywordsSet.slice());
+  const tmp3 = new MonyoneAhoCorasickFast(keywordsSet.slice());
   const scanner = new FastScanner(keywordsSet.slice());
   const re = createRetrieKeywordFilter(keywordsSet.slice());
 
@@ -22,6 +24,7 @@ export function getFns(keywordsSet: string[] | readonly string[]) {
     ['createKeywordFilter', createAhoCorasick(keywordsSet.slice())],
     ['modern-ahocorasick', (line: string) => tmp1.match(line)],
     ['@monyone/aho-corasick', (line: string) => tmp2.hasKeywordInText(line)],
+    ['@monyone/aho-corasick/fast', (line: string) => tmp3.hasKeywordInText(line)],
     ['fastscan', (line: string) => scanner.search(line).length > 0],
     ['retrie', (line: string) => re(line)]
   ] as const;
