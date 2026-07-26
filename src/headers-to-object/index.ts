@@ -1,15 +1,13 @@
 import type { HeadersInitLike } from '../merge-headers';
 
 export function headersToObject(headers: HeadersInitLike | Headers): Record<string, string> {
-  const obj: Record<string, string> = {};
-
-  if (headers == null) {
-    return obj;
+  if (headers instanceof Headers) {
+    return Object.fromEntries(headers);
   }
 
-  new Headers(headers).forEach((value: string, key: string) => {
-    obj[key] = value;
-  });
+  if (headers == null) {
+    return {};
+  }
 
-  return obj;
+  return Object.fromEntries(new Headers(headers));
 }
