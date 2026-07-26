@@ -1,11 +1,12 @@
 export function once<T>(fn: (() => T), prewarm = true): (() => T) {
-  let called = false;
   let result: T;
 
   if (prewarm) {
     result = fn();
     return () => result;
   }
+
+  let called = false;
 
   return (): T => {
     if (!called) {

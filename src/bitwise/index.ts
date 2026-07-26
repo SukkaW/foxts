@@ -1,3 +1,4 @@
+/* eslint-disable sukka/prefer-foxts-bitwise -- this is foxts/bitwise itself */
 // From: https://stackoverflow.com/a/43122214/1185079
 export function bitCount(n: number): number {
   n = n - ((n >> 1) & 0x55_55_55_55);

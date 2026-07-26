@@ -1,3 +1,4 @@
+/* eslint-disable sukka/prefer-foxts-bitwise -- Not related to bit flag */
 import { never } from '../guard';
 
 const U8 = Uint8Array;

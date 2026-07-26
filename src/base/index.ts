@@ -66,7 +66,7 @@ export function base(ALPHABET: string) {
 
       // Apply "b58 = b58 * 256 + ch".
       let i = 0;
-      for (let it1 = size - 1; (carry !== 0 || i < length) && (it1 !== -1); it1--, i++) {
+      for (let it1 = size - 1; (it1 !== -1) && (carry !== 0 || i < length); it1--, i++) {
         carry += (256 * b58[it1]) >>> 0;
         b58[it1] = (carry % BASE) >>> 0;
         carry = (carry / BASE) >>> 0;
@@ -116,7 +116,7 @@ export function base(ALPHABET: string) {
       let carry = BASE_MAP[charCode];
 
       let i = 0;
-      for (let it3 = size - 1; (carry !== 0 || i < length) && (it3 !== -1); it3--, i++) {
+      for (let it3 = size - 1; (it3 !== -1) && (carry !== 0 || i < length); it3--, i++) {
         carry += (BASE * b256[it3]) >>> 0;
         b256[it3] = (carry % 256) >>> 0;
         carry = (carry / 256) >>> 0;

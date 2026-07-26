@@ -13,9 +13,9 @@ export function clamp(a: number, b?: number, c?: number): number | ((value: numb
 
   const value = a;
   const min = b!;
-  const max = c;
-
   if (value < min) return min;
+
+  const max = c;
   if (value > max) return max;
   return value;
 }

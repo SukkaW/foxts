@@ -57,9 +57,7 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
   const toString = () => {
     function recur(it: Trie): string {
       let q = false;
-      let re;
       let sub: string | undefined;
-      let cconly = false;
       const alt: string[] = [];
       const cc: string[] = [];
 
@@ -91,7 +89,7 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
         return '';
       }
 
-      cconly = !alt.length;
+      const cconly = !alt.length;
 
       if (cc.length) {
         alt.push(
@@ -101,7 +99,7 @@ export function retrie(keywords: ArrayLike<string>, asPrefixes = false) {
         );
       }
 
-      re = alt[1]
+      let re = alt[1]
         ? '(?:' + alt.join('|') + ')'
         : alt[0];
 

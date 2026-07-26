@@ -1,5 +1,4 @@
 /* eslint-disable sukka/prefer-foxts-noop -- we need fresh async function for test */
-/* eslint-disable sukka/prefer-foxts-error-util -- unit test */
 /* eslint-disable @typescript-eslint/no-empty-function -- unit test */
 /* eslint-disable @typescript-eslint/require-await -- unit test */
 import { describe, it } from 'mocha';
