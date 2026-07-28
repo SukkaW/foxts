@@ -24,8 +24,5 @@ export function isAbortErrorLike(error: unknown): error is AbortErrorLike {
     return true;
   }
 
-  if ('code' in error && typeof error.code === 'string' && error.code === 'ABORT_ERR') {
-    return true;
-  }
-  return false;
+  return ('code' in error && typeof error.code === 'string' && error.code === 'ABORT_ERR');
 }
