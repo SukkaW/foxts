@@ -1,3 +1,4 @@
+/* eslint-disable sukka/no-object-create-non-null -- specifically test special object */
 import { isObjectEmpty } from './index';
 import { expect } from 'earl';
 
