@@ -304,6 +304,12 @@
       "require": "./dist/simple-string-hash/index.js",
       "default": "./dist/simple-string-hash/index.js"
     },
+    "./split-nth": {
+      "types": "./dist/split-nth/index.d.ts",
+      "import": "./dist/split-nth/index.mjs",
+      "require": "./dist/split-nth/index.js",
+      "default": "./dist/split-nth/index.js"
+    },
     "./string-join": {
       "types": "./dist/string-join/index.d.ts",
       "import": "./dist/string-join/index.mjs",
