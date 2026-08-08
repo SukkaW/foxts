@@ -58,6 +58,7 @@ export function splitFirst(str: string, sep: string): string {
   const end = str.indexOf(sep);
   return end === -1 ? str : str.slice(0, end);
 }
+export const split0th = splitFirst;
 
 /**
  * Get the segment between the first and the second occurrence of `sep`, or
@@ -76,3 +77,4 @@ export function splitSecond(str: string, sep: string): string | undefined {
   const end = str.indexOf(sep, start);
   return end === -1 ? str.slice(start) : str.slice(start, end);
 }
+export const split1st = splitSecond;
