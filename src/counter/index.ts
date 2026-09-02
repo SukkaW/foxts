@@ -3,7 +3,8 @@ export class Counter<K extends string> {
 
   constructor(init?: Array<[K, number]> | Record<K, number>) {
     if (Array.isArray(init)) {
-      for (const [key, count] of init) {
+      for (let i = 0, len = init.length; i < len; i++) {
+        const [key, count] = init[i];
         this.incr(key, count);
       }
     } else if (init !== undefined) {

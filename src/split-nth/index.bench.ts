@@ -1,3 +1,4 @@
+/* eslint-disable sukka/prefer-slice-over-split-index -- benchmark */
 import { splitNth, splitFirst, splitSecond } from '.';
 import { createFixedArray } from '../create-fixed-array';
 

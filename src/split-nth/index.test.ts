@@ -21,10 +21,12 @@ describe('split-nth', () => {
   ];
 
   it('should match String.prototype.split(sep)[index]', () => {
-    for (const [str, sep] of cases) {
+    for (let i = 0, len = cases.length; i < len; i++) {
+      const c = cases[i];
+      const [str, sep] = c;
       const expected = str.split(sep);
-      for (let i = 0; i <= expected.length; i++) {
-        expect(splitNth(str, sep, i)).toEqual(expected[i]);
+      for (let j = 0, len2 = expected.length; j <= len2; j++) {
+        expect(splitNth(str, sep, j)).toEqual(expected[j]);
       }
     }
   });
@@ -36,7 +38,8 @@ describe('split-nth', () => {
   });
 
   it('splitFirst should match String.prototype.split(sep)[0]', () => {
-    for (const [str, sep] of cases) {
+    for (let i = 0, len = cases.length; i < len; i++) {
+      const [str, sep] = cases[i];
       if (sep === '') continue; // splitFirst requires non-empty sep
       expect(splitFirst(str, sep)).toEqual(str.split(sep)[0]);
     }
@@ -45,7 +48,8 @@ describe('split-nth', () => {
   });
 
   it('splitSecond should match String.prototype.split(sep)[1]', () => {
-    for (const [str, sep] of cases) {
+    for (let i = 0, len = cases.length; i < len; i++) {
+      const [str, sep] = cases[i];
       if (sep === '') continue; // splitSecond requires non-empty sep
       expect(splitSecond(str, sep)).toEqual(str.split(sep)[1]);
     }

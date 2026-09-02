@@ -52,7 +52,7 @@ export function base64ToUint8Array(base64String: string): Uint8Array {
       encoded3,
       encoded4;
 
-  if (base64[base64.length - 1] === '=') {
+  if (base64.at(-1) === '=') {
     bufferLength--;
     if (base64[base64.length - 2] === '=') {
       bufferLength--;

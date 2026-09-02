@@ -4,7 +4,7 @@ import { createAhoCorasick } from '.';
 
 describe('AhoCorasick', () => {
   it('should work', () => {
-    for (const test of ([
+    const tests = [
       [
         ['ap', 'an'],
         ['bananan', 'apple', 'melon'],
@@ -15,13 +15,16 @@ describe('AhoCorasick', () => {
         ['bananan', 'apple', 'melon'],
         [false, false, false]
       ]
-    ] as const)) {
+    ] as const;
+
+    for (let i = 0, len = tests.length; i < len; i++) {
+      const test = tests[i];
       const kwtest = createAhoCorasick(test[0]);
       const fixtures = test[1];
       const expected = test[2];
 
-      for (let i = 0, len = fixtures.length; i < len; i++) {
-        expect(kwtest(fixtures[i])).toEqual(expected[i]);
+      for (let j = 0, len2 = fixtures.length; j < len2; j++) {
+        expect(kwtest(fixtures[j])).toEqual(expected[j]);
       }
     }
   });

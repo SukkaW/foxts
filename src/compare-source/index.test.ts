@@ -3,7 +3,8 @@ import { compareSource, createCompareSource, fileEqualWithCommentComparator } fr
 
 // eslint-disable-next-line @typescript-eslint/require-await -- async iterable
 async function *createSource<T>(input: T[]) {
-  for (const line of input) {
+  for (let i = 0, len = input.length; i < len; i++) {
+    const line = input[i];
     yield line;
   }
 }

@@ -4,7 +4,7 @@ import { retrie, createRetrieKeywordFilter } from '.';
 
 describe('retrie', () => {
   describe('retrie', () => {
-    for (const test of ([
+    const tests = [
       [
         ['ap', 'an'],
         ['bananan', 'apple', 'melon'],
@@ -59,14 +59,17 @@ describe('retrie', () => {
         ['index.ts', 'index.tsx', 'index.jsx'],
         [true, true, false]
       ]
-    ] as const)) {
+    ] as const;
+
+    for (let i = 0, len = tests.length; i < len; i++) {
+      const test = tests[i];
       it(JSON.stringify(test[0]), () => {
         const kwtest = retrie(test[0]);
         const fixtures = test[1];
         const expected = test[2];
 
-        for (let i = 0, len = fixtures.length; i < len; i++) {
-          expect(kwtest.toRe().test(fixtures[i])).toEqual(expected[i]);
+        for (let j = 0, len2 = fixtures.length; j < len2; j++) {
+          expect(kwtest.toRe().test(fixtures[j])).toEqual(expected[j]);
         }
       });
     };

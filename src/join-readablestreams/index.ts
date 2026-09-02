@@ -2,7 +2,8 @@ export function joinReadableStreams<T>(streams: Array<ReadableStream<T>>): Reada
   return new ReadableStream({
     async start(controller) {
       try {
-        for (const stream of streams) {
+        for (let i = 0, len = streams.length; i < len; i++) {
+          const stream = streams[i];
           const reader = stream.getReader();
           try {
             while (true) {
