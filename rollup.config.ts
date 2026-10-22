@@ -34,8 +34,7 @@ export default defineConfig(() => {
   sources.sort();
 
   const external = (mod: string) => {
-    if (mod.startsWith('node:')) return true;
-    if (externalModules.includes(mod)) return true;
+    if (mod.startsWith('node:') || externalModules.includes(mod)) return true;
     return externalModules.some((m) => mod.startsWith(`${m}/`));
   };
 
