@@ -383,13 +383,13 @@
     "@monyone/aho-corasick": "^1.5.11",
     "@package-json/types": "^0.0.13",
     "@swc-node/register": "^1.12.1",
-    "@swc/core": "^1.16.20",
+    "@swc/core": "^1.16.22",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.20.5",
     "@types/sinon": "^21.0.1",
     "bumpp": "^10.4.1",
     "earl": "^2.0.0",
-    "eslint": "^10.13.0",
+    "eslint": "^10.15.0",
     "eslint-config-sukka": "^9.2.1",
     "eslint-formatter-sukka": "^9.2.1",
     "fastscan": "^1.0.6",
@@ -400,14 +400,14 @@
     "mocha": "^12.0.3",
     "modern-ahocorasick": "^2.0.4",
     "nyc": "^18.0.0",
-    "rollup": "^4.65.0",
+    "rollup": "^4.68.5",
     "rollup-plugin-dts": "^6.5.1",
     "rollup-plugin-oxc-resolve": "^0.0.5",
-    "rollup-plugin-swc3": "^0.12.1",
+    "rollup-plugin-swc3": "^0.12.2",
     "sinon": "^21.1.2",
     "ts-dedent": "^2.3.0",
     "typescript": "^6.0.3",
     "word-list": "3.1.0"
   },
-  "packageManager": "pnpm@11.28.7"
+  "packageManager": "pnpm@11.28.13"
 }
