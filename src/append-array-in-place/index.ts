@@ -1,10 +1,11 @@
 const MAX_BLOCK_SIZE = 65535; // max parameter array size for use in Webkit
 
-export function appendArrayInPlace<T>(dest: T[], source: T[]) {
+export function appendArrayInPlace<T>(dest: T[], source: T[] | readonly T[]) {
   let offset = 0;
   let itemsLeft = source.length;
 
   if (itemsLeft <= MAX_BLOCK_SIZE) {
+    // @ts-expect-error -- push does accept readonly arrays as well
     // eslint-disable-next-line prefer-spread -- performance
     dest.push.apply(dest, source);
   } else {
@@ -20,4 +21,4 @@ export function appendArrayInPlace<T>(dest: T[], source: T[]) {
   return dest;
 }
 
-export const appendArrayInPlaceCurried = <T>(dest: T[]) => (source: T[]) => appendArrayInPlace(dest, source);
+export const appendArrayInPlaceCurried = <T>(dest: T[]) => (source: T[] | readonly T[]) => appendArrayInPlace(dest, source);
